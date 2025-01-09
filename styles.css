@@ -38,7 +38,7 @@ header ul {
 header li {
     float: left;
     display: inline;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
 }
 
 header #logo {
@@ -102,7 +102,6 @@ header .highlight {
     padding: 8px 20px;
     margin: 20px 0;
     border-radius: 5px;
-    text-decoration: none;
 }
 
 #features {
@@ -139,16 +138,6 @@ header .highlight {
 
 /* Styles spécifiques pour index.html */
 
-/* #banner { */
-    /* background: url('../images/banner.jpg') no-repeat center center/cover; */
-    /* height: 600px; */
-    /* text-align: center; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* color: white; */
-/* }  */
-
 #banner h2 {
     font-size: 3em;
     margin-bottom: 20px;
@@ -168,7 +157,6 @@ header .highlight {
 /* Styles pour le footer */
 
 footer {
-
     background: #064874;
     color: #fff;
     padding: 20px 0;
@@ -179,7 +167,7 @@ footer {
 .footer-nav ul {
     list-style-type: none;
     margin: 0;
-    padding:0% 3% 1% ;
+    padding: 0;
 }
 
 .footer-nav ul li {
@@ -204,60 +192,69 @@ footer .social-media i:hover {
     transform: scale(1.2);
 }
 
-.testimonials{
-  font-family: montserrat bold;
-  font-size: 1.5rem;
-  text-align: center;
-  height: 15px;
-  padding: 3% 15% 7%;
+.testimonials {
+    font-family: montserrat bold;
+    font-size: 1.5rem;
+    text-align: center;
+    height: 15px;
+    padding: 3% 15% 7%;
 }
 
-/* body {
-          font-family: 'Ubuntu', sans-serif;
-      }
-      h1, h2, h5 {
-          font-family: 'Montserrat', sans-serif; */
-
-          /* .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: 2em;
-
-} */
-
-
-h4{
-  text-align: center;
-  padding: 3.5rem;
-  left: 5%;
-  top: 7%;
-  bottom: 7%;
-  /* margin: 3% 10% 7%; */
+h4 {
+    text-align: center;
+    padding: 3.5rem;
 }
 
+/* Styles pour les appareils mobiles */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Ajuster la taille de la police pour les petits écrans */
+    }
 
-  .carousel-item img {
-  height: 200px;
-  object-fit: cover;
-  }
+    .container {
+        width: 95%; /* Utiliser plus de largeur sur les petits écrans */
+    }
 
-  .card {
-             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-              transition: transform 0.3s, box-shadow 0.3s;
-              margin: 3% 2% 5%;
-         }
+    header li {
+        float: none; /* Supprimer l'alignement horizontal */
+        display: block; /* Afficher les éléments de la liste en bloc */
+        padding: 10px 0; /* Ajouter de l'espacement */
+    }
 
-         .card:hover {
-             transform: translateY(-10px);
-             box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-         }
+    header #nav {
+        float: none; /* Alignement central pour la navigation */
+        text-align: center;
+    }
 
-         .nav-brand{
-            font-family: "Ubuntu";
-            font-size: 2.5rem;
-            font-weight: bold;
-            }
+    .main-nav ul li {
+        margin-left: 10px; /* Réduire l'espacement entre les éléments du menu */
+    }
+
+    .box {
+        width: 100%; /* Les boîtes prennent toute la largeur */
+        margin-right: 0; /* Supprimer la marge droite */
+        margin-bottom: 20px; /* Ajouter de l'espacement entre les boîtes */
+    }
+
+    .banner h1 {
+        font-size: 2em; /* Réduire la taille de la police pour les titres */
+    }
+
+    .banner p {
+        font-size: 1.2em; /* Réduire la taille de la police pour le texte */
+    }
+
+    #footer {
+        font-size: 12px; /* Ajuster la taille de la police du footer */
+    }
+
+    .carousel-item img {
+        height: auto; /* Ajuster la hauteur des images du carousel */
+        max-width: 100%; /* S'assurer que les images ne débordent pas */
+    }
+
+    .card {
+        margin: 10px 0; /* Réduire les marges des cartes */
+        width: 100%; /* Les cartes prennent toute la largeur */
+    }
+}
