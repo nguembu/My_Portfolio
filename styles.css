@@ -57,8 +57,8 @@ header .highlight {
 }
 
   
-        .hero {
-            background-image: url('https://example.com/votre-image.jpg'); /* Remplacez par l'URL de votre image */
+        /* .hero {
+            background-image: url('https://example.com/votre-image.jpg'); 
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -77,8 +77,9 @@ header .highlight {
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Couleur d'overlay */
-        }
+            background-color: rgba(0, 0, 0, 0.5); 
+        }*/
+
 .banner {
     background: #333;
     color: #fff;
@@ -115,7 +116,7 @@ header .highlight {
 .container img {
     width: 100%;
     height: auto;
-    display: block;
+    display:block;
 }
 
 .btn {
@@ -293,4 +294,110 @@ h4 {
             font-weight: bold;
             }
 
+}
+
+.section1 {
+    background-color: #9bd0fd; /* Couleur différente pour la première section */
+    padding: 20px;
+}
+.section2 {
+    background-color: #f1e8fa; /* Couleur différente pour la deuxième section */
+    padding: 20px;
+}
+ .testimonial {
+    background-color: #87CEEB; 
+    color: #000; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px; 
+ }
+
+ .card-img-top {
+    transition: transform 0.3s ease; /* Transition douce */
+}
+
+.card-img-top:hover {
+    transform: scale(1.1); /* Agrandissement à 110% */
+}
+
+ /* Styles pour la section Comment Utiliser Nos Produits */
+ #how-to-use {
+    background-color: #f0f8ff;
+    padding: 50px 0;
+}
+.how-to-use-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.step {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.step img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.image-container {
+    width: 100px; /* Ajustez la taille selon vos besoins */
+    height: 100px; /* Ajustez la taille selon vos besoins */
+    overflow: hidden;
+    border-radius: 50%; /* Pour rendre l'image ronde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%; /* Ajuste l'image à la taille du conteneur */
+    height: auto; /* Conserve le ratio de l'image */
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.image-container img {
+    width: 100%; /* Ajuste l'image à la taille de son conteneur */
+    height: auto; /* Conserve le ratio de l'image */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre le texte */
+    background-color: rgba(75, 102, 253, 0.2); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px; /* Coins arrondis pour le fond */
+}
+
+.btn3 {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #429bfa; /* Couleur du bouton */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Coins arrondis pour le bouton */
+}
+
+.btn3:hover {
+    background-color: #c4ddf8; /* Couleur du bouton au survol */
+}
+
+.hero3 {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Ajustez la hauteur selon vos besoins */
+    overflow: hidden;
+}
+.hero3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour garder le ratio d'image */
 }
