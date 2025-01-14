@@ -56,6 +56,29 @@ header .highlight {
     border-radius: 5px;
 }
 
+  
+        .hero {
+            background-image: url('https://example.com/votre-image.jpg'); /* Remplacez par l'URL de votre image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Couleur d'overlay */
+        }
 .banner {
     background: #333;
     color: #fff;
