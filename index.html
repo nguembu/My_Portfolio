@@ -3,168 +3,1283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technologie Médicale Sarl</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>portfolio_john</title>
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #d7fde3;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #254463;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(38, 50, 61, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #4ed624;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3aaf1c;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #34495e 0%, #3aaf1c 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3aaf1c;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #3aaf1c;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #3aaf1c;
+        }
+
+        /* About Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: #3aaf1c ;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+      /* About Section Styles */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.about-img {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+.photo-frame {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #3aaf1c;
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+    position: relative;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-img, .about-text {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .photo-frame {
+        max-width: 250px;
+        height: 250px;
+    }
+}
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 300px; /* Ajustez cette valeur selon la taille souhaitée */
+            height: 300px; /* Même valeur que max-width pour un cercle parfait */
+            border-radius: 50%; /* Ceci crée la forme ronde */
+            object-fit: cover; /* Garantit que l'image remplit bien le cercle */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto; /* Centre l'image */
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-left: 30px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skills h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: #3aaf1c ;
+            border-radius: 5px;
+        }
+        .technologies {
+            margin-top: 40px;
+        }
+        
+        .technologies h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color:  #3aaf1c
+        }
+        
+        .tech-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: #3aaf1c;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* projets Section */
+        .projets-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 0 10px 10px;
+            background-color: transparent;
+            border: 1px solid #3aaf1c;
+            color: #3aaf1c;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #3aaf1c;
+            color: white;
+        }
+
+        .projets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .projets-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(49, 151, 24, 0.1);
+        }
+
+        .projets-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .projets-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(64, 173, 49, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .projets-item:hover .projets-overlay {
+            opacity: 1;
+        }
+
+        .projets-item:hover .projets-img {
+            transform: scale(1.1);
+        }
+
+        .projets-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .projets-overlay a {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .projets-overlay a:hover {
+            background-color: white;
+            color: #3aaf1c;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f9f9f9;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #d7fde3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #3aaf1c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #3aaf1c;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: #21472e;
+                transition: all 0.3s;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img, .about-text {
+                padding: 0;
+                min-width: 100%;
+            }
+
+            .about-img {
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+          /* Curseur personnalisé */
+          .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: #32f853;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease;
+        }
+
+        .custom-cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #44c42a;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        /* Effet spécial sur les éléments interactifs */
+        a, button, .projets-item, input, textarea {
+            cursor: none !important;
+        }
+
+        a:hover ~ .custom-cursor,
+        button:hover ~ .custom-cursor,
+        .projets-item:hover ~ .custom-cursor,
+        input:hover ~ .custom-cursor,
+        textarea:hover ~ .custom-cursor {
+            transform: scale(1.5);
+            background-color: white;
+        }
+
+        a:hover ~ .custom-cursor-follower,
+        button:hover ~ .custom-cursor-follower,
+        .projets-item:hover ~ .custom-cursor-follower,
+        input:hover ~ .custom-cursor-follower,
+        textarea:hover ~ .custom-cursor-follower {
+            transform: scale(0.5);
+            border-color: white;
+        }
+
+        /* Animation d'apparition */
+.section-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 4s ease;
+}
+
+.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+  /* Typing animation styles */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.language-selector {
+    position: fixed;
+    top: 20px;
+    left:400px;
+    z-index: 1000;
+  }
+  
+  .language-selector button {
+    background:#d7fde3 ;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .language-selector button:hover {
+    background-color: #f0f0f0;
+  }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="../logo1.jpg" alt="Logo" style="height: 80px; margin-right: 10px;">
-                    Technologie Médicale Sarl
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                         <!-- <div class="overlay"></div> -->
-                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="produits.html">Produits</a></li>
-                        <li class="nav-item"><a class="nav-link" href="apropos.html">À Propos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
+    
+    <!-- Curseurs personnalisés -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">My<span>portfolio</span></a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars">☰</i>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="../Labo.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../IRM scan.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../Micro.jpg" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../banner1.jpg" alt="Fourth slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../banner2.jpg" alt="Fifth slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../banner4.png" alt="Sixth slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Bienvenue à Technologie Médicale Sarl</h1>
-                    <p>La référence pour vos équipements médicaux de qualité.</p>
-                </div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- <div class="language-selector">
+            <button onclick="changeLanguage('fr')">Français</button>
+            <button onclick="changeLanguage('en')">English</button>
+          </div> -->
+        <div class="container hero-content">
+            <h1 id="typed-title"></h1>
+            <h2 id="typed-subtitle" class="hidden"></h2>
+            <p class="hero-description hidden">Je crée des sites web et Applications modernes, réactifs et performants pour aider les entreprises à prospérer en ligne.</p>
+            <div class="hero-btns hidden">
+                <a href="#projets" class="btn">Voir mon travail</a>
+                <a href="#contact" class="btn btn-outline">M'embaucher</a>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-     </div>
-     
-     <section class="overlay">
-     <div class="hero3">
-        <img src="../step3.jpeg" alt="Image de fond">
-        <div class="text-overlay">
-            <h1>Bienvenue chez</h1>
-            <h1>Technologie Médicale </h1>
-            <h1>Company</h1>
-            <p>Nous sommes spécialisés dans la vente de produits médicaux de haute qualité pour garantir votre bien-être. Découvrez nos solutions innovantes pour répondre à vos besoins médicaux.</p>
-            <a href="produits.html" class="btn3">Explorez nos produits</a>
-            <a href="Contact.html" class="btn3">En savoir plus sur nous</a>
+    </section>
+
+  <!-- About Section -->
+<section class="about section-hidden" id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>À propos de moi</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <div class="photo-frame">
+                    <img src="../img/jj.jpg" alt="Photo du développeur">
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Développeur web passionné avec 1 an d'expérience</h3>
+                <p>Je suis un développeur web full stack spécialisé dans la création d'applications web modernes et performantes. J'aime transformer les idées en réalité grâce au code.</p>
+                <p>Mon approche combine une attention aux détails, une passion pour les nouvelles technologies et un engagement envers la qualité du code.</p>
+                
+                <div class="skills">
+                    <h4>Mes compétences :</h4>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="technologies">
+                    <h4>Technologies maîtrisées :</h4>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Django</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-     
 
-    <section id="featured-products" class="my-5">
+    <!-- Services Section -->
+    <section class="services section-hidden" id="services">
         <div class="container">
-            <h2>Produits en Vedette</h2>
-            <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="../IRM scan.jpg" alt="Scanner">
-                    <div class="card-body">
-                        <h5 class="card-title">Scanner</h5>
-                        <p class="card-text">Vous découvrirez des scanners pour vos salles d'IRM dotés des nouvelles mises au point.</p>
-                    </div>
+            <div class="section-title">
+                <h2>Mes services</h2>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Développement Web</h3>
+                    <p>Création de sites web sur mesure, adaptés à vos besoins spécifiques et optimisés pour les performances.</p>
                 </div>
-                <div class="card">
-                    <img class="card-img-top" src="../microscope.jpg" alt="Microscope">
-                    <div class="card-body">
-                        <h5 class="card-title">Microscope</h5>
-                        <p class="card-text">Des microscopes de dernière génération pour effectuer vos analyses avec une résolution 4 fois plus grande.</p>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Applications Responsives</h3>
+                    <p>Développement d'applications qui s'adaptent parfaitement à tous les appareils, du mobile au desktop.</p>
                 </div>
-                <div class="card">
-                    <img class="card-img-top" src="../cardiogramme.jpg" alt="Electrocardiogramme">
-                    <div class="card-body">
-                        <h5 class="card-title">Electrocardiogramme</h5>
-                        <p class="card-text">Des électrocardiogrammes à la pointe de la technologie pour vos salles d'hospitalisation.</p>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>E-commerce</h3>
+                    <p>Solutions e-commerce complètes pour vendre vos produits en ligne avec une expérience utilisateur optimale.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Optimisation</h3>
+                    <p>Amélioration des performances de votre site existant pour des temps de chargement plus rapides.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Maintenance</h3>
+                    <p>Services de maintenance continue pour garder votre site à jour, sécurisé et fonctionnel.</p>
                 </div>
             </div>
-            <p class="testimonials mt-4">Vous y trouverez encore plus d'articles à ajouter dans votre panier dans notre page produit. N'hésitez pas à y jeter un coup d'œil!</p>
         </div>
     </section>
-     
 
+    <!-- projets Section -->
+    <section class="projets section-hidden" id="projets">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes projets</h2>
+            </div>
+            <div class="projets-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="app">Applications</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            </div>
+            <div class="projets-grid">
+                <div class="projets-item" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 1" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Site vitrine d'agence</h3>
+                        <p>Site web pour une entreprise medicale</p>
+                        <a href="https://tmsarl2.netlify.app/">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="projets-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 2" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Boutique en ligne</h3>
+                        <p>Plateforme e-commerce avec paiement sécurisé</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="projets-item" data-category="app">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 3" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Application mobile</h3>
+                        <p>Application de suivi de fitness</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="projets-item" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 4" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Blog personnel</h3>
+                        <p>Plateforme de blog avec système de commentaires</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="projets-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 5" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Marketplace</h3>
+                        <p>Plateforme multi-vendeurs avec système de notation</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="projets-item" data-category="app">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Projet 6" class="projets-img">
+                    <div class="projets-overlay">
+                        <h3>Application météo</h3>
+                        <p>Application de prévisions météo en temps réel</p>
+                        <a href="#">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-hidden" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Travaillons ensemble</h3>
+                    <p>Que vous ayez un projet en tête ou simplement une question, n'hésitez pas à me contacter. Je suis toujours ouvert à discuter de nouvelles opportunités.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>jauresnguembu@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+237 691 159 296</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🏢</div>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>Yaounde,  Cameroun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="form">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <input type="text" name="subject" placeholder="Sujet" required>
+                        <textarea name="message" placeholder="Votre message" required></textarea>
+                        <button type="submit">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="produits.html">Produits</a></li>
-                    <li><a href="apropos.html">À Propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <div class="social-links">
+                    <a href="https://github.com/nguembu" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/votreprofil" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/votreprofil" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
             </div>
-            <div class="social-media">
-                <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                <a href="https://whatsapp.com" target="_blank"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
-            </div>
+            <p>&copy; 2024 John NGUEMBU. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script>
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.getElementById('nav');
+        
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Fermer le menu lors du clic sur un lien
+        document.querySelectorAll('#nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Filtre projets
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projetsItems = document.querySelectorAll('.projets-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Retirer la classe active de tous les boutons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projetsItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Animation au scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Déclencher au chargement
+        window.addEventListener('load', fadeInOnScroll);
+        // Déclencher au scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Formulaire de contact
+        const form = document.getElementById('form');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Ici, vous pourriez ajouter le code pour envoyer le formulaire
+            // Par exemple avec fetch() vers un backend ou un service comme Formspree
+            
+            alert('Merci pour votre message ! Je vous répondrai dès que possible.');
+            form.reset();
+        });
+
+        // Curseur personnalisé
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorFollower = document.querySelector('.custom-cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Le follower a un léger délai pour un effet plus fluide
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Effet sur les éléments interactifs
+        document.querySelectorAll('a, button, .projets-item, input, textarea').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.backgroundColor = 'white';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                cursorFollower.style.borderColor = 'white';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.backgroundColor = '#3498db';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorFollower.style.borderColor = '#3498db';
+            });
+        });
+        
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Observer pour les animations au défilement
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            // Optionnel: arrêter d'observer après l'animation
+            // observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1 // Déclenche quand 10% de l'élément est visible
+});
+
+// Applique l'observer à toutes les sections
+document.querySelectorAll('.section-hidden').forEach(section => {
+    observer.observe(section);
+});
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Texte à afficher
+        const titleText = "Je suis John NGUEMBU";
+        const subtitleText = "Développeur Web Full stack ...";
+        
+        // Éléments du DOM
+        const titleElement = document.getElementById('typed-title');
+        const subtitleElement = document.getElementById('typed-subtitle');
+        const description = document.querySelector('.hero-description');
+        const buttons = document.querySelector('.hero-btns');
+        
+        // Fonction d'écriture
+        function typeWriter(text, element, speed, callback) {
+            const typeSound = new Audio('https://www.soundjay.com/mechanical/sounds/typewriter-key-1.mp3');
+            let i = 0;
+            element.innerHTML = '';
+        function typing() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                typeSound.currentTime = 5;
+                typeSound.play();
+                i++;
+                setTimeout(typing, speed);
+
+                } else {
+                    // Ajoute le curseur clignotant
+                    const cursor = document.createElement('span');
+                    cursor.className = 'typed-cursor';
+                    cursor.innerHTML = '|';
+                    element.appendChild(cursor);
+                    
+                    if (callback) callback();
+                }
+            }
+            
+            typing();
+        }
+        
+        // Séquence d'animation
+        typeWriter(titleText, titleElement, 100, function() {
+            // Quand le titre est fini, on passe au sous-titre
+            subtitleElement.classList.remove('hidden');
+            subtitleElement.classList.add('visible');
+            
+            typeWriter(subtitleText, subtitleElement, 100, function() {
+                // Quand le sous-titre est fini, on affiche le reste
+                setTimeout(function() {
+                    description.classList.remove('hidden');
+                    description.classList.add('visible');
+                    
+                    setTimeout(function() {
+                        buttons.classList.remove('hidden');
+                        buttons.classList.add('visible');
+                    }, 300);
+                }, 500);
+            });
+        });
+    });
+
+    function changeLanguage(lang) {
+        // Stocker la préférence dans le localStorage
+        localStorage.setItem('preferredLanguage', lang);
+        
+        // Rediriger vers la version linguistique appropriée
+        if (lang === 'fr') {
+          window.location.href = './fr/index.html'; // ou votre chemin français
+        } else {
+          window.location.href = './en/index.html'; // ou votre chemin anglais
+        }
+      }
+      
+      // Au chargement de la page
+      document.addEventListener('DOMContentLoaded', function() {
+        const preferredLang = localStorage.getItem('preferredLanguage') || 'fr';
+        // Optionnel: appliquer la langue préférée immédiatement
+      });
+
+    </script>
 </body>
 </html>
