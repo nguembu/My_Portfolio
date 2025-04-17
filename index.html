@@ -1233,6 +1233,7 @@ document.querySelectorAll('.section-hidden').forEach(section => {
                     cursor.className = 'typed-cursor';
                     cursor.innerHTML = '|';
                     element.appendChild(cursor);
+                    cursor.style.display = 'none';  
                     
                     if (callback) callback();
                 }
