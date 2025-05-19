@@ -749,6 +749,37 @@
   .language-selector button:hover {
     background-color: #f0f0f0;
   }
+         form {
+      background: white;
+      padding: 2em;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.8em;
+      margin: 0.5em 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:disabled {
+      background-color: #6c757d;
+    }
+    .loader {
+      display: none;
+      text-align: center;
+      margin-top: 1em;
+      color: #007bff;
+      font-style: italic;
     </style>
 </head>
 <body>
@@ -1007,13 +1038,24 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="form">
-                        <input type="text" name="name" placeholder="Votre nom" required>
-                        <input type="email" name="email" placeholder="Votre email" required>
-                        <input type="text" name="subject" placeholder="Sujet" required>
-                        <textarea name="message" placeholder="Votre message" required></textarea>
-                        <button type="submit">Envoyer le message</button>
-                    </form>
+                    <form action="https://formsubmit.co/jauresnguembu@gmail.com" method="POST" onsubmit="startLoading()">
+    
+    <!-- Anti-spam -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- Pas de Captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirection après envoi -->
+    <input type="hidden" name="_next" value="https://john-nguembu.netlify.app/merci.html">
+
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+
+    <button type="submit" id="submit-btn">Envoyer</button>
+    <div class="loader" id="loader">Envoi en cours...</div>
+  </form>
                 </div>
             </div>
         </div>
@@ -1039,7 +1081,12 @@
             <p>&copy; 2024 John NGUEMBU. Tous droits réservés.</p>
         </div>
     </footer>
-
+<script>
+    function startLoading() {
+      document.getElementById('submit-btn').disabled = true;
+      document.getElementById('loader').style.display = 'block';
+    }
+  </script>
     <script>
         // Menu mobile
         const mobileMenu = document.getElementById('mobile-menu');
