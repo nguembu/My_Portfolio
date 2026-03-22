@@ -373,6 +373,95 @@
             .sec-title{ font-size:1.7rem; }
             .btn-primary,.btn-ghost{ width:100%; text-align:center; display:block; }
         }
+
+
+        /* ── CV DROPDOWN / PAIR ── */
+        .cv-dropdown {
+            display: flex; gap: 10px; flex-wrap: wrap;
+        }
+        .btn-cv-en {
+            border-color: var(--accent2);
+            color: var(--accent2);
+        }
+        .btn-cv-en:hover {
+            background: var(--accent2);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(0,136,255,.2);
+        }
+        /* ── CV BUTTON ── */
+        .btn-cv {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 28px;
+            border: 1.5px solid var(--accent3);
+            color: var(--accent3);
+            border-radius: 8px; font-weight: 700; font-size: .9rem;
+            transition: all .25s; background: transparent;
+            font-family: 'Syne', sans-serif;
+        }
+        .btn-cv:hover {
+            background: var(--accent3); color: #fff;
+            box-shadow: 0 8px 30px rgba(255,68,136,.2);
+            transform: translateY(-2px);
+        }
+        .btn-cv i { font-size: .9rem; }
+
+        /* ── ANIMATED COUNTER ── */
+        .stat-box strong {
+            display: block; font-size: 1.6rem; font-weight: 800;
+            color: var(--accent); font-family: 'Space Mono', monospace;
+            transition: color .3s;
+        }
+        .stat-box.counting strong { color: var(--accent2); }
+
+        /* ── STYLED PROJECT PLACEHOLDERS ── */
+        .proj-placeholder {
+            width: 100%; height: 160px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; position: relative; overflow: hidden;
+        }
+        .proj-placeholder::before {
+            content: '';
+            position: absolute; inset: 0;
+            opacity: .12;
+        }
+        .proj-placeholder .ph-icon { font-size: 2.6rem; position: relative; z-index: 1; }
+        .proj-placeholder .ph-label {
+            font-family: 'Space Mono', monospace;
+            font-size: .68rem; letter-spacing: 2px; text-transform: uppercase;
+            position: relative; z-index: 1; opacity: .7;
+        }
+        /* per-project gradient themes */
+        .ph-blood  { background: linear-gradient(135deg, #1a0a0a, #2d0f0f); }
+        .ph-blood::before  { background: radial-gradient(circle at 30% 50%, #ff4444, transparent); }
+        .ph-blood  .ph-icon::after { content:''; }
+
+        .ph-trade  { background: linear-gradient(135deg, #0a1a12, #0d2a1a); }
+        .ph-trade::before  { background: radial-gradient(circle at 70% 50%, #00cc66, transparent); }
+
+        .ph-air    { background: linear-gradient(135deg, #0a0f1a, #0a1a2d); }
+        .ph-air::before    { background: radial-gradient(circle at 50% 30%, #4488ff, transparent); }
+
+        .ph-blog   { background: linear-gradient(135deg, #12100a, #1f1a08); }
+        .ph-blog::before   { background: radial-gradient(circle at 40% 60%, #ffaa00, transparent); }
+
+        .ph-keng   { background: linear-gradient(135deg, #0a0a14, #10102a); }
+        .ph-keng::before   { background: radial-gradient(circle at 60% 40%, #7766ff, transparent); }
+
+        .ph-mamzy  { background: linear-gradient(135deg, #1a0a14, #280f20); }
+        .ph-mamzy::before  { background: radial-gradient(circle at 50% 50%, #ff44aa, transparent); }
+
+        .ph-terra  { background: linear-gradient(135deg, #0a1a08, #112810); }
+        .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #44cc22, transparent); }
+
+        /* light theme overrides for placeholders */
+        [data-theme="slate"] .ph-blood  { background: linear-gradient(135deg, #f5e0e0, #ffe0e0); }
+        [data-theme="slate"] .ph-trade  { background: linear-gradient(135deg, #e0f5ea, #d0ffe8); }
+        [data-theme="slate"] .ph-air    { background: linear-gradient(135deg, #e0eaf5, #d0e8ff); }
+        [data-theme="slate"] .ph-blog   { background: linear-gradient(135deg, #f5f0e0, #fff3cc); }
+        [data-theme="slate"] .ph-keng   { background: linear-gradient(135deg, #ede0f5, #e8d8ff); }
+        [data-theme="slate"] .ph-mamzy  { background: linear-gradient(135deg, #f5e0ee, #ffd8ee); }
+        [data-theme="slate"] .ph-terra  { background: linear-gradient(135deg, #e0f5e0, #d4ffd4); }
     </style>
 </head>
 <body>
@@ -418,6 +507,16 @@
                 <div class="hero-btns">
                     <a href="#projects" class="btn-primary" data-i18n="hero_btn1">Voir mes projets</a>
                     <a href="#contact"  class="btn-ghost"   data-i18n="hero_btn2">Me contacter</a>
+                    <div class="cv-dropdown">
+                        <a href="CV_John_NGUEMBU_FR.pdf" download class="btn-cv">
+                            <i class="fas fa-download"></i>
+                            <span>CV Français</span>
+                        </a>
+                        <a href="CV_John_NGUEMBU_EN.pdf" download class="btn-cv btn-cv-en">
+                            <i class="fas fa-download"></i>
+                            <span>CV English</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="nasa-badge">
                     <span class="icon">🛸</span>
@@ -465,9 +564,9 @@
                              onerror="this.style.display='none'; this.onerror=null;">
                     </div>
                     <div class="stat-row">
-                        <div class="stat-box"><strong>4+</strong><span data-i18n="stat_yr">ans exp.</span></div>
-                        <div class="stat-box"><strong>8+</strong><span data-i18n="stat_pr">projets</span></div>
-                        <div class="stat-box"><strong>1</strong><span>NASA 🚀</span></div>
+                        <div class="stat-box" data-count="4" data-suffix="+"><strong class="counter">0+</strong><span data-i18n="stat_yr">ans exp.</span></div>
+                        <div class="stat-box" data-count="8" data-suffix="+"><strong class="counter">0+</strong><span data-i18n="stat_pr">projets</span></div>
+                        <div class="stat-box" data-count="1" data-suffix=""><strong class="counter">0</strong><span>NASA 🚀</span></div>
                     </div>
                 </div>
                 <div class="about-text">
@@ -594,7 +693,7 @@
                 </div>
 
                 <div class="proj-card" data-f="ecommerce">
-                    <div class="proj-emoji">🛒</div>
+                    <div class="proj-placeholder ph-trade"><span class="ph-icon">🛒</span><span class="ph-label">TradeFlow</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">E-commerce · Full Stack</p>
                         <h3 data-i18n="p_tf_t">TradeFlow</h3>
@@ -607,7 +706,7 @@
                 </div>
 
                 <div class="proj-card" data-f="backend">
-                    <div class="proj-emoji">🌫️</div>
+                    <div class="proj-placeholder ph-air"><span class="ph-icon">🌫</span><span class="ph-label">Air Quality</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">Backend · Python</p>
                         <h3 data-i18n="p_tq_t">Tempo Air Quality</h3>
@@ -620,7 +719,7 @@
                 </div>
 
                 <div class="proj-card" data-f="backend">
-                    <div class="proj-emoji">✍️</div>
+                    <div class="proj-placeholder ph-blog"><span class="ph-icon">✍️</span><span class="ph-label">Blog Platform</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">Backend · Django</p>
                         <h3 data-i18n="p_bp_t">Blog Platform</h3>
@@ -633,7 +732,7 @@
                 </div>
 
                 <div class="proj-card" data-f="web">
-                    <div class="proj-emoji">⚡</div>
+                    <div class="proj-placeholder ph-keng"><span class="ph-icon">⚡</span><span class="ph-label">Keng Eng.</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">Web · Corporate</p>
                         <h3 data-i18n="p_ke_t">Keng Engineering</h3>
@@ -646,7 +745,7 @@
                 </div>
 
                 <div class="proj-card" data-f="web">
-                    <div class="proj-emoji">🎨</div>
+                    <div class="proj-placeholder ph-mamzy"><span class="ph-icon">🎨</span><span class="ph-label">Mamzy Kids</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">Web · Jeunesse</p>
                         <h3 data-i18n="p_mc_t">Mamzy Color Kids</h3>
@@ -660,7 +759,7 @@
 
 
                 <div class="proj-card" data-f="web">
-                    <div class="proj-emoji">🌿</div>
+                    <div class="proj-placeholder ph-terra"><span class="ph-icon">🌿</span><span class="ph-label">TERRABIA</span></div>
                     <div class="proj-body">
                         <p class="proj-cat">Web · Agri-tech</p>
                         <h3 data-i18n="p_tb_t">TERRABIA</h3>
@@ -810,6 +909,8 @@
         b2t:"Tempo Air Quality : collecter et visualiser des données environnementales avec Python",b2d:"Comment j'ai construit une plateforme de monitoring de la qualité de l'air — pipeline de données, API Django et visualisations.",
         b3t:"48h au NASA Space Apps Challenge — ce que j'ai appris",b3d:"Récit de mon expérience lors de ce hackathon mondial : la pression du temps, la collaboration en équipe et le développement sous contrainte.",
         blog_read:"Voir le projet →",
+        hero_cv:"Télécharger CV",hero_cv_label:"Télécharger CV",
+        hero_cv:"Download CV",hero_cv_label:"Download CV",
         ct_label:"Contact",ct_title:"Travaillons ensemble",ct_h3:"Un projet en tête ?",
         ct_p:"Que ce soit pour une application web, mobile, ou une collaboration open-source, je suis disponible. Envoyez-moi un message, je réponds rapidement.",
         ct_send:"Envoyer le message",ct_ok:"✅ Message envoyé avec succès !"
@@ -873,6 +974,39 @@
         });
     }
     setLang(lang);
+
+
+    /* ─── ANIMATED COUNTER ─── */
+    function animateCounter(el, target, suffix, duration) {
+        var start = 0;
+        var step = Math.ceil(duration / target);
+        var timer = setInterval(function() {
+            start += 1;
+            el.textContent = start + suffix;
+            if (start >= target) {
+                el.textContent = target + suffix;
+                clearInterval(timer);
+            }
+        }, step);
+    }
+
+    var counterDone = false;
+    var counterObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !counterDone) {
+                counterDone = true;
+                document.querySelectorAll('.stat-box[data-count]').forEach(function(box) {
+                    var target = parseInt(box.getAttribute('data-count'));
+                    var suffix = box.getAttribute('data-suffix') || '';
+                    var el = box.querySelector('.counter');
+                    if (el) animateCounter(el, target, suffix, 800);
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    var statRow = document.querySelector('.stat-row');
+    if (statRow) counterObs.observe(statRow);
 
     /* ─── CURSOR ─── */
     var cur = document.querySelector('.cursor');
