@@ -260,26 +260,103 @@
         .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
         .reveal.on{ opacity:1; transform:translateY(0); }
 
-        /* ── RESPONSIVE ── */
+        /* ── RESPONSIVE TABLET ── */
         @media(max-width:1000px){
-            .hero-inner{ grid-template-columns:1fr; }
+            .hero-inner{ grid-template-columns:1fr; gap:30px; }
             .hero-terminal{ display:none; }
+            .hero-name{ font-size:clamp(2.4rem,6vw,3.8rem); }
             .about-grid{ grid-template-columns:1fr; }
-            .srv-grid,.proj-grid,.blog-grid{ grid-template-columns:1fr 1fr; }
-            .nasa-card{ grid-template-columns:1fr; padding:30px; }
-            .nasa-emblem{ flex-direction:row; text-align:left; }
-            .ct-grid{ grid-template-columns:1fr; }
-            .skills-grid{ grid-template-columns:1fr; }
+            .photo-wrap{ max-width:280px; margin:0 auto; }
+            .srv-grid{ grid-template-columns:1fr 1fr; }
+            .proj-grid{ grid-template-columns:1fr 1fr; }
+            .blog-grid{ grid-template-columns:1fr 1fr; }
+            .nasa-card{ grid-template-columns:1fr; padding:30px; gap:24px; }
+            .nasa-emblem{ flex-direction:row; text-align:left; min-width:unset; }
+            .nasa-ring{ width:100px; height:100px; font-size:2.8rem; flex-shrink:0; }
+            .ct-grid{ grid-template-columns:1fr; gap:36px; }
+            .skills-grid{ grid-template-columns:1fr 1fr; }
+            section{ padding:70px 0; }
+            .nasa-card{ padding:28px; }
         }
+
+        /* ── RESPONSIVE MOBILE ── */
         @media(max-width:600px){
-            .srv-grid,.proj-grid,.blog-grid{ grid-template-columns:1fr; }
-            nav{ display:none; position:fixed; inset:70px 0 0; background:var(--bg2); padding:20px; z-index:999; }
+            section{ padding:56px 0; }
+            .hdr{ padding:0 16px; height:60px; }
+            .container{ padding-left:16px; padding-right:16px; }
+
+            /* nav mobile */
+            nav{ display:none; position:fixed; inset:60px 0 0; background:var(--bg2);
+                 padding:24px 20px; z-index:999; overflow-y:auto;
+                 border-top:1px solid var(--border); }
             nav.open{ display:block; }
-            nav ul{ flex-direction:column; }
-            nav ul li a{ display:block; padding:12px; font-size:1rem; }
+            nav ul{ flex-direction:column; gap:4px; }
+            nav ul li a{ display:block; padding:14px 16px; font-size:1rem; border-radius:8px; }
+
             .menu-toggle{ display:block; }
+            .controls{ gap:6px; }
+            .lang-btn{ padding:4px 10px; font-size:.72rem; }
+            .theme-btn{ width:34px; height:34px; font-size:.9rem; }
+
+            /* hero */
+            .hero{ padding-top:60px; min-height:100svh; }
+            .hero-inner{ padding:0 16px; }
+            .hero-tag{ font-size:.72rem; padding:5px 12px; }
+            .hero-name{ font-size:clamp(2.2rem,10vw,3.2rem); letter-spacing:-1.5px; margin-bottom:12px; }
+            .hero-role{ font-size:.78rem; }
+            .hero-desc{ font-size:.95rem; margin-bottom:28px; }
+            .hero-btns{ gap:10px; }
+            .btn-primary,.btn-ghost{ padding:11px 22px; font-size:.86rem; }
+            .nasa-badge{ padding:8px 14px; font-size:.76rem; flex-wrap:wrap; gap:8px; }
+
+            /* about */
+            .about-grid{ gap:28px; }
+            .photo-wrap{ max-width:220px; margin:0 auto; }
+            .stat-row{ gap:8px; }
+            .stat-box strong{ font-size:1.3rem; }
+            .stat-box span{ font-size:.66rem; }
+            .about-text h3{ font-size:1.2rem; }
+            .skills-grid{ grid-template-columns:1fr; gap:12px; }
+
+            /* nasa */
+            .nasa-card{ padding:22px; border-radius:14px; }
+            .nasa-emblem{ flex-direction:column; align-items:center; text-align:center; }
+            .nasa-ring{ width:90px; height:90px; font-size:2.4rem; }
+            .nasa-info h3{ font-size:1.2rem; }
+            .nasa-tags{ gap:6px; }
+            .ntag{ font-size:.7rem; padding:4px 10px; }
+
+            /* services */
+            .srv-grid{ grid-template-columns:1fr; gap:14px; }
+            .srv-card{ padding:22px; }
+            .sec-title{ letter-spacing:-1px; }
+
+            /* projects */
+            .proj-grid{ grid-template-columns:1fr; gap:14px; }
+            .filter-row{ gap:6px; }
+            .flt-btn{ padding:6px 14px; font-size:.72rem; }
+            .proj-emoji{ height:130px; font-size:2.5rem; }
+            .proj-body{ padding:16px; }
+
+            /* blog */
+            .blog-grid{ grid-template-columns:1fr; gap:14px; }
+            .blog-card{ padding:20px; }
+
+            /* contact */
+            .ct-grid{ gap:28px; }
+            .ct-form-wrap{ padding:22px; }
             .form-row{ grid-template-columns:1fr; }
-            .hdr,.container{ padding-left:16px; padding-right:16px; }
+            .ct-form-wrap input,.ct-form-wrap textarea{ padding:11px 14px; font-size:.88rem; }
+
+            /* footer */
+            .ft-inner{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+        }
+
+        /* ── EXTRA SMALL ── */
+        @media(max-width:360px){
+            .hero-name{ font-size:2rem; }
+            .sec-title{ font-size:1.7rem; }
+            .btn-primary,.btn-ghost{ width:100%; text-align:center; display:block; }
         }
     </style>
 </head>
@@ -370,7 +447,7 @@
                     <div class="photo-wrap">
                         <!-- image dans le même dossier que index.html -->
                         <img src="jj.jpg" alt="John NGUEMBU"
-                             onerror="this.parentElement.innerHTML='<div class=photo-placeholder><i class=\'fas fa-user-circle\'></i><span>John NGUEMBU</span></div>'">
+                             onerror="this.src='jj-2.jpeg'; this.onerror=null;">
                     </div>
                     <div class="stat-row">
                         <div class="stat-box"><strong>4+</strong><span data-i18n="stat_yr">ans exp.</span></div>
