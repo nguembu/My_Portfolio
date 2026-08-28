@@ -612,15 +612,7 @@
         .ph-terra  { background: linear-gradient(135deg, #0a1a08, #112810); }
         .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #44cc22, transparent); }
 
-        /* light theme overrides for placeholders */
-        [data-theme="slate"]  .ph-njila  { background: linear-gradient(135deg, #0a1f28, #0d2c38); }
-        [data-theme="slate"]  .ph-trade  { background: linear-gradient(135deg, #0a1a2a, #0d2035); }
-        [data-theme="slate"]  .ph-air    { background: linear-gradient(135deg, #0a1020, #0d1a30); }
-        [data-theme="slate"]  .ph-blog   { background: linear-gradient(135deg, #0d1520, #101e30); }
-        [data-theme="slate"]  .ph-keng   { background: linear-gradient(135deg, #0a1020, #0d1830); }
-        [data-theme="slate"]  .ph-mamzy  { background: linear-gradient(135deg, #100a20, #1a0f30); }
-        [data-theme="slate"]  .ph-terra  { background: linear-gradient(135deg, #0a1510, #0d2018); }
-
+       
         /* violet theme placeholders — purple/cyan/amber tones */
         [data-theme="violet"] .ph-njila  { background: linear-gradient(135deg, #0a1c22, #0d2a30); }
         [data-theme="violet"] .ph-njila::before  { background: radial-gradient(circle at 35% 45%, #22d3ee, transparent); }
@@ -707,7 +699,6 @@
                         <span id="themeIcon">🌊</span>
                     </button>
                     <div class="theme-menu" id="themeMenu">
-                        <button class="theme-opt" data-theme="light"   onclick="applyTheme('light')">☀️ Light</button>
                         <button class="theme-opt" data-theme="dark"    onclick="applyTheme('dark')">🟢 Dark</button>
                         <button class="theme-opt" data-theme="slate"   onclick="applyTheme('slate')">🔵 Slate</button>
                         <button class="theme-opt" data-theme="violet"  onclick="applyTheme('violet')">🟣 Violet</button>
@@ -727,8 +718,8 @@
             <div>
                 <div class="hero-tag" data-i18n="hero_avail">Disponible pour missions</div>
                 <h1 class="hero-name">John<br><span class="accent">NGUEMBU</span></h1>
-                <p class="hero-role" data-i18n="hero_role">Ingénieur Logiciel Fullstack · Systèmes distribués & microservices</p>
-                <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ/Kafka, Kubernetes) dans le cadre de mon Master 2 Recherche.</p>
+                <p class="hero-role" data-i18n="hero_role">Ingénieur Logiciel Fullstack · Architecture de systèmes distribués & microservices</p>
+                <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ).</p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn-primary" data-i18n="hero_btn1">Voir mes projets</a>
                     <a href="#contact"  class="btn-ghost"   data-i18n="hero_btn2">Me contacter</a>
@@ -763,7 +754,6 @@
                     <div class="to">{</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"name"</span>: <span class="tv">"John NGUEMBU"</span>,</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Fullstack Engineer"</span>,</div>
-                    <div class="to">&nbsp;&nbsp;<span class="tk">"research"</span>: <span class="tv">"M2 — Software Engineering"</span>,</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"focus"</span>: <span class="tv">"Distributed Systems"</span>,</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"backend"</span>: [<span class="tv">"Spring Boot"</span>, <span class="tv">"Django"</span>, <span class="tv">"Node.js"</span>],</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"frontend"</span>: [<span class="tv">"React"</span>, <span class="tv">"Vue.js"</span>],</div>
@@ -799,7 +789,7 @@
                     <h3 data-i18n="about_h3">Software Fullstack Engineer — architecture de systèmes distribués</h3>
                     <p data-i18n="about_p1">Je construis des applications web et mobiles propres, performantes et maintenables. Mon approche de développement est centrée sur la scalabilité, la fiabilité et la clarté du code — autant pour les utilisateurs que pour les équipes.</p>
                     <p data-i18n="about_p2">Je travaille aussi bien côté frontend (React, Vue.js) que backend (Django, Spring Boot, Node.js), avec une vraie culture du test automatisé (Vitest, Pytest) et des pipelines CI/CD.</p>
-                    <p data-i18n="about_p3">Dans le cadre de mon Master 2 Recherche à l'Université de Yaoundé I, j'explore les architectures orientées événements (RabbitMQ/Kafka), le Domain-Driven Design et les transactions distribuées — un travail que je prolonge en freelance sur des projets web concrets pour des clients locaux.</p>
+                    <p data-i18n="about_p3">Je m'intéresse aux architectures orientées événements (RabbitMQ/Kafka), au Domain-Driven Design et aux microservices, avec une approche pragmatique qui mêle pratique industrielle et veille technologique continue.</p>
                     <div class="skills-grid">
                         <div class="skill-group">
                             <h4>Backend</h4>
@@ -929,7 +919,7 @@
                         <p data-i18n="p_nj_d">Plateforme distribuée de réservation et de gestion de flotte pour le transport interurbain — 10 microservices communiquant via RabbitMQ, base de données par service et persistance polyglotte (SQL + NoSQL).</p>
                         <div class="proj-footer">
                             <div class="stacks"><span class="stk">Spring Boot</span><span class="stk">Django</span><span class="stk">RabbitMQ</span><span class="stk">Docker</span></div>
-                            <a href="https://github.com/nguembu" target="_blank" class="proj-link" data-i18n="link_profile">GitHub →</a>
+                            <a href="https://github.com/nguembu/njila" target="_blank" class="proj-link" data-i18n="link_profile">GitHub →</a>
                         </div>
                     </div>
                 </div>
@@ -942,7 +932,7 @@
                         <p data-i18n="p_bl_d">Application mobile React Native connectant donneurs de sang et receveurs en temps réel — géolocalisation, matching intelligent et notifications d'urgence.</p>
                         <div class="proj-footer">
                             <div class="stacks"><span class="stk">React Native</span><span class="stk">Expo</span><span class="stk">TypeScript</span></div>
-                            <a href="https://github.com/nguembu/bloodlink" target="_blank" class="proj-link">GitHub →</a>
+                            <a href="https://github.com/nguembu/BloodLink" target="_blank" class="proj-link">GitHub →</a>
                         </div>
                     </div>
                 </div>
@@ -955,7 +945,7 @@
                         <p data-i18n="p_tf_d">Plateforme e-commerce complète avec paiement sécurisé, gestion des stocks et tableau de bord vendeur — backend Django, frontend React.</p>
                         <div class="proj-footer">
                             <div class="stacks"><span class="stk">Django</span><span class="stk">React</span><span class="stk">PostgreSQL</span></div>
-                            <a href="https://tradeflow-4lg3.onrender.com/" target="_blank" class="proj-link">Live →</a>
+                            <a href="https://github.com/nguembu/TradeFlow" target="_blank" class="proj-link">GitHub →</a>
                         </div>
                     </div>
                 </div>
@@ -1039,10 +1029,10 @@
 
                 <div class="blog-card">
                     <span class="btag pu" data-i18n="btag_research">Recherche · M2</span>
-                    <p class="blog-date">2026 · Systèmes Distribués</p>
+                    <p class="blog-date">2025 · Systèmes Distribués</p>
                     <h3 data-i18n="b4t">Transactions distribuées en microservices : ce que révèle NJILA</h3>
-                    <p data-i18n="b4d">Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements — préparées pour mon mémoire de Master 2.</p>
-                    <a href="https://github.com/nguembu/master-thesis-distributed-systems" target="_blank" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
+                    <p data-i18n="b4d">Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements.</p>
+                    <a href="https://github.com/nguembu/NJILA" target="_blank" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
                 </div>
 
                 <div class="blog-card">
@@ -1050,7 +1040,7 @@
                     <p class="blog-date">2024 · BloodLink</p>
                     <h3 data-i18n="b1t">Construire BloodLink : une app mobile de don de sang en React Native + Expo</h3>
                     <p data-i18n="b1d">Retour sur la conception de BloodLink — géolocalisation, matching en temps réel, notifications push et architecture frontend TypeScript.</p>
-                    <a href="https://github.com/nguembu/bloodlink" target="_blank" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
+                    <a href="https://github.com/nguembu/BloodLink" target="_blank" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
                 </div>
 
                 <div class="blog-card">
@@ -1115,7 +1105,7 @@
                 <a href="https://x.com/_Johnny_watson"                                 target="_blank" class="soc-link"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/i_am_johnny_watson/"                target="_blank" class="soc-link"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="ft-copy">© 2026 John NGUEMBU. All rights reserved.</p>
+            <p class="ft-copy">© 2025 John NGUEMBU. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1163,15 +1153,15 @@
       fr:{
         nav_home:"Accueil",nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
         hero_avail:"Disponible pour missions",
-        hero_role:"Ingénieur Logiciel Fullstack · Systèmes distribués & microservices",
-        hero_desc:"Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ/Kafka, Kubernetes) dans le cadre de mon Master 2 Recherche.",
+        hero_role:"Ingénieur Logiciel Fullstack · Architecture de systèmes distribués & microservices",
+        hero_desc:"Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ).",
         hero_btn1:"Voir mes projets",hero_btn2:"Me contacter",
         nasa_badge_sub:"Participant — Hackathon international",
         about_label:"À propos",about_sub:"Qualité avant tout.",
         about_h3:"Software Fullstack Engineer — architecture de systèmes distribués",
         about_p1:"Je construis des applications web et mobiles propres, performantes et maintenables. Mon approche est centrée sur la scalabilité, la fiabilité et la clarté du code — autant pour les utilisateurs que pour les équipes.",
         about_p2:"Je travaille aussi bien côté frontend (React, Vue.js) que backend (Django, Spring Boot, Node.js), avec une vraie culture du test automatisé (Vitest, Pytest) et des pipelines CI/CD.",
-        about_p3:"Dans le cadre de mon Master 2 Recherche à l'Université de Yaoundé I, j'explore les architectures orientées événements (RabbitMQ/Kafka), le Domain-Driven Design et les transactions distribuées — un travail que je prolonge en freelance sur des projets web concrets pour des clients locaux.",
+        about_p3:"Je m'intéresse aux architectures orientées événements (RabbitMQ), au Domain-Driven Design et aux microservices, avec une approche pragmatique qui mêle pratique industrielle et veille technologique continue.",
         stat_yr:"ans exp.",stat_pr:"projets",stat_rs:"Recherche",
         sk_arch:"Architecture & Systèmes",sk_test:"Testing & QA",sk_tools:"Tools & Databases",
         nasa_part:"Participant officiel",
@@ -1198,7 +1188,7 @@
         p_tb_t:"TERRABIA",p_tb_d:"Plateforme web complète connectant agriculteurs et acheteurs — vente directe de produits agricoles avec service de livraison intégré.",
         blg_label:"Partage de connaissances",blg_title:"Articles & Réflexions",blg_sub:"Retours d'expérience sur mes projets open-source, mes apprentissages et mes explorations techniques.",
         btag_research:"Recherche · M2",
-        b4t:"Transactions distribuées en microservices : ce que révèle NJILA",b4d:"Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements — préparées pour mon mémoire de Master 2.",
+        b4t:"Transactions distribuées en microservices : ce que révèle NJILA",b4d:"Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements.",
         b1t:"Construire BloodLink : une app mobile de don de sang en React Native + Expo",b1d:"Retour sur la conception de BloodLink — géolocalisation, matching en temps réel, notifications push et architecture frontend TypeScript.",
         b2t:"Tempo Air Quality : collecter et visualiser des données environnementales avec Python",b2d:"Comment j'ai construit une plateforme de monitoring de la qualité de l'air — pipeline de données, API Django et visualisations.",
         b3t:"48h au NASA Space Apps Challenge — ce que j'ai appris",b3d:"Récit de mon expérience lors de ce hackathon mondial : la pression du temps, la collaboration en équipe et le développement sous contrainte.",
@@ -1210,15 +1200,15 @@
       en:{
         nav_home:"Home",nav_about:"About",nav_services:"Services",nav_projects:"Projects",
         hero_avail:"Available for work",
-        hero_role:"Fullstack Software Engineer · Distributed Systems & Microservices",
-        hero_desc:"I design and build modern, robust web applications — from React frontends to Spring Boot and Django backends — and architect event-driven distributed systems (RabbitMQ/Kafka, Kubernetes) as part of my Master's Research.",
+        hero_role:"Fullstack Software Engineer · Distributed Systems & Microservices Architecture",
+        hero_desc:"I design and build modern, robust web applications — from React frontends to Spring Boot and Django backends — and architect event-driven distributed systems (RabbitMQ).",
         hero_btn1:"View my work",hero_btn2:"Contact me",
         nasa_badge_sub:"Participant — International Hackathon",
         about_label:"About",about_sub:"Quality first.",
         about_h3:"Software Fullstack Engineer — distributed systems architecture",
         about_p1:"I build clean, performant and maintainable web and mobile applications. My development philosophy centers on scalability, reliability and code clarity — for both users and teams.",
         about_p2:"I work on both frontend (React, Vue.js) and backend (Django, Spring Boot, Node.js), with a strong culture of automated testing (Vitest, Pytest) and CI/CD pipelines.",
-        about_p3:"As part of my Master's Research at the University of Yaoundé I, I explore event-driven architectures (RabbitMQ/Kafka), Domain-Driven Design and distributed transactions — work I extend through freelance projects for local clients.",
+        about_p3:"I am interested in event-driven architectures (RabbitMQ), Domain-Driven Design and microservices, with a pragmatic approach that combines industrial practice and continuous technological watch.",
         stat_yr:"years exp.",stat_pr:"projects",stat_rs:"Research",
         sk_arch:"Architecture & Systems",sk_test:"Testing & QA",sk_tools:"Tools & Databases",
         nasa_part:"Official Participant",
@@ -1245,7 +1235,7 @@
         p_tb_t:"TERRABIA",p_tb_d:"Full-stack web platform connecting farmers and buyers — direct agricultural product sales with integrated delivery service.",
         blg_label:"Knowledge Sharing",blg_title:"Articles & Thoughts",blg_sub:"Experience reports from my open-source projects, learnings and technical explorations.",
         btag_research:"Research · M2",
-        b4t:"Distributed transactions in microservices: what NJILA reveals",b4d:"Research notes on eventual consistency, the Saga pattern and observability in event-driven architectures — prepared for my Master's thesis.",
+        b4t:"Distributed transactions in microservices: what NJILA reveals",b4d:"Research notes on eventual consistency, the Saga pattern and observability in event-driven architectures.",
         b1t:"Building BloodLink: a blood donation mobile app with React Native + Expo",b1d:"A deep dive into BloodLink — geolocation, real-time matching, push notifications and TypeScript frontend architecture.",
         b2t:"Tempo Air Quality: collecting and visualizing environmental data with Python",b2d:"How I built an air quality monitoring platform — data pipeline, Django API and visualizations.",
         b3t:"48 hours at the NASA Space Apps Challenge — what I learned",b3d:"A story from this global hackathon: time pressure, team collaboration and development under constraint.",
