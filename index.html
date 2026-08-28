@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="John NGUEMBU — Ingénieur Logiciel Fullstack, architecture de systèmes distribués et microservices, Yaoundé, Cameroun.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <title>John NGUEMBU — Software Engineer</title>
     <style>
         /* ══════════════════════════════════════
-           THEMES : dark | slate (warm dark blue)
+           THEMES : dark | slate | violet | crimson | light
         ══════════════════════════════════════ */
         :root[data-theme="dark"] {
             --bg:      #0a0a0f;
@@ -80,6 +81,29 @@
             --header-bg:   rgba(12,6,8,0.96);
         }
 
+        /* ── LIGHT — soft slate-white, ink text, emerald/amber accents ── */
+        :root[data-theme="light"] {
+            --bg:      #f6f7fb;
+            --bg2:     #eef0f6;
+            --bg3:     #e4e7f0;
+            --surface: #ffffff;
+            --surface2:#eef0f6;
+            --border:  rgba(20,25,45,0.09);
+            --text:    #12141f;
+            --text2:   #5b6178;
+            --accent:  #0c7a5a;
+            --accent2: #c2540a;
+            --accent3: #a8125f;
+            --glow:    rgba(12,122,90,0.14);
+            --card-shadow: 0 4px 34px rgba(20,25,45,0.08);
+            --header-bg:   rgba(246,247,251,0.88);
+        }
+        :root[data-theme="light"] .cursor{ mix-blend-mode:multiply; }
+        :root[data-theme="light"] body::before{ opacity:0.15; }
+        :root[data-theme="light"] .hero-terminal{ box-shadow:0 4px 34px rgba(20,25,45,0.10); }
+        :root[data-theme="light"] .btn-primary{ color:#fff; }
+        :root[data-theme="light"] .lang-btn.active{ color:#fff; }
+
 
         *{ margin:0; padding:0; box-sizing:border-box; }
         html{ scroll-behavior:smooth; }
@@ -99,7 +123,12 @@
             content:''; position:fixed; inset:0;
             background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
             pointer-events:none; z-index:9999; opacity:0.35;
+            transition:opacity .4s;
         }
+
+        /* ── SCROLL PROGRESS ── */
+        .scroll-progress{ position:fixed; top:0; left:0; height:3px; width:0%; z-index:1001;
+            background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .12s linear; }
 
         /* ── CURSOR ── */
         .cursor{ position:fixed; width:10px; height:10px; background:var(--accent); border-radius:50%; pointer-events:none; z-index:10000; transform:translate(-50%,-50%); mix-blend-mode:screen; }
@@ -108,7 +137,7 @@
         .cursor-ring.h{ width:60px; height:60px; opacity:.25; }
 
         /* ── HEADER ── */
-        header{ position:fixed; top:0; width:100%; z-index:1000; background:var(--header-bg); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+        header{ position:fixed; top:0; width:100%; z-index:1000; background:var(--header-bg); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); transition:background .4s,border-color .4s; }
         .hdr{ max-width:1200px; margin:0 auto; padding:0 30px; height:70px; display:flex; align-items:center; justify-content:space-between; }
         .logo{ font-family:'Space Mono',monospace; font-size:1.1rem; font-weight:700; }
         .logo span{ color:var(--accent); }
@@ -121,7 +150,7 @@
         .lang-btn{ padding:5px 12px; font-size:.78rem; font-weight:700; font-family:'Space Mono',monospace; cursor:pointer; border:none; background:transparent; color:var(--text2); transition:all .2s; letter-spacing:1px; }
         .lang-btn.active{ background:var(--accent); color:#000; }
         .theme-btn{ width:38px; height:38px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1rem; transition:all .2s; }
-        .theme-btn:hover{ border-color:var(--accent); }
+        .theme-btn:hover{ border-color:var(--accent); transform:translateY(-1px); }
         .menu-toggle{ display:none; cursor:pointer; font-size:1.3rem; color:var(--text); background:none; border:none; }
 
         /* ── HERO ── */
@@ -143,21 +172,21 @@
         .hero-name{ font-size:clamp(2.8rem,5vw,4.5rem); font-weight:800; line-height:1.05; letter-spacing:-2px; margin-bottom:16px; }
         .hero-name .accent{ color:var(--accent); }
         .hero-role{ font-family:'Space Mono',monospace; font-size:.9rem; color:var(--text2); margin-bottom:20px; letter-spacing:.5px; }
-        .hero-desc{ font-size:1.05rem; color:var(--text2); line-height:1.7; margin-bottom:36px; max-width:480px; }
+        .hero-desc{ font-size:1.05rem; color:var(--text2); line-height:1.7; margin-bottom:36px; max-width:500px; }
         .hero-btns{ display:flex; gap:14px; flex-wrap:wrap; }
         .btn-primary{ padding:12px 28px; background:var(--accent); color:#000; border-radius:8px; font-weight:700; font-size:.9rem; transition:all .25s; border:2px solid var(--accent); }
         .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 30px var(--glow); }
         .btn-ghost{ padding:12px 28px; border:1.5px solid var(--border); color:var(--text); border-radius:8px; font-weight:600; font-size:.9rem; transition:all .25s; background:transparent; }
         .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
         .nasa-badge{ display:inline-flex; align-items:center; gap:10px; padding:10px 18px;
-            background:linear-gradient(135deg,rgba(88,166,255,.1),rgba(0,255,136,.05));
-            border:1px solid rgba(88,166,255,.3); border-radius:10px; margin-top:20px; font-size:.82rem; }
+            background:linear-gradient(135deg,color-mix(in srgb,var(--accent2) 10%,transparent),color-mix(in srgb,var(--accent) 6%,transparent));
+            border:1px solid color-mix(in srgb,var(--accent2) 30%,transparent); border-radius:10px; margin-top:20px; font-size:.82rem; }
         .nasa-badge .icon{ font-size:1.5rem; }
         .nasa-badge strong{ color:var(--accent2); display:block; font-size:.9rem; }
         .nasa-badge span{ color:var(--text2); }
 
         /* terminal */
-        .hero-terminal{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); font-family:'Space Mono',monospace; font-size:.8rem; }
+        .hero-terminal{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); font-family:'Space Mono',monospace; font-size:.8rem; transition:background .4s,border-color .4s; }
         .tbar{ padding:12px 16px; background:var(--bg3); display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); }
         .dot{ width:12px; height:12px; border-radius:50%; }
         .dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
@@ -169,6 +198,19 @@
         .cblink{ display:inline-block; width:8px; height:14px; background:var(--accent); animation:blink 1s infinite; vertical-align:middle; }
         @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
+        /* ── HERO LOAD-IN ── */
+        .hero-tag,.hero-name,.hero-role,.hero-desc,.hero-btns,.nasa-badge,.hero-terminal{
+            opacity:0; transform:translateY(22px); animation:heroUp .85s cubic-bezier(.16,.84,.44,1) forwards;
+        }
+        .hero-tag{animation-delay:.05s}
+        .hero-name{animation-delay:.16s}
+        .hero-role{animation-delay:.28s}
+        .hero-desc{animation-delay:.38s}
+        .hero-btns{animation-delay:.48s}
+        .nasa-badge{animation-delay:.58s}
+        .hero-terminal{animation-delay:.32s}
+        @keyframes heroUp{ to{ opacity:1; transform:translateY(0); } }
+
         /* ── SECTIONS ── */
         section{ padding:100px 0; }
         .container{ max-width:1200px; margin:0 auto; padding:0 30px; }
@@ -178,7 +220,7 @@
         .sec-sub{ color:var(--text2); font-size:1rem; max-width:550px; margin-bottom:60px; }
 
         /* ── ABOUT ── */
-        #about{ background:var(--bg2); }
+        #about{ background:var(--bg2); transition:background .4s; }
         .about-grid{ display:grid; grid-template-columns:1fr 2fr; gap:60px; align-items:start; }
         .photo-wrap{ width:100%; aspect-ratio:1; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:var(--surface); }
         .photo-wrap img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
@@ -186,24 +228,28 @@
         .photo-placeholder{ width:100%; min-height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:var(--text2); }
         .photo-placeholder i{ font-size:3rem; color:var(--accent); opacity:.4; }
         .stat-row{ display:flex; gap:12px; margin-top:16px; }
-        .stat-box{ flex:1; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; }
-        .stat-box strong{ display:block; font-size:1.6rem; font-weight:800; color:var(--accent); font-family:'Space Mono',monospace; }
+        .stat-box{ flex:1; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; transition:background .4s,border-color .4s,transform .25s; }
+        .stat-box:hover{ transform:translateY(-3px); border-color:var(--accent); }
+        .stat-box strong{ display:block; font-size:1.6rem; font-weight:800; color:var(--accent); font-family:'Space Mono',monospace; transition:color .3s; }
         .stat-box span{ font-size:.72rem; color:var(--text2); }
         .about-text h3{ font-size:1.45rem; font-weight:700; margin-bottom:14px; }
         .about-text p{ color:var(--text2); line-height:1.8; margin-bottom:14px; }
         .skills-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:30px; }
-        .skill-group{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px; }
+        .skill-group{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px; transition:background .4s,border-color .3s,transform .25s; }
+        .skill-group:hover{ border-color:var(--accent); transform:translateY(-2px); }
+        .skill-group.wide{ grid-column:1 / -1; }
         .skill-group h4{ font-size:.76rem; font-family:'Space Mono',monospace; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
         .chips{ display:flex; flex-wrap:wrap; gap:8px; }
         .chip{ padding:5px 12px; border-radius:6px; background:var(--bg3); border:1px solid var(--border); font-size:.78rem; color:var(--text2); font-family:'Space Mono',monospace; transition:all .2s; }
-        .chip:hover{ border-color:var(--accent); color:var(--accent); }
+        .chip:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
         .chip.ft{ border-color:color-mix(in srgb,var(--accent2) 40%,transparent); color:var(--accent2); background:color-mix(in srgb,var(--accent2) 7%,transparent); }
+        .chip.rs{ border-color:color-mix(in srgb,var(--accent3) 40%,transparent); color:var(--accent3); background:color-mix(in srgb,var(--accent3) 7%,transparent); }
 
         /* ── NASA ── */
         #nasa{ background:var(--bg); position:relative; overflow:hidden; }
         #nasa::before{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 50%, color-mix(in srgb, var(--accent2) 7%, transparent) 0%,transparent 70%); }
         .nasa-card{ background:var(--surface); border:1px solid color-mix(in srgb, var(--accent2) 30%, transparent); border-radius:20px; padding:50px;
-            display:grid; grid-template-columns:auto 1fr; gap:50px; align-items:center; position:relative; overflow:hidden; }
+            display:grid; grid-template-columns:auto 1fr; gap:50px; align-items:center; position:relative; overflow:hidden; transition:background .4s; }
         .nasa-card::before{ content:'🚀'; position:absolute; right:-20px; top:-20px; font-size:12rem; opacity:.04; pointer-events:none; }
         .nasa-emblem{ display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center; min-width:160px; }
         .nasa-ring{ width:140px; height:140px; border-radius:50%;
@@ -219,10 +265,18 @@
         .ntag{ padding:5px 12px; border-radius:6px; background:color-mix(in srgb,var(--accent2) 10%,transparent); border:1px solid color-mix(in srgb,var(--accent2) 30%,transparent); font-size:.76rem; color:var(--accent2); font-family:'Space Mono',monospace; }
 
         /* ── SERVICES ── */
-        #services{ background:var(--bg2); }
-        .srv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-        .srv-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px; transition:all .3s; position:relative; overflow:hidden; }
+        #services{ background:var(--bg2); transition:background .4s; }
+        .srv-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+        .srv-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:28px; transition:background .4s,border-color .3s,transform .3s,box-shadow .3s; position:relative; overflow:hidden;
+            opacity:0; transform:translateY(24px); }
         .srv-card::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at top left,var(--glow),transparent 60%); opacity:0; transition:opacity .3s; }
+        .reveal.on .srv-card{ opacity:1; transform:translateY(0); }
+        .srv-grid .srv-card:nth-child(1){ transition-delay:.03s; }
+        .srv-grid .srv-card:nth-child(2){ transition-delay:.09s; }
+        .srv-grid .srv-card:nth-child(3){ transition-delay:.15s; }
+        .srv-grid .srv-card:nth-child(4){ transition-delay:.21s; }
+        .srv-grid .srv-card:nth-child(5){ transition-delay:.27s; }
+        .srv-grid .srv-card:nth-child(6){ transition-delay:.33s; }
         .srv-card:hover{ border-color:var(--accent); transform:translateY(-4px); box-shadow:0 20px 40px var(--glow); }
         .srv-card:hover::before{ opacity:1; }
         .srv-icon{ font-size:2rem; margin-bottom:16px; }
@@ -234,10 +288,24 @@
         #projects{ background:var(--bg); }
         .filter-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
         .flt-btn{ padding:7px 18px; border-radius:6px; border:1px solid var(--border); background:transparent; color:var(--text2); font-family:'Space Mono',monospace; font-size:.76rem; cursor:pointer; transition:all .2s; }
-        .flt-btn.active,.flt-btn:hover{ border-color:var(--accent); color:var(--accent); background:rgba(88,166,255,.05); }
-        .proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-        .proj-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:all .3s; }
-        .proj-card:hover{ border-color:var(--accent); transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,.35); }
+        .flt-btn.active,.flt-btn:hover{ border-color:var(--accent); color:var(--accent); background:var(--glow); }
+        .proj-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+        .proj-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:background .4s,border-color .3s,transform .3s,box-shadow .3s;
+            opacity:0; transform:translateY(24px); position:relative; }
+        .reveal.on .proj-card{ opacity:1; transform:translateY(0); }
+        .proj-grid .proj-card:nth-child(1){ transition-delay:.02s; }
+        .proj-grid .proj-card:nth-child(2){ transition-delay:.07s; }
+        .proj-grid .proj-card:nth-child(3){ transition-delay:.12s; }
+        .proj-grid .proj-card:nth-child(4){ transition-delay:.17s; }
+        .proj-grid .proj-card:nth-child(5){ transition-delay:.22s; }
+        .proj-grid .proj-card:nth-child(6){ transition-delay:.27s; }
+        .proj-grid .proj-card:nth-child(7){ transition-delay:.32s; }
+        .proj-grid .proj-card:nth-child(8){ transition-delay:.37s; }
+        .proj-card:hover{ border-color:var(--accent); transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,.2); }
+        .proj-card.featured{ border-color:color-mix(in srgb,var(--accent) 45%,var(--border)); }
+        .feat-badge{ position:absolute; top:14px; right:14px; z-index:2; display:inline-flex; align-items:center; gap:5px;
+            padding:4px 10px; border-radius:20px; background:color-mix(in srgb,var(--accent) 16%,var(--surface)); border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
+            font-family:'Space Mono',monospace; font-size:.62rem; color:var(--accent); letter-spacing:1px; text-transform:uppercase; }
         .proj-emoji{ width:100%; height:160px; display:flex; align-items:center; justify-content:center; background:var(--bg3); font-size:3rem; }
         .proj-body{ padding:20px; }
         .proj-cat{ font-family:'Space Mono',monospace; font-size:.68rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
@@ -250,18 +318,25 @@
         .proj-link:hover{ gap:8px; }
 
         /* ── BLOG ── */
-        #blog{ background:var(--bg2); }
-        .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-        .blog-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px; transition:all .3s; display:flex; flex-direction:column; }
+        #blog{ background:var(--bg2); transition:background .4s; }
+        .blog-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; }
+        .blog-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px; transition:background .4s,border-color .3s,transform .3s; display:flex; flex-direction:column;
+            opacity:0; transform:translateY(24px); }
+        .reveal.on .blog-card{ opacity:1; transform:translateY(0); }
+        .blog-grid .blog-card:nth-child(1){ transition-delay:.03s; }
+        .blog-grid .blog-card:nth-child(2){ transition-delay:.1s; }
+        .blog-grid .blog-card:nth-child(3){ transition-delay:.17s; }
+        .blog-grid .blog-card:nth-child(4){ transition-delay:.24s; }
         .blog-card:hover{ border-color:var(--accent); transform:translateY(-4px); }
         .blog-date{ font-family:'Space Mono',monospace; font-size:.7rem; color:var(--text2); margin-bottom:12px; }
         .blog-card h3{ font-size:.98rem; font-weight:700; margin-bottom:10px; line-height:1.4; flex:1; }
         .blog-card p{ color:var(--text2); font-size:.84rem; line-height:1.65; margin-bottom:18px; }
         .blog-read{ color:var(--accent); font-size:.8rem; font-weight:700; font-family:'Space Mono',monospace; display:flex; align-items:center; gap:6px; transition:gap .2s; margin-top:auto; }
         .blog-read:hover{ gap:10px; }
-        .btag{ display:inline-block; padding:3px 10px; border-radius:4px; background:rgba(88,166,255,.07); border:1px solid rgba(88,166,255,.2); font-size:.68rem; color:var(--accent2); margin-bottom:12px; font-family:'Space Mono',monospace; }
+        .btag{ display:inline-block; padding:3px 10px; border-radius:4px; background:color-mix(in srgb,var(--accent2) 9%,transparent); border:1px solid color-mix(in srgb,var(--accent2) 25%,transparent); font-size:.68rem; color:var(--accent2); margin-bottom:12px; font-family:'Space Mono',monospace; }
         .btag.gr{ background:color-mix(in srgb,var(--accent3) 8%,transparent); border-color:color-mix(in srgb,var(--accent3) 25%,transparent); color:var(--accent3); }
         .btag.or{ background:color-mix(in srgb,var(--accent2) 9%,transparent); border-color:color-mix(in srgb,var(--accent2) 28%,transparent); color:var(--accent2); }
+        .btag.pu{ background:color-mix(in srgb,var(--accent) 9%,transparent); border-color:color-mix(in srgb,var(--accent) 28%,transparent); color:var(--accent); }
 
         /* ── CONTACT ── */
         #contact{ background:var(--bg); }
@@ -273,30 +348,42 @@
         .ct-icon{ width:42px; height:42px; border-radius:10px; background:var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
         .ct-item-txt strong{ display:block; font-size:.8rem; font-family:'Space Mono',monospace; color:var(--accent); margin-bottom:2px; }
         .ct-item-txt span{ font-size:.9rem; color:var(--text2); }
-        .ct-form-wrap{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px; }
+        .ct-form-wrap{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px; transition:background .4s; }
         .ct-form-wrap form{ display:flex; flex-direction:column; gap:14px; }
         .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-        .ct-form-wrap input,.ct-form-wrap textarea{ padding:12px 16px; background:var(--bg3); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:'Syne',sans-serif; font-size:.9rem; transition:border-color .2s; width:100%; }
+        .ct-form-wrap input,.ct-form-wrap textarea{ padding:12px 16px; background:var(--bg3); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:'Syne',sans-serif; font-size:.9rem; transition:border-color .2s,background .3s; width:100%; }
         .ct-form-wrap input:focus,.ct-form-wrap textarea:focus{ outline:none; border-color:var(--accent); }
         .ct-form-wrap input::placeholder,.ct-form-wrap textarea::placeholder{ color:var(--text2); }
         .ct-form-wrap textarea{ resize:vertical; min-height:130px; }
         .ct-form-wrap button{ padding:13px; background:var(--accent); color:#000; border:none; border-radius:8px; font-weight:700; font-size:.9rem; font-family:'Syne',sans-serif; cursor:pointer; transition:all .25s; }
         .ct-form-wrap button:hover{ box-shadow:0 8px 30px var(--glow); transform:translateY(-1px); }
-        .form-ok{ display:none; text-align:center; margin-top:16px; padding:12px; background:rgba(0,255,136,.05); border:1px solid rgba(0,255,136,.2); border-radius:8px; color:var(--accent); font-size:.9rem; }
+        .form-ok{ display:none; text-align:center; margin-top:16px; padding:12px; background:var(--glow); border:1px solid color-mix(in srgb,var(--accent) 30%,transparent); border-radius:8px; color:var(--accent); font-size:.9rem; }
 
         /* ── FOOTER ── */
-        footer{ background:var(--bg2); border-top:1px solid var(--border); padding:40px 0; }
+        footer{ background:var(--bg2); border-top:1px solid var(--border); padding:40px 0; transition:background .4s; }
         .ft-inner{ max-width:1200px; margin:0 auto; padding:0 30px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
         .ft-logo{ font-family:'Space Mono',monospace; font-weight:700; }
         .ft-logo span{ color:var(--accent); }
         .soc-links{ display:flex; gap:12px; }
         .soc-link{ width:38px; height:38px; border-radius:8px; border:1px solid var(--border); background:var(--surface); display:flex; align-items:center; justify-content:center; color:var(--text2); transition:all .2s; font-size:.95rem; }
-        .soc-link:hover{ border-color:var(--accent); color:var(--accent); }
+        .soc-link:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
         .ft-copy{ font-size:.78rem; color:var(--text2); font-family:'Space Mono',monospace; }
 
         /* ── REVEAL ── */
         .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
         .reveal.on{ opacity:1; transform:translateY(0); }
+
+        /* ── REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce){
+            *,*::before,*::after{
+                animation-duration:.001ms !important;
+                animation-iteration-count:1 !important;
+                transition-duration:.001ms !important;
+                scroll-behavior:auto !important;
+            }
+            .hero-tag,.hero-name,.hero-role,.hero-desc,.hero-btns,.nasa-badge,.hero-terminal,
+            .srv-card,.proj-card,.blog-card{ opacity:1 !important; transform:none !important; }
+        }
 
         /* ── RESPONSIVE TABLET ── */
         @media(max-width:1000px){
@@ -305,9 +392,6 @@
             .hero-name{ font-size:clamp(2.4rem,6vw,3.8rem); }
             .about-grid{ grid-template-columns:1fr; }
             .photo-wrap{ max-width:280px; margin:0 auto; }
-            .srv-grid{ grid-template-columns:1fr 1fr; }
-            .proj-grid{ grid-template-columns:1fr 1fr; }
-            .blog-grid{ grid-template-columns:1fr 1fr; }
             .nasa-card{ grid-template-columns:1fr; padding:30px; gap:24px; }
             .nasa-emblem{ flex-direction:row; text-align:left; min-width:unset; }
             .nasa-ring{ width:100px; height:100px; font-size:2.8rem; flex-shrink:0; }
@@ -485,14 +569,6 @@
         }
         .btn-cv i { font-size: .9rem; }
 
-        /* ── ANIMATED COUNTER ── */
-        .stat-box strong {
-            display: block; font-size: 1.6rem; font-weight: 800;
-            color: var(--accent); font-family: 'Space Mono', monospace;
-            transition: color .3s;
-        }
-        .stat-box.counting strong { color: var(--accent2); }
-
         /* ── STYLED PROJECT PLACEHOLDERS ── */
         .proj-placeholder {
             width: 100%; height: 160px;
@@ -511,10 +587,12 @@
             font-size: .68rem; letter-spacing: 2px; text-transform: uppercase;
             position: relative; z-index: 1; opacity: .7;
         }
-        /* per-project gradient themes */
+        /* per-project gradient themes (dark) */
+        .ph-njila  { background: linear-gradient(135deg, #0a1a1a, #0f2d28); }
+        .ph-njila::before  { background: radial-gradient(circle at 35% 45%, #00ff88, transparent); }
+
         .ph-blood  { background: linear-gradient(135deg, #1a0a0a, #2d0f0f); }
         .ph-blood::before  { background: radial-gradient(circle at 30% 50%, #ff4444, transparent); }
-        .ph-blood  .ph-icon::after { content:''; }
 
         .ph-trade  { background: linear-gradient(135deg, #0a1a12, #0d2a1a); }
         .ph-trade::before  { background: radial-gradient(circle at 70% 50%, #00cc66, transparent); }
@@ -535,7 +613,7 @@
         .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #44cc22, transparent); }
 
         /* light theme overrides for placeholders */
-        [data-theme="slate"]   .ph-blood  { background: linear-gradient(135deg, #1a0a0a, #2d0f0f); }
+        [data-theme="slate"]  .ph-njila  { background: linear-gradient(135deg, #0a1f28, #0d2c38); }
         [data-theme="slate"]  .ph-trade  { background: linear-gradient(135deg, #0a1a2a, #0d2035); }
         [data-theme="slate"]  .ph-air    { background: linear-gradient(135deg, #0a1020, #0d1a30); }
         [data-theme="slate"]  .ph-blog   { background: linear-gradient(135deg, #0d1520, #101e30); }
@@ -544,6 +622,8 @@
         [data-theme="slate"]  .ph-terra  { background: linear-gradient(135deg, #0a1510, #0d2018); }
 
         /* violet theme placeholders — purple/cyan/amber tones */
+        [data-theme="violet"] .ph-njila  { background: linear-gradient(135deg, #0a1c22, #0d2a30); }
+        [data-theme="violet"] .ph-njila::before  { background: radial-gradient(circle at 35% 45%, #22d3ee, transparent); }
         [data-theme="violet"] .ph-blood  { background: linear-gradient(135deg, #160820, #220f35); }
         [data-theme="violet"] .ph-blood::before  { background: radial-gradient(circle at 30% 50%, #a855f7, transparent); }
         [data-theme="violet"] .ph-trade  { background: linear-gradient(135deg, #071520, #0a2030); }
@@ -560,6 +640,8 @@
         [data-theme="violet"] .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #fbbf24, transparent); }
 
         /* crimson theme placeholders — red/orange/lime tones */
+        [data-theme="crimson"] .ph-njila  { background: linear-gradient(135deg, #170f05, #241606); }
+        [data-theme="crimson"] .ph-njila::before  { background: radial-gradient(circle at 35% 45%, #a3e635, transparent); }
         [data-theme="crimson"] .ph-blood  { background: linear-gradient(135deg, #200508, #350a0f); }
         [data-theme="crimson"] .ph-blood::before  { background: radial-gradient(circle at 30% 50%, #f43f5e, transparent); }
         [data-theme="crimson"] .ph-trade  { background: linear-gradient(135deg, #0f1208, #18200a); }
@@ -574,9 +656,29 @@
         [data-theme="crimson"] .ph-mamzy::before  { background: radial-gradient(circle at 50% 50%, #f43f5e, transparent); }
         [data-theme="crimson"] .ph-terra  { background: linear-gradient(135deg, #0c1508, #111e0c); }
         [data-theme="crimson"] .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #a3e635, transparent); }
+
+        /* light theme placeholders — soft pastel tints on white */
+        [data-theme="light"] .proj-placeholder::before{ opacity:.16; }
+        [data-theme="light"] .ph-njila  { background: linear-gradient(135deg, #eafaf3, #dcf3e8); }
+        [data-theme="light"] .ph-njila::before  { background: radial-gradient(circle at 35% 45%, #0c7a5a, transparent); }
+        [data-theme="light"] .ph-blood  { background: linear-gradient(135deg, #fdecec, #fbdcdc); }
+        [data-theme="light"] .ph-blood::before  { background: radial-gradient(circle at 30% 50%, #d92b2b, transparent); }
+        [data-theme="light"] .ph-trade  { background: linear-gradient(135deg, #eafaf1, #dcf3e4); }
+        [data-theme="light"] .ph-trade::before  { background: radial-gradient(circle at 70% 50%, #0c7a5a, transparent); }
+        [data-theme="light"] .ph-air    { background: linear-gradient(135deg, #eaf1fd, #dbe8fb); }
+        [data-theme="light"] .ph-air::before    { background: radial-gradient(circle at 50% 30%, #1d5fd6, transparent); }
+        [data-theme="light"] .ph-blog   { background: linear-gradient(135deg, #fdf3e4, #fbe9cd); }
+        [data-theme="light"] .ph-blog::before   { background: radial-gradient(circle at 40% 60%, #c2540a, transparent); }
+        [data-theme="light"] .ph-keng   { background: linear-gradient(135deg, #eeeafd, #e0daf9); }
+        [data-theme="light"] .ph-keng::before   { background: radial-gradient(circle at 60% 40%, #5b3fd6, transparent); }
+        [data-theme="light"] .ph-mamzy  { background: linear-gradient(135deg, #fdeaf5, #fbdaed); }
+        [data-theme="light"] .ph-mamzy::before  { background: radial-gradient(circle at 50% 50%, #a8125f, transparent); }
+        [data-theme="light"] .ph-terra  { background: linear-gradient(135deg, #eafaea, #dbf2db); }
+        [data-theme="light"] .ph-terra::before  { background: radial-gradient(circle at 35% 55%, #1c8a2e, transparent); }
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
     <div class="cursor"></div>
     <div class="cursor-ring"></div>
 
@@ -605,6 +707,7 @@
                         <span id="themeIcon">🌊</span>
                     </button>
                     <div class="theme-menu" id="themeMenu">
+                        <button class="theme-opt" data-theme="light"   onclick="applyTheme('light')">☀️ Light</button>
                         <button class="theme-opt" data-theme="dark"    onclick="applyTheme('dark')">🟢 Dark</button>
                         <button class="theme-opt" data-theme="slate"   onclick="applyTheme('slate')">🔵 Slate</button>
                         <button class="theme-opt" data-theme="violet"  onclick="applyTheme('violet')">🟣 Violet</button>
@@ -624,8 +727,8 @@
             <div>
                 <div class="hero-tag" data-i18n="hero_avail">Disponible pour missions</div>
                 <h1 class="hero-name">John<br><span class="accent">NGUEMBU</span></h1>
-                <p class="hero-role">Software Fullstack Engineer</p>
-                <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django, avec une attention particulière à la qualité et la scalabilité.</p>
+                <p class="hero-role" data-i18n="hero_role">Ingénieur Logiciel Fullstack · Systèmes distribués & microservices</p>
+                <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ/Kafka, Kubernetes) dans le cadre de mon Master 2 Recherche.</p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn-primary" data-i18n="hero_btn1">Voir mes projets</a>
                     <a href="#contact"  class="btn-ghost"   data-i18n="hero_btn2">Me contacter</a>
@@ -649,7 +752,7 @@
                 </div>
             </div>
 
-            <!-- terminal card — propre, sans focus microservices -->
+            <!-- terminal card -->
             <div class="hero-terminal">
                 <div class="tbar">
                     <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
@@ -659,11 +762,12 @@
                     <div class="tl"><span class="tp">$</span><span class="tc">cat profile.json</span></div>
                     <div class="to">{</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"name"</span>: <span class="tv">"John NGUEMBU"</span>,</div>
-                    <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Software Fullstack Engineer"</span>,</div>
-                    <div class="to">&nbsp;&nbsp;<span class="tk">"xp"</span>:  <span class="tv">"4+ years"</span>,</div>
+                    <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Fullstack Engineer"</span>,</div>
+                    <div class="to">&nbsp;&nbsp;<span class="tk">"research"</span>: <span class="tv">"M2 — Software Engineering"</span>,</div>
+                    <div class="to">&nbsp;&nbsp;<span class="tk">"focus"</span>: <span class="tv">"Distributed Systems"</span>,</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"backend"</span>: [<span class="tv">"Spring Boot"</span>, <span class="tv">"Django"</span>, <span class="tv">"Node.js"</span>],</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"frontend"</span>: [<span class="tv">"React"</span>, <span class="tv">"Vue.js"</span>],</div>
-                    <div class="to">&nbsp;&nbsp;<span class="tk">"testing"</span>: [<span class="tv">"Vitest"</span>, <span class="tv">"Pytest"</span>],</div>
+                    <div class="to">&nbsp;&nbsp;<span class="tk">"architecture"</span>: [<span class="tv">"Microservices"</span>, <span class="tv">"RabbitMQ"</span>, <span class="tv">"Kubernetes"</span>],</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"hackathon"</span>: <span class="tv">"NASA Space Apps 🚀"</span>,</div>
                     <div class="to">&nbsp;&nbsp;<span class="tk">"location"</span>: <span class="tv">"Yaoundé 🇨🇲"</span></div>
                     <div class="to">}</div>
@@ -686,15 +790,16 @@
                              onerror="this.style.display='none'; this.onerror=null;">
                     </div>
                     <div class="stat-row">
-                        <div class="stat-box" data-count="4" data-suffix="+"><strong class="counter">0+</strong><span data-i18n="stat_yr">ans exp.</span></div>
-                        <div class="stat-box" data-count="8" data-suffix="+"><strong class="counter">0+</strong><span data-i18n="stat_pr">projets</span></div>
-                        <div class="stat-box" data-count="1" data-suffix=""><strong class="counter">0</strong><span>NASA 🚀</span></div>
+                        <div class="stat-box"><strong>4+</strong><span data-i18n="stat_yr">ans exp.</span></div>
+                        <div class="stat-box"><strong>9+</strong><span data-i18n="stat_pr">projets</span></div>
+                        <div class="stat-box"><strong>M2</strong><span data-i18n="stat_rs">Recherche</span></div>
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3 data-i18n="about_h3">Software Fullstack Engineer — web & mobile</h3>
+                    <h3 data-i18n="about_h3">Software Fullstack Engineer — architecture de systèmes distribués</h3>
                     <p data-i18n="about_p1">Je construis des applications web et mobiles propres, performantes et maintenables. Mon approche de développement est centrée sur la scalabilité, la fiabilité et la clarté du code — autant pour les utilisateurs que pour les équipes.</p>
                     <p data-i18n="about_p2">Je travaille aussi bien côté frontend (React, Vue.js) que backend (Django, Spring Boot, Node.js), avec une vraie culture du test automatisé (Vitest, Pytest) et des pipelines CI/CD.</p>
+                    <p data-i18n="about_p3">Dans le cadre de mon Master 2 Recherche à l'Université de Yaoundé I, j'explore les architectures orientées événements (RabbitMQ/Kafka), le Domain-Driven Design et les transactions distribuées — un travail que je prolonge en freelance sur des projets web concrets pour des clients locaux.</p>
                     <div class="skills-grid">
                         <div class="skill-group">
                             <h4>Backend</h4>
@@ -718,23 +823,36 @@
                             </div>
                         </div>
                         <div class="skill-group">
-                            <h4>Testing &amp; QA</h4>
+                            <h4 data-i18n="sk_arch">Architecture & Systèmes</h4>
+                            <div class="chips">
+                                <span class="chip rs">Microservices</span>
+                                <span class="chip rs">Event-Driven</span>
+                                <span class="chip rs">RabbitMQ / Kafka</span>
+                                <span class="chip rs">DDD</span>
+                                <span class="chip">Kubernetes</span>
+                                <span class="chip">Docker</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4 data-i18n="sk_test">Testing &amp; QA</h4>
                             <div class="chips">
                                 <span class="chip ft">Vitest</span>
                                 <span class="chip ft">Pytest</span>
                                 <span class="chip">Postman</span>
+                                <span class="chip">JUnit 5</span>
                                 <span class="chip">CI/CD</span>
                                 <span class="chip">GitHub Actions</span>
                             </div>
                         </div>
-                        <div class="skill-group">
-                            <h4>Tools &amp; DB</h4>
+                        <div class="skill-group wide">
+                            <h4 data-i18n="sk_tools">Tools &amp; Databases</h4>
                             <div class="chips">
                                 <span class="chip">MySQL</span>
                                 <span class="chip">PostgreSQL</span>
-                                <span class="chip">Docker</span>
+                                <span class="chip">Redis</span>
                                 <span class="chip">Git</span>
                                 <span class="chip">React Native</span>
+                                <span class="chip">LaTeX</span>
                             </div>
                         </div>
                     </div>
@@ -775,14 +893,14 @@
         <div class="container">
             <p class="sec-label" data-i18n="srv_label">Ce que je fais</p>
             <h2 class="sec-title" data-i18n="srv_title">Mes services</h2>
-            <p class="sec-sub" data-i18n="srv_sub">Du prototype au déploiement, je couvre l'ensemble du cycle de vie d'un projet web ou mobile.</p>
+            <p class="sec-sub" data-i18n="srv_sub">Du prototype au déploiement, je couvre l'ensemble du cycle de vie d'un projet web ou mobile — jusqu'à l'architecture distribuée.</p>
             <div class="srv-grid reveal">
+                <div class="srv-card"><div class="srv-icon">🧩</div><h3 data-i18n="s0t">Architecture Microservices</h3><p data-i18n="s0d">Conception de systèmes distribués événementiels — communication asynchrone via RabbitMQ/Kafka, base de données par service et scalabilité horizontale.</p><span class="srv-tag">Microservices · Event-Driven · DDD</span></div>
                 <div class="srv-card"><div class="srv-icon">⚡</div><h3 data-i18n="s1t">Backend Spring Boot &amp; Django</h3><p data-i18n="s1d">Développement d'APIs REST robustes et sécurisées avec Spring Boot (Java) ou Django REST Framework (Python), du prototype au déploiement.</p><span class="srv-tag">Spring Boot · Django · DRF · Java · Python</span></div>
                 <div class="srv-card"><div class="srv-icon">⚛️</div><h3 data-i18n="s2t">Frontend React &amp; Vue.js</h3><p data-i18n="s2d">Interfaces modernes, réactives et accessibles avec React ou Vue.js, intégrées à des APIs REST ou GraphQL.</p><span class="srv-tag">React · Vue.js · TypeScript</span></div>
                 <div class="srv-card"><div class="srv-icon">📱</div><h3 data-i18n="s3t">Applications mobiles</h3><p data-i18n="s3d">Développement cross-platform Android &amp; iOS avec React Native et Expo — de la conception à la publication sur les stores.</p><span class="srv-tag">React Native · Expo · TypeScript</span></div>
-                <div class="srv-card"><div class="srv-icon">🧪</div><h3 data-i18n="s4t">Tests &amp; Qualité</h3><p data-i18n="s4d">Mise en place de stratégies de test automatisé (Vitest, Pytest, Postman) et de pipelines CI/CD pour garantir la fiabilité du code.</p><span class="srv-tag">Vitest · Pytest · GitHub Actions</span></div>
-                <div class="srv-card"><div class="srv-icon">🛒</div><h3 data-i18n="s5t">E-commerce</h3><p data-i18n="s5d">Plateformes e-commerce complètes avec paiement sécurisé, gestion des stocks et tableau de bord vendeur.</p><span class="srv-tag">Full Stack · Django · React</span></div>
-                <div class="srv-card"><div class="srv-icon">🔧</div><h3 data-i18n="s6t">Maintenance &amp; Optimisation</h3><p data-i18n="s6d">Audit, refactoring, amélioration des performances et mise à jour de vos applications existantes.</p><span class="srv-tag">Audit · Performance · DevOps</span></div>
+                <div class="srv-card"><div class="srv-icon">🧪</div><h3 data-i18n="s4t">Tests &amp; Qualité</h3><p data-i18n="s4d">Mise en place de stratégies de test automatisé (Vitest, Pytest, JUnit, Postman) et de pipelines CI/CD pour garantir la fiabilité du code.</p><span class="srv-tag">Vitest · Pytest · JUnit · GitHub Actions</span></div>
+                <div class="srv-card"><div class="srv-icon">🐳</div><h3 data-i18n="s6t">Conteneurisation &amp; DevOps</h3><p data-i18n="s6d">Conteneurisation avec Docker, orchestration Kubernetes, audit et optimisation des performances de vos applications existantes.</p><span class="srv-tag">Docker · Kubernetes · Audit · DevOps</span></div>
             </div>
         </div>
     </section>
@@ -794,12 +912,27 @@
             <h2 class="sec-title" data-i18n="prj_title">Mes projets</h2>
             <div class="filter-row">
                 <button class="flt-btn active" data-f="all"       data-i18n="f_all">Tous</button>
+                <button class="flt-btn"        data-f="micro"     data-i18n="f_micro">Microservices</button>
                 <button class="flt-btn"        data-f="web">Web</button>
                 <button class="flt-btn"        data-f="backend">Backend</button>
                 <button class="flt-btn"        data-f="mobile">Mobile</button>
                 <button class="flt-btn"        data-f="ecommerce">E-commerce</button>
             </div>
             <div class="proj-grid reveal">
+
+                <div class="proj-card featured" data-f="micro">
+                    <span class="feat-badge" data-i18n="feat_badge">★ Projet phare</span>
+                    <div class="proj-placeholder ph-njila"><span class="ph-icon">🧩</span><span class="ph-label">NJILA</span></div>
+                    <div class="proj-body">
+                        <p class="proj-cat">Microservices · Event-Driven</p>
+                        <h3 data-i18n="p_nj_t">NJILA</h3>
+                        <p data-i18n="p_nj_d">Plateforme distribuée de réservation et de gestion de flotte pour le transport interurbain — 10 microservices communiquant via RabbitMQ, base de données par service et persistance polyglotte (SQL + NoSQL).</p>
+                        <div class="proj-footer">
+                            <div class="stacks"><span class="stk">Spring Boot</span><span class="stk">Django</span><span class="stk">RabbitMQ</span><span class="stk">Docker</span></div>
+                            <a href="https://github.com/nguembu" target="_blank" class="proj-link" data-i18n="link_profile">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="proj-card" data-f="mobile">
                     <div class="proj-emoji">🩸</div>
@@ -879,7 +1012,6 @@
                     </div>
                 </div>
 
-
                 <div class="proj-card" data-f="web">
                     <div class="proj-placeholder ph-terra"><span class="ph-icon">🌿</span><span class="ph-label">TERRABIA</span></div>
                     <div class="proj-body">
@@ -906,6 +1038,14 @@
             <div class="blog-grid reveal">
 
                 <div class="blog-card">
+                    <span class="btag pu" data-i18n="btag_research">Recherche · M2</span>
+                    <p class="blog-date">2026 · Systèmes Distribués</p>
+                    <h3 data-i18n="b4t">Transactions distribuées en microservices : ce que révèle NJILA</h3>
+                    <p data-i18n="b4d">Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements — préparées pour mon mémoire de Master 2.</p>
+                    <a href="https://github.com/nguembu/master-thesis-distributed-systems" target="_blank" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
+                </div>
+
+                <div class="blog-card">
                     <span class="btag">React Native</span>
                     <p class="blog-date">2024 · BloodLink</p>
                     <h3 data-i18n="b1t">Construire BloodLink : une app mobile de don de sang en React Native + Expo</h3>
@@ -926,7 +1066,7 @@
                     <p class="blog-date">2024 · NASA Space Apps</p>
                     <h3 data-i18n="b3t">48h au NASA Space Apps Challenge — ce que j'ai appris</h3>
                     <p data-i18n="b3d">Récit de mon expérience lors de ce hackathon mondial : la pression du temps, la collaboration en équipe et le développement sous contrainte.</p>
-                    <a href="https://github.com/nguembu" target="_blank" class="blog-read" data-i18n="blog_read">Voir mon GitHub →</a>
+                    <a href="https://github.com/nguembu" target="_blank" class="blog-read" data-i18n="blog_read_gh">Voir mon GitHub →</a>
                 </div>
 
             </div>
@@ -941,7 +1081,7 @@
             <div class="ct-grid reveal">
                 <div class="ct-info">
                     <h3 data-i18n="ct_h3">Un projet en tête ?</h3>
-                    <p data-i18n="ct_p">Que ce soit pour une application web, mobile, ou une collaboration open-source, je suis disponible. Envoyez-moi un message, je réponds rapidement.</p>
+                    <p data-i18n="ct_p">Que ce soit pour une application web, mobile, ou une architecture distribuée, je suis disponible. Envoyez-moi un message, je réponds rapidement.</p>
                     <div class="ct-items">
                         <div class="ct-item"><div class="ct-icon">📧</div><div class="ct-item-txt"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86ece7f3f4e3f5e8e1f3e3ebe4f3c6e1ebe7efeaa8e5e9eb">[email&#160;protected]</a></span></div></div>
                         <div class="ct-item"><div class="ct-icon">📱</div><div class="ct-item-txt"><strong>Téléphone</strong><span>+237 691 159 296</span></div></div>
@@ -975,13 +1115,13 @@
                 <a href="https://x.com/_Johnny_watson"                                 target="_blank" class="soc-link"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/i_am_johnny_watson/"                target="_blank" class="soc-link"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="ft-copy">© 2025 John NGUEMBU. All rights reserved.</p>
+            <p class="ft-copy">© 2026 John NGUEMBU. All rights reserved.</p>
         </div>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ─── THEME SWITCHER ─── */
-    var THEME_ICONS = { dark:'🌊', slate:'🌙', violet:'🟣', crimson:'🔴' };
+    var THEME_ICONS = { dark:'🌊', slate:'🌙', violet:'🟣', crimson:'🔴', light:'☀️' };
 
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -1023,26 +1163,32 @@
       fr:{
         nav_home:"Accueil",nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
         hero_avail:"Disponible pour missions",
-        hero_desc:"Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django, avec une attention particulière à la qualité et la scalabilité.",
+        hero_role:"Ingénieur Logiciel Fullstack · Systèmes distribués & microservices",
+        hero_desc:"Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ/Kafka, Kubernetes) dans le cadre de mon Master 2 Recherche.",
         hero_btn1:"Voir mes projets",hero_btn2:"Me contacter",
         nasa_badge_sub:"Participant — Hackathon international",
         about_label:"À propos",about_sub:"Qualité avant tout.",
-        about_h3:"Software Fullstack Engineer — web & mobile",
+        about_h3:"Software Fullstack Engineer — architecture de systèmes distribués",
         about_p1:"Je construis des applications web et mobiles propres, performantes et maintenables. Mon approche est centrée sur la scalabilité, la fiabilité et la clarté du code — autant pour les utilisateurs que pour les équipes.",
         about_p2:"Je travaille aussi bien côté frontend (React, Vue.js) que backend (Django, Spring Boot, Node.js), avec une vraie culture du test automatisé (Vitest, Pytest) et des pipelines CI/CD.",
-        stat_yr:"ans exp.",stat_pr:"projets",
+        about_p3:"Dans le cadre de mon Master 2 Recherche à l'Université de Yaoundé I, j'explore les architectures orientées événements (RabbitMQ/Kafka), le Domain-Driven Design et les transactions distribuées — un travail que je prolonge en freelance sur des projets web concrets pour des clients locaux.",
+        stat_yr:"ans exp.",stat_pr:"projets",stat_rs:"Recherche",
+        sk_arch:"Architecture & Systèmes",sk_test:"Testing & QA",sk_tools:"Tools & Databases",
         nasa_part:"Participant officiel",
         nasa_h3:"Résoudre des défis spatiaux avec le code",
         nasa_desc:"J'ai participé au NASA Space Apps Challenge, l'un des plus grands hackathons mondiaux co-organisé par la NASA. En équipe, nous avons développé une solution innovante répondant à un défi spatial réel, en exploitant les données ouvertes de la NASA.",
-        srv_label:"Ce que je fais",srv_title:"Mes services",srv_sub:"Du prototype au déploiement, je couvre l'ensemble du cycle de vie d'un projet web ou mobile.",
+        srv_label:"Ce que je fais",srv_title:"Mes services",srv_sub:"Du prototype au déploiement, je couvre l'ensemble du cycle de vie d'un projet web ou mobile — jusqu'à l'architecture distribuée.",
+        s0t:"Architecture Microservices",s0d:"Conception de systèmes distribués événementiels — communication asynchrone via RabbitMQ/Kafka, base de données par service et scalabilité horizontale.",
         s1t:"Backend Spring Boot & Django",s1d:"Développement d'APIs REST robustes et sécurisées avec Spring Boot (Java) ou Django REST Framework (Python), du prototype au déploiement.",
         s2t:"Frontend React & Vue.js",s2d:"Interfaces modernes, réactives et accessibles avec React ou Vue.js, intégrées à des APIs REST ou GraphQL.",
         s3t:"Applications mobiles",s3d:"Développement cross-platform Android & iOS avec React Native et Expo — de la conception à la publication sur les stores.",
-        s4t:"Tests & Qualité",s4d:"Mise en place de stratégies de test automatisé (Vitest, Pytest, Postman) et de pipelines CI/CD.",
-        s5t:"E-commerce",s5d:"Plateformes e-commerce complètes avec paiement sécurisé, gestion des stocks et tableau de bord vendeur.",
-        s6t:"Maintenance & Optimisation",s6d:"Audit, refactoring, amélioration des performances et mise à jour de vos applications existantes.",
+        s4t:"Tests & Qualité",s4d:"Mise en place de stratégies de test automatisé (Vitest, Pytest, JUnit, Postman) et de pipelines CI/CD.",
+        s6t:"Conteneurisation & DevOps",s6d:"Conteneurisation avec Docker, orchestration Kubernetes, audit et optimisation des performances de vos applications existantes.",
         prj_label:"Portfolio",prj_title:"Mes projets",
-        f_all:"Tous",
+        f_all:"Tous",f_micro:"Microservices",
+        feat_badge:"★ Projet phare",
+        link_profile:"GitHub →",
+        p_nj_t:"NJILA",p_nj_d:"Plateforme distribuée de réservation et de gestion de flotte pour le transport interurbain — 10 microservices communiquant via RabbitMQ, base de données par service et persistance polyglotte (SQL + NoSQL).",
         p_bl_t:"BloodLink",p_bl_d:"Application mobile React Native connectant donneurs de sang et receveurs en temps réel — géolocalisation, matching intelligent et notifications d'urgence.",
         p_tf_t:"TradeFlow",p_tf_d:"Plateforme e-commerce complète avec paiement sécurisé, gestion des stocks et tableau de bord vendeur — backend Django, frontend React.",
         p_tq_t:"Tempo Air Quality",p_tq_d:"Plateforme de données sur la qualité de l'air — collecte, traitement et visualisation de données environnementales en Python.",
@@ -1051,39 +1197,45 @@
         p_mc_t:"Mamzy Color Kids",p_mc_d:"Jeu de coloriage interactif pour enfants — site ludique et coloré pour un distributeur de livres et magazines.",
         p_tb_t:"TERRABIA",p_tb_d:"Plateforme web complète connectant agriculteurs et acheteurs — vente directe de produits agricoles avec service de livraison intégré.",
         blg_label:"Partage de connaissances",blg_title:"Articles & Réflexions",blg_sub:"Retours d'expérience sur mes projets open-source, mes apprentissages et mes explorations techniques.",
+        btag_research:"Recherche · M2",
+        b4t:"Transactions distribuées en microservices : ce que révèle NJILA",b4d:"Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements — préparées pour mon mémoire de Master 2.",
         b1t:"Construire BloodLink : une app mobile de don de sang en React Native + Expo",b1d:"Retour sur la conception de BloodLink — géolocalisation, matching en temps réel, notifications push et architecture frontend TypeScript.",
         b2t:"Tempo Air Quality : collecter et visualiser des données environnementales avec Python",b2d:"Comment j'ai construit une plateforme de monitoring de la qualité de l'air — pipeline de données, API Django et visualisations.",
         b3t:"48h au NASA Space Apps Challenge — ce que j'ai appris",b3d:"Récit de mon expérience lors de ce hackathon mondial : la pression du temps, la collaboration en équipe et le développement sous contrainte.",
-        blog_read:"Voir le projet →",
-        hero_cv:"Télécharger CV",hero_cv_label:"Télécharger CV",
-        hero_cv:"Download CV",hero_cv_label:"Download CV",
+        blog_read:"Voir le projet →",blog_read_research:"Voir le dépôt de recherche →",blog_read_gh:"Voir mon GitHub →",
         ct_label:"Contact",ct_title:"Travaillons ensemble",ct_h3:"Un projet en tête ?",
-        ct_p:"Que ce soit pour une application web, mobile, ou une collaboration open-source, je suis disponible. Envoyez-moi un message, je réponds rapidement.",
+        ct_p:"Que ce soit pour une application web, mobile, ou une architecture distribuée, je suis disponible. Envoyez-moi un message, je réponds rapidement.",
         ct_send:"Envoyer le message",ct_ok:"✅ Message envoyé avec succès !"
       },
       en:{
         nav_home:"Home",nav_about:"About",nav_services:"Services",nav_projects:"Projects",
         hero_avail:"Available for work",
-        hero_desc:"I design and build modern, robust web applications — from React frontends to Spring Boot and Django backends, with a focus on quality and scalability.",
+        hero_role:"Fullstack Software Engineer · Distributed Systems & Microservices",
+        hero_desc:"I design and build modern, robust web applications — from React frontends to Spring Boot and Django backends — and architect event-driven distributed systems (RabbitMQ/Kafka, Kubernetes) as part of my Master's Research.",
         hero_btn1:"View my work",hero_btn2:"Contact me",
         nasa_badge_sub:"Participant — International Hackathon",
         about_label:"About",about_sub:"Quality first.",
-        about_h3:"Software Fullstack Engineer — web & mobile",
+        about_h3:"Software Fullstack Engineer — distributed systems architecture",
         about_p1:"I build clean, performant and maintainable web and mobile applications. My development philosophy centers on scalability, reliability and code clarity — for both users and teams.",
         about_p2:"I work on both frontend (React, Vue.js) and backend (Django, Spring Boot, Node.js), with a strong culture of automated testing (Vitest, Pytest) and CI/CD pipelines.",
-        stat_yr:"years exp.",stat_pr:"projects",
+        about_p3:"As part of my Master's Research at the University of Yaoundé I, I explore event-driven architectures (RabbitMQ/Kafka), Domain-Driven Design and distributed transactions — work I extend through freelance projects for local clients.",
+        stat_yr:"years exp.",stat_pr:"projects",stat_rs:"Research",
+        sk_arch:"Architecture & Systems",sk_test:"Testing & QA",sk_tools:"Tools & Databases",
         nasa_part:"Official Participant",
         nasa_h3:"Solving Space Challenges with Code",
         nasa_desc:"I participated in the NASA Space Apps Challenge, one of the world's largest hackathons co-organized by NASA. Our team built an innovative solution addressing a real space challenge using NASA's open data.",
-        srv_label:"What I do",srv_title:"My Services",srv_sub:"From prototype to deployment, I cover the full lifecycle of web and mobile projects.",
+        srv_label:"What I do",srv_title:"My Services",srv_sub:"From prototype to deployment, I cover the full lifecycle of web and mobile projects — up to distributed architecture.",
+        s0t:"Microservices Architecture",s0d:"Designing event-driven distributed systems — asynchronous communication via RabbitMQ/Kafka, database-per-service and horizontal scalability.",
         s1t:"Backend Spring Boot & Django",s1d:"Building robust, secure REST APIs with Spring Boot (Java) or Django REST Framework (Python), from prototype to production.",
         s2t:"Frontend React & Vue.js",s2d:"Modern, reactive and accessible UIs with React or Vue.js, integrated with REST or GraphQL APIs.",
         s3t:"Mobile Applications",s3d:"Cross-platform Android & iOS development with React Native and Expo — from design to store deployment.",
-        s4t:"Testing & Quality",s4d:"Automated test strategies (Vitest, Pytest, Postman) and CI/CD pipelines to ensure code reliability.",
-        s5t:"E-commerce",s5d:"Complete e-commerce platforms with secure payment, inventory management and seller dashboard.",
-        s6t:"Maintenance & Optimization",s6d:"Audit, refactoring, performance improvements and updates for your existing applications.",
+        s4t:"Testing & Quality",s4d:"Automated test strategies (Vitest, Pytest, JUnit, Postman) and CI/CD pipelines to ensure code reliability.",
+        s6t:"Containerization & DevOps",s6d:"Containerization with Docker, Kubernetes orchestration, audit and performance improvements for your existing applications.",
         prj_label:"Portfolio",prj_title:"My Projects",
-        f_all:"All",
+        f_all:"All",f_micro:"Microservices",
+        feat_badge:"★ Flagship project",
+        link_profile:"GitHub →",
+        p_nj_t:"NJILA",p_nj_d:"Distributed booking and fleet management platform for intercity transport — 10 microservices communicating via RabbitMQ, database-per-service and polyglot persistence (SQL + NoSQL).",
         p_bl_t:"BloodLink",p_bl_d:"React Native mobile app connecting blood donors with recipients in real-time — geolocation, smart matching and emergency push notifications.",
         p_tf_t:"TradeFlow",p_tf_d:"Complete e-commerce platform with secure payment, inventory management and seller dashboard — Django backend, React frontend.",
         p_tq_t:"Tempo Air Quality",p_tq_d:"Air quality data platform — collection, processing and visualization of environmental data in Python.",
@@ -1092,12 +1244,14 @@
         p_mc_t:"Mamzy Color Kids",p_mc_d:"Interactive coloring game for children — colorful and playful website for a books and magazines distributor.",
         p_tb_t:"TERRABIA",p_tb_d:"Full-stack web platform connecting farmers and buyers — direct agricultural product sales with integrated delivery service.",
         blg_label:"Knowledge Sharing",blg_title:"Articles & Thoughts",blg_sub:"Experience reports from my open-source projects, learnings and technical explorations.",
+        btag_research:"Research · M2",
+        b4t:"Distributed transactions in microservices: what NJILA reveals",b4d:"Research notes on eventual consistency, the Saga pattern and observability in event-driven architectures — prepared for my Master's thesis.",
         b1t:"Building BloodLink: a blood donation mobile app with React Native + Expo",b1d:"A deep dive into BloodLink — geolocation, real-time matching, push notifications and TypeScript frontend architecture.",
         b2t:"Tempo Air Quality: collecting and visualizing environmental data with Python",b2d:"How I built an air quality monitoring platform — data pipeline, Django API and visualizations.",
         b3t:"48 hours at the NASA Space Apps Challenge — what I learned",b3d:"A story from this global hackathon: time pressure, team collaboration and development under constraint.",
-        blog_read:"View project →",
+        blog_read:"View project →",blog_read_research:"View research repo →",blog_read_gh:"View my GitHub →",
         ct_label:"Contact",ct_title:"Let's Work Together",ct_h3:"Have a project in mind?",
-        ct_p:"Whether it's a web app, mobile app, or open-source collaboration, I'm available. Send me a message and I'll get back to you quickly.",
+        ct_p:"Whether it's a web app, mobile app, or distributed architecture, I'm available. Send me a message and I'll get back to you quickly.",
         ct_send:"Send message",ct_ok:"✅ Message sent successfully!"
       }
     };
@@ -1121,54 +1275,39 @@
     }
     setLang(lang);
 
-
-    /* ─── ANIMATED COUNTER ─── */
-    function animateCounter(el, target, suffix, duration) {
-        var start = 0;
-        var step = Math.ceil(duration / target);
-        var timer = setInterval(function() {
-            start += 1;
-            el.textContent = start + suffix;
-            if (start >= target) {
-                el.textContent = target + suffix;
-                clearInterval(timer);
-            }
-        }, step);
+    /* ─── SCROLL PROGRESS ─── */
+    var progressBar = document.getElementById('scrollProgress');
+    function updateProgress() {
+        var h = document.documentElement;
+        var scrolled = h.scrollTop || document.body.scrollTop;
+        var height = h.scrollHeight - h.clientHeight;
+        var pct = height > 0 ? (scrolled / height) * 100 : 0;
+        progressBar.style.width = pct + '%';
     }
-
-    var counterDone = false;
-    var counterObs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting && !counterDone) {
-                counterDone = true;
-                document.querySelectorAll('.stat-box[data-count]').forEach(function(box) {
-                    var target = parseInt(box.getAttribute('data-count'));
-                    var suffix = box.getAttribute('data-suffix') || '';
-                    var el = box.querySelector('.counter');
-                    if (el) animateCounter(el, target, suffix, 800);
-                });
-            }
-        });
-    }, { threshold: 0.5 });
-
-    var statRow = document.querySelector('.stat-row');
-    if (statRow) counterObs.observe(statRow);
+    document.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
 
     /* ─── CURSOR ─── */
     var cur = document.querySelector('.cursor');
     var ring = document.querySelector('.cursor-ring');
-    document.addEventListener('mousemove', function(e) {
-        cur.style.left = e.clientX + 'px';
-        cur.style.top = e.clientY + 'px';
-        setTimeout(function() {
-            ring.style.left = e.clientX + 'px';
-            ring.style.top = e.clientY + 'px';
-        }, 80);
-    });
-    document.querySelectorAll('a,button,.proj-card,.srv-card,.blog-card').forEach(function(el) {
-        el.addEventListener('mouseenter', function() { cur.classList.add('h'); ring.classList.add('h'); });
-        el.addEventListener('mouseleave', function() { cur.classList.remove('h'); ring.classList.remove('h'); });
-    });
+    var hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+    if (hasFinePointer) {
+        document.addEventListener('mousemove', function(e) {
+            cur.style.left = e.clientX + 'px';
+            cur.style.top = e.clientY + 'px';
+            setTimeout(function() {
+                ring.style.left = e.clientX + 'px';
+                ring.style.top = e.clientY + 'px';
+            }, 80);
+        });
+        document.querySelectorAll('a,button,.proj-card,.srv-card,.blog-card').forEach(function(el) {
+            el.addEventListener('mouseenter', function() { cur.classList.add('h'); ring.classList.add('h'); });
+            el.addEventListener('mouseleave', function() { cur.classList.remove('h'); ring.classList.remove('h'); });
+        });
+    } else {
+        cur.style.display = 'none';
+        ring.style.display = 'none';
+    }
 
     /* ─── MOBILE MENU ─── */
     var menuToggle = document.getElementById('menuToggle');
