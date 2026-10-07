@@ -3,29 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO ═══ -->
 <meta name="description" content="John NGUEMBU — Software Architect & M2 Researcher. Analyse prédictive d'impact des changements dans les microservices. Yaoundé, Cameroun.">
 <meta name="author" content="John NGUEMBU">
 <meta name="theme-color" content="#0a0e1a">
 <meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
 
+<!-- ═══ SECURITY ═══ -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://formspree.io;
+  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+  font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
+  img-src 'self' data: https:;
+  connect-src 'self' https://formspree.io https://fonts.googleapis.com https://fonts.gstatic.com;
+  frame-ancestors 'none';
+  base-uri 'self';
+  form-action 'self' https://formspree.io;
+  upgrade-insecure-requests;
+">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+<!-- ═══ Open Graph ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="John NGUEMBU — Software Architect & M2 Researcher">
 <meta property="og:description" content="Ingénieur Logiciel Fullstack & chercheur M2 — Analyse prédictive d'impact des changements dans les architectures microservices évolutives.">
 <meta property="og:image" content="me2.jpeg">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://john-nguembu.netlify.app/">
 
+<!-- ═══ Twitter ═══ -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="John NGUEMBU — Software Architect">
 <meta name="twitter:description" content="Distributed Systems · Predictive Change Impact Analysis · M2 Research">
 <meta name="twitter:image" content="me2.jpeg">
 
+<!-- ═══ Favicon ═══ -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e1a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='monospace' font-weight='bold' fill='%232563eb' text-anchor='middle'%3EJJ%3C/text%3E%3C/svg%3E">
 
+<!-- ═══ PERFORMANCE — Preconnect ═══ -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="dns-prefetch" href="https://formspree.io">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+<!-- ═══ PERFORMANCE — Fonts optimisées ═══ -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
+
+<!-- ═══ PERFORMANCE — Font Awesome différé (non bloquant) ═══ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</noscript>
 
 <title>John NGUEMBU — Software Architect & M2 Researcher</title>
 
@@ -35,7 +71,7 @@
   "@type": "Person",
   "name": "John NGUEMBU",
   "jobTitle": "Software Architect & M2 Researcher",
-  "url": "https://johnnguembu.dev",
+  "url": "https://john-nguembu.netlify.app",
   "sameAs": [
     "https://github.com/nguembu",
     "https://www.linkedin.com/in/jaures-nguembu-040658335/",
@@ -57,14 +93,39 @@
 
 <style>
 /* ══════════════════════════════════════
-   THEMES — Research Architect Palette
+   ACCESSIBILITÉ — Skip Link
+══════════════════════════════════════ */
+.skip-link{
+  position:fixed;
+  top:-100px;
+  left:16px;
+  z-index:10002;
+  padding:12px 22px;
+  background:var(--accent, #2563eb);
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;
+  font-weight:700;
+  border-radius:0 0 10px 10px;
+  text-decoration:none;
+  transition:top .25s ease;
+  box-shadow:0 8px 24px rgba(37,99,235,0.35);
+}
+.skip-link:focus{
+  top:0;
+  outline:3px solid #f59e0b;
+  outline-offset:2px;
+}
+
+/* ══════════════════════════════════════
+   THEMES
 ══════════════════════════════════════ */
 :root[data-theme="dark"]{
   --bg:#0a0e1a; --bg2:#0f1424; --bg3:#161d33;
   --surface:#111827; --surface2:#1a2238;
   --border:rgba(148,163,220,0.10);
   --border-strong:rgba(148,163,220,0.20);
-  --text:#e8ecf7; --text2:#8892b0; --text3:#5a6488;
+  --text:#e8ecf7; --text2:#9ca6c4; --text3:#7a84a6;
   --accent:#2563eb; --accent2:#06b6d4; --accent3:#f59e0b;
   --accent-soft:rgba(37,99,235,0.14);
   --glow:rgba(37,99,235,0.28);
@@ -82,7 +143,7 @@
   --surface:#151e30; --surface2:#1e2a44;
   --border:rgba(100,140,220,0.12);
   --border-strong:rgba(100,140,220,0.24);
-  --text:#d0dcf5; --text2:#7c90b8; --text3:#556784;
+  --text:#d0dcf5; --text2:#8ea2c8; --text3:#6d8099;
   --accent:#3b82f6; --accent2:#14b8a6; --accent3:#f59e0b;
   --accent-soft:rgba(59,130,246,0.15);
   --glow:rgba(59,130,246,0.25);
@@ -100,7 +161,7 @@
   --surface:#0c1222; --surface2:#141c30;
   --border:rgba(96,165,250,0.10);
   --border-strong:rgba(96,165,250,0.20);
-  --text:#f0f4ff; --text2:#8090b8; --text3:#4d5a80;
+  --text:#f0f4ff; --text2:#94a2c9; --text3:#6f7a9c;
   --accent:#8b5cf6; --accent2:#06b6d4; --accent3:#fbbf24;
   --accent-soft:rgba(139,92,246,0.14);
   --glow:rgba(139,92,246,0.35);
@@ -118,7 +179,7 @@
   --surface:#160a0e; --surface2:#200f16;
   --border:rgba(244,63,94,0.14);
   --border-strong:rgba(244,63,94,0.26);
-  --text:#fff1f2; --text2:#a8707c; --text3:#7a4a55;
+  --text:#fff1f2; --text2:#bf8593; --text3:#9a6a75;
   --accent:#f43f5e; --accent2:#fb923c; --accent3:#a3e635;
   --accent-soft:rgba(244,63,94,0.14);
   --glow:rgba(244,63,94,0.28);
@@ -136,7 +197,7 @@
   --surface:#ffffff; --surface2:#eef2fa;
   --border:rgba(20,30,60,0.09);
   --border-strong:rgba(20,30,60,0.18);
-  --text:#0a0e1f; --text2:#4f5875; --text3:#8790a8;
+  --text:#0a0e1f; --text2:#3d4a68; --text3:#5d6880;
   --accent:#1d4ed8; --accent2:#0891b2; --accent3:#d97706;
   --accent-soft:rgba(29,78,216,0.08);
   --glow:rgba(29,78,216,0.20);
@@ -185,9 +246,14 @@ body::before{
   pointer-events:none; z-index:9998; opacity:0.30; transition:opacity .4s;
 }
 
-/* ══════════════════════════════════════
-   AURORA BACKGROUND ANIMÉ
-══════════════════════════════════════ */
+/* ═══ MAIN — Landmark sémantique ═══ */
+main{
+  display:block;
+  position:relative;
+  z-index:2;
+}
+
+/* AURORA BACKGROUND */
 .aurora-bg{
   position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
 }
@@ -742,6 +808,12 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .nasa-badge{ animation-delay:.58s; }
 .hero-terminal{ animation-delay:.32s; }
 @keyframes heroUp{ to{ opacity:1; transform:translateY(0); } }
+
+/* ═══ PERFORMANCE — content-visibility pour sections lourdes ═══ */
+section:not(.hero){
+  content-visibility:auto;
+  contain-intrinsic-size:auto 800px;
+}
 
 section{ padding:104px 0; position:relative; z-index:2; }
 .container{ max-width:1240px; margin:0 auto; padding:0 32px; }
@@ -1369,6 +1441,8 @@ footer{
   border-top:1px solid var(--border);
   padding:44px 0;
   transition:background .4s;
+  position:relative;
+  z-index:2;
 }
 .ft-inner{
   max-width:1240px; margin:0 auto;
@@ -1521,6 +1595,9 @@ footer{
 </head>
 <body>
 
+<!-- ═══ SKIP LINK — Accessibilité ═══ -->
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
 <!-- AURORA BG -->
 <div class="aurora-bg" aria-hidden="true">
   <div class="aurora-blob b1"></div>
@@ -1548,7 +1625,7 @@ footer{
 <div class="cursor-ring" aria-hidden="true"></div>
 
 <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
-  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </button>
 
 <!-- ═══ HEADER ═══ -->
@@ -1588,7 +1665,7 @@ footer{
         </div>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </div>
@@ -1600,7 +1677,7 @@ footer{
   <div class="menu-header">
     <div class="logo-mobile">John<span>.</span>dev</div>
     <button class="menu-close" id="menuClose" aria-label="Fermer le menu">
-      <i class="fas fa-times"></i>
+      <i class="fas fa-times" aria-hidden="true"></i>
     </button>
   </div>
   <ul>
@@ -1614,10 +1691,10 @@ footer{
   </ul>
   <div class="menu-footer">
     <div class="social-row">
-      <a href="https://github.com/nguembu" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/nguembu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
     </div>
     <div class="lang-row">
       <button class="lang-btn-mobile active" data-lang="fr" onclick="setLangMobile('fr')">FR</button>
@@ -1626,16 +1703,21 @@ footer{
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     MAIN — Landmark sémantique (correction accessibilité)
+═══════════════════════════════════════════════════════════════ -->
+<main id="main-content" role="main">
+
 <!-- ═══ HERO ═══ -->
-<section class="hero" id="home">
+<section class="hero" id="home" aria-labelledby="hero-title">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-tag" data-i18n="hero_avail">Disponible pour missions & collaborations</div>
-      <h1 class="hero-name">John<br><span class="accent">NGUEMBU</span></h1>
+      <h1 class="hero-name" id="hero-title">John<br><span class="accent">NGUEMBU</span></h1>
       <p class="hero-role">
-        <span id="typedText" data-i18n="hero_role_short">Software Architect</span><span class="cursor-txt"></span>
+        <span id="typedText" data-i18n="hero_role_short">Software Architect</span><span class="cursor-txt" aria-hidden="true"></span>
       </p>
       <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ).</p>
       <div class="hero-btns">
@@ -1643,11 +1725,11 @@ footer{
         <a href="#contact"  class="btn-ghost"   data-i18n="hero_btn2">Me contacter</a>
         <div class="cv-dropdown">
           <a href="CV_John_NGUEMBU_FR.pdf" download class="btn-cv">
-            <i class="fas fa-download"></i>
+            <i class="fas fa-download" aria-hidden="true"></i>
             <span>CV FR</span>
           </a>
           <a href="CV_John_NGUEMBU_EN.pdf" download class="btn-cv btn-cv-en">
-            <i class="fas fa-download"></i>
+            <i class="fas fa-download" aria-hidden="true"></i>
             <span>CV EN</span>
           </a>
         </div>
@@ -1685,14 +1767,14 @@ footer{
 </section>
 
 <!-- ═══ ABOUT ═══ -->
-<section id="about">
+<section id="about" aria-labelledby="about-title">
   <div class="container">
     <p class="sec-label" data-i18n="about_label">À propos</p>
-    <h2 class="sec-title">Architecte logiciel.<br><span class="dim" data-i18n="about_sub">Chercheur. Pragmatique.</span></h2>
+    <h2 class="sec-title" id="about-title">Architecte logiciel.<br><span class="dim" data-i18n="about_sub">Chercheur. Pragmatique.</span></h2>
     <div class="about-grid reveal">
       <div>
         <div class="photo-wrap">
-          <img src="me2.jpeg" alt="Portrait de John NGUEMBU" loading="lazy"
+          <img src="me2.jpeg" alt="Portrait de John NGUEMBU" loading="lazy" width="400" height="400"
                onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;div class=\'photo-placeholder\'&gt;&lt;i class=\'fas fa-user-circle\'&gt;&lt;/i&gt;&lt;span&gt;John NGUEMBU&lt;/span&gt;&lt;/div&gt;';">
         </div>
         <div class="stat-row">
@@ -1771,36 +1853,36 @@ footer{
     <!-- MARQUEE -->
     <div class="marquee-wrap reveal">
       <div class="marquee-track">
-        <span class="marquee-item"><i class="fab fa-java"></i> Java</span>
-        <span class="marquee-item"><i class="fab fa-python"></i> Python</span>
-        <span class="marquee-item"><i class="fab fa-react"></i> React</span>
-        <span class="marquee-item"><i class="fab fa-vuejs"></i> Vue.js</span>
-        <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
-        <span class="marquee-item"><i class="fab fa-docker"></i> Docker</span>
-        <span class="marquee-item"><i class="fas fa-cubes"></i> Kubernetes</span>
-        <span class="marquee-item"><i class="fas fa-robot"></i> Scikit-learn</span>
-        <span class="marquee-item"><i class="fas fa-code-branch"></i> Git</span>
-        <span class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</span>
-        <span class="marquee-item"><i class="fab fa-java"></i> Java</span>
-        <span class="marquee-item"><i class="fab fa-python"></i> Python</span>
-        <span class="marquee-item"><i class="fab fa-react"></i> React</span>
-        <span class="marquee-item"><i class="fab fa-vuejs"></i> Vue.js</span>
-        <span class="marquee-item"><i class="fab fa-node-js"></i> Node.js</span>
-        <span class="marquee-item"><i class="fab fa-docker"></i> Docker</span>
-        <span class="marquee-item"><i class="fas fa-cubes"></i> Kubernetes</span>
-        <span class="marquee-item"><i class="fas fa-robot"></i> Scikit-learn</span>
-        <span class="marquee-item"><i class="fas fa-code-branch"></i> Git</span>
-        <span class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</span>
+        <span class="marquee-item"><i class="fab fa-java" aria-hidden="true"></i> Java</span>
+        <span class="marquee-item"><i class="fab fa-python" aria-hidden="true"></i> Python</span>
+        <span class="marquee-item"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+        <span class="marquee-item"><i class="fab fa-vuejs" aria-hidden="true"></i> Vue.js</span>
+        <span class="marquee-item"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+        <span class="marquee-item"><i class="fab fa-docker" aria-hidden="true"></i> Docker</span>
+        <span class="marquee-item"><i class="fas fa-cubes" aria-hidden="true"></i> Kubernetes</span>
+        <span class="marquee-item"><i class="fas fa-robot" aria-hidden="true"></i> Scikit-learn</span>
+        <span class="marquee-item"><i class="fas fa-code-branch" aria-hidden="true"></i> Git</span>
+        <span class="marquee-item"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
+        <span class="marquee-item"><i class="fab fa-java" aria-hidden="true"></i> Java</span>
+        <span class="marquee-item"><i class="fab fa-python" aria-hidden="true"></i> Python</span>
+        <span class="marquee-item"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+        <span class="marquee-item"><i class="fab fa-vuejs" aria-hidden="true"></i> Vue.js</span>
+        <span class="marquee-item"><i class="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+        <span class="marquee-item"><i class="fab fa-docker" aria-hidden="true"></i> Docker</span>
+        <span class="marquee-item"><i class="fas fa-cubes" aria-hidden="true"></i> Kubernetes</span>
+        <span class="marquee-item"><i class="fas fa-robot" aria-hidden="true"></i> Scikit-learn</span>
+        <span class="marquee-item"><i class="fas fa-code-branch" aria-hidden="true"></i> Git</span>
+        <span class="marquee-item"><i class="fas fa-database" aria-hidden="true"></i> PostgreSQL</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ NASA ═══ -->
-<section id="nasa">
+<section id="nasa" aria-labelledby="nasa-title">
   <div class="container">
     <p class="sec-label">Achievement</p>
-    <h2 class="sec-title">NASA Space Apps<br><span class="dim">Challenge</span></h2>
+    <h2 class="sec-title" id="nasa-title">NASA Space Apps<br><span class="dim">Challenge</span></h2>
     <div class="nasa-card reveal">
       <div class="nasa-emblem">
         <div class="nasa-ring" aria-hidden="true">🛸</div>
@@ -1824,10 +1906,10 @@ footer{
 </section>
 
 <!-- ═══ SERVICES ═══ -->
-<section id="services">
+<section id="services" aria-labelledby="services-title">
   <div class="container">
     <p class="sec-label" data-i18n="srv_label">Ce que je fais</p>
-    <h2 class="sec-title" data-i18n="srv_title">Mes services</h2>
+    <h2 class="sec-title" id="services-title" data-i18n="srv_title">Mes services</h2>
     <p class="sec-sub" data-i18n="srv_sub">Du prototype au déploiement, je couvre l'ensemble du cycle de vie d'un projet web ou mobile — jusqu'à l'architecture distribuée.</p>
     <div class="srv-grid reveal">
       <div class="srv-card"><div class="srv-icon" aria-hidden="true">🧩</div><h3 data-i18n="s0t">Architecture Microservices</h3><p data-i18n="s0d">Conception de systèmes distribués événementiels — communication asynchrone via RabbitMQ/Kafka, base de données par service et scalabilité horizontale.</p><span class="srv-tag">Microservices · Event-Driven · DDD</span></div>
@@ -1841,11 +1923,11 @@ footer{
 </section>
 
 <!-- ═══ PROJECTS ═══ -->
-<section id="projects">
+<section id="projects" aria-labelledby="projects-title">
   <div class="container">
     <p class="sec-label" data-i18n="prj_label">Portfolio</p>
-    <h2 class="sec-title" data-i18n="prj_title">Mes projets</h2>
-    <div class="filter-row" role="tablist">
+    <h2 class="sec-title" id="projects-title" data-i18n="prj_title">Mes projets</h2>
+    <div class="filter-row" role="tablist" aria-label="Filtres de projets">
       <button class="flt-btn active" data-f="all" data-i18n="f_all">Tous</button>
       <button class="flt-btn" data-f="micro" data-i18n="f_micro">Microservices</button>
       <button class="flt-btn" data-f="web">Web</button>
@@ -1857,7 +1939,7 @@ footer{
     </div>
     <div class="proj-grid reveal">
 
-      <div class="proj-card featured" data-f="micro">
+      <article class="proj-card featured" data-f="micro">
         <span class="feat-badge" data-i18n="feat_badge">★ Projet phare</span>
         <div class="proj-placeholder ph-njila"><span class="ph-icon">🧩</span><span class="ph-label">NJILA</span></div>
         <div class="proj-body">
@@ -1866,12 +1948,12 @@ footer{
           <p data-i18n="p_nj_d">Plateforme distribuée de réservation et de gestion de flotte pour le transport interurbain — 10 microservices communiquant via RabbitMQ, base de données par service et persistance polyglotte (SQL + NoSQL).</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Spring Boot</span><span class="stk">Django</span><span class="stk">RabbitMQ</span><span class="stk">Docker</span></div>
-            <a href="https://github.com/nguembu/njila" target="_blank" rel="noopener" class="proj-link" data-i18n="link_profile">GitHub →</a>
+            <a href="https://github.com/nguembu/njila" target="_blank" rel="noopener noreferrer" class="proj-link" data-i18n="link_profile">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card featured" data-f="library">
+      <article class="proj-card featured" data-f="library">
         <span class="feat-badge prod" data-i18n="feat_prod">★ Système en production</span>
         <div class="proj-placeholder ph-uy1"><span class="ph-icon">📚</span><span class="ph-label">UY1 · Bibliothèque</span></div>
         <div class="proj-body">
@@ -1883,9 +1965,9 @@ footer{
             <span class="proj-link" data-i18n="link_internal">Système interne →</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="corporate">
+      <article class="proj-card" data-f="corporate">
         <div class="proj-placeholder ph-tms"><span class="ph-icon">🏢</span><span class="ph-label">TMS SARL</span></div>
         <div class="proj-body">
           <p class="proj-cat">Web · Corporate</p>
@@ -1893,12 +1975,12 @@ footer{
           <p data-i18n="p_tms_d">Site web corporate professionnel pour TMS SARL — présentation des services, mise en avant de l'expertise métier et génération de leads via un design moderne et responsive.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">HTML</span><span class="stk">CSS</span><span class="stk">JavaScript</span></div>
-            <a href="https://tmsarl.netlify.app/" target="_blank" rel="noopener" class="proj-link">Live →</a>
+            <a href="https://tmsarl.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Live →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="mobile">
+      <article class="proj-card" data-f="mobile">
         <div class="proj-emoji" aria-hidden="true">🩸</div>
         <div class="proj-body">
           <p class="proj-cat">Mobile · React Native</p>
@@ -1906,12 +1988,12 @@ footer{
           <p data-i18n="p_bl_d">Application mobile React Native connectant donneurs de sang et receveurs en temps réel — géolocalisation, matching intelligent et notifications d'urgence.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">React Native</span><span class="stk">Expo</span><span class="stk">TypeScript</span></div>
-            <a href="https://github.com/nguembu/BloodLink" target="_blank" rel="noopener" class="proj-link">GitHub →</a>
+            <a href="https://github.com/nguembu/BloodLink" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="ecommerce">
+      <article class="proj-card" data-f="ecommerce">
         <div class="proj-placeholder ph-trade"><span class="ph-icon">🛒</span><span class="ph-label">TradeFlow</span></div>
         <div class="proj-body">
           <p class="proj-cat">E-commerce · Full Stack</p>
@@ -1919,12 +2001,12 @@ footer{
           <p data-i18n="p_tf_d">Plateforme e-commerce complète avec paiement sécurisé, gestion des stocks et tableau de bord vendeur — backend Django, frontend React.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Django</span><span class="stk">React</span><span class="stk">PostgreSQL</span></div>
-            <a href="https://github.com/nguembu/TradeFlow" target="_blank" rel="noopener" class="proj-link">GitHub →</a>
+            <a href="https://github.com/nguembu/TradeFlow" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="backend">
+      <article class="proj-card" data-f="backend">
         <div class="proj-placeholder ph-air"><span class="ph-icon">🌫</span><span class="ph-label">Air Quality</span></div>
         <div class="proj-body">
           <p class="proj-cat">Backend · Python</p>
@@ -1932,12 +2014,12 @@ footer{
           <p data-i18n="p_tq_d">Plateforme de données sur la qualité de l'air — collecte, traitement et visualisation de données environnementales en Python.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Python</span><span class="stk">Django</span><span class="stk">Data</span></div>
-            <a href="https://github.com/nguembu/tempo_air_quality" target="_blank" rel="noopener" class="proj-link">GitHub →</a>
+            <a href="https://github.com/nguembu/tempo_air_quality" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="backend">
+      <article class="proj-card" data-f="backend">
         <div class="proj-placeholder ph-blog"><span class="ph-icon">✍️</span><span class="ph-label">Blog Platform</span></div>
         <div class="proj-body">
           <p class="proj-cat">Backend · Django</p>
@@ -1945,12 +2027,12 @@ footer{
           <p data-i18n="p_bp_d">Plateforme de blog full-stack avec système de commentaires, authentification et gestion des rôles utilisateurs.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Django</span><span class="stk">DRF</span><span class="stk">MySQL</span></div>
-            <a href="https://github.com/nguembu/blogPlatform" target="_blank" rel="noopener" class="proj-link">GitHub →</a>
+            <a href="https://github.com/nguembu/blogPlatform" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="web">
+      <article class="proj-card" data-f="web">
         <div class="proj-placeholder ph-keng"><span class="ph-icon">⚡</span><span class="ph-label">Keng Eng.</span></div>
         <div class="proj-body">
           <p class="proj-cat">Web · Corporate</p>
@@ -1958,12 +2040,12 @@ footer{
           <p data-i18n="p_ke_d">Site vitrine professionnel pour une entreprise d'Ingénierie &amp; Services Électriques — design sobre et impactant.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">HTML</span><span class="stk">CSS</span><span class="stk">JS</span></div>
-            <a href="https://keng-engineering-website.netlify.app/" target="_blank" rel="noopener" class="proj-link">Live →</a>
+            <a href="https://keng-engineering-website.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Live →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="web">
+      <article class="proj-card" data-f="web">
         <div class="proj-placeholder ph-mamzy"><span class="ph-icon">🎨</span><span class="ph-label">Mamzy Kids</span></div>
         <div class="proj-body">
           <p class="proj-cat">Web · Jeunesse</p>
@@ -1971,12 +2053,12 @@ footer{
           <p data-i18n="p_mc_d">Jeu de coloriage interactif pour enfants — site ludique et coloré pour un distributeur de livres et magazines.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">JavaScript</span><span class="stk">HTML</span><span class="stk">CSS</span></div>
-            <a href="https://mamzy-color-kids.netlify.app/" target="_blank" rel="noopener" class="proj-link">Live →</a>
+            <a href="https://mamzy-color-kids.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Live →</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="proj-card" data-f="web">
+      <article class="proj-card" data-f="web">
         <div class="proj-placeholder ph-terra"><span class="ph-icon">🌿</span><span class="ph-label">TERRABIA</span></div>
         <div class="proj-body">
           <p class="proj-cat">Web · Agri-tech</p>
@@ -1984,73 +2066,72 @@ footer{
           <p data-i18n="p_tb_d">Plateforme web complète connectant agriculteurs et acheteurs — vente directe de produits agricoles avec service de livraison intégré.</p>
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Python</span><span class="stk">Django</span><span class="stk">Full Stack</span></div>
-            <a href="https://github.com/nguembu/TERRABIA" target="_blank" rel="noopener" class="proj-link">GitHub →</a>
+            <a href="https://github.com/nguembu/TERRABIA" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub →</a>
           </div>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- ═══ BLOG ═══ -->
-<section id="blog">
+<section id="blog" aria-labelledby="blog-title">
   <div class="container">
     <p class="sec-label" data-i18n="blg_label">Partage de connaissances</p>
-    <h2 class="sec-title" data-i18n="blg_title">Articles &amp; Réflexions</h2>
+    <h2 class="sec-title" id="blog-title" data-i18n="blg_title">Articles &amp; Réflexions</h2>
     <p class="sec-sub" data-i18n="blg_sub">Retours d'expérience sur mes projets open-source, mes apprentissages et mes explorations techniques.</p>
     <div class="blog-grid reveal">
 
-      <!-- ══ ARTICLE PHARE : THÈME DE RECHERCHE M2 ══ -->
-      <div class="blog-card featured-research">
+      <article class="blog-card featured-research">
         <span class="research-badge">🎓 <span data-i18n="btag_research_full">Recherche · M2 — Software Engineering</span></span>
         <h3 data-i18n="b_research_title">« Conception d'une approche prédictive d'analyse d'impact des changements dans les architectures microservices évolutives »</h3>
         <p class="en-quote" data-i18n="b_research_title_en">"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures"</p>
         <p data-i18n="b_research_desc">Ce travail de recherche propose un cadre prédictif (PCIA) permettant d'anticiper, avant leur intégration, les effets en cascade d'un changement dans un écosystème de microservices — en combinant analyse statique, observabilité runtime et apprentissage automatique.</p>
-        <a href="https://github.com/nguembu/master-thesis-distributed-systems" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
-      </div>
+        <a href="https://github.com/nguembu/master-thesis-distributed-systems" target="_blank" rel="noopener noreferrer" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
+      </article>
 
-      <div class="blog-card">
+      <article class="blog-card">
         <span class="btag pu" data-i18n="btag_micro">Recherche · Microservices</span>
         <p class="blog-date">2025 · Systèmes Distribués</p>
         <h3 data-i18n="b4t">Transactions distribuées en microservices : ce que révèle NJILA</h3>
         <p data-i18n="b4d">Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements.</p>
-        <a href="https://github.com/nguembu/NJILA" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
-      </div>
+        <a href="https://github.com/nguembu/NJILA" target="_blank" rel="noopener noreferrer" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
+      </article>
 
-      <div class="blog-card">
+      <article class="blog-card">
         <span class="btag">React Native</span>
         <p class="blog-date">2024 · BloodLink</p>
         <h3 data-i18n="b1t">Construire BloodLink : une app mobile de don de sang en React Native + Expo</h3>
         <p data-i18n="b1d">Retour sur la conception de BloodLink — géolocalisation, matching en temps réel, notifications push et architecture frontend TypeScript.</p>
-        <a href="https://github.com/nguembu/BloodLink" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
-      </div>
+        <a href="https://github.com/nguembu/BloodLink" target="_blank" rel="noopener noreferrer" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
+      </article>
 
-      <div class="blog-card">
+      <article class="blog-card">
         <span class="btag gr">Python · Data</span>
         <p class="blog-date">2024 · Tempo Air Quality</p>
         <h3 data-i18n="b2t">Tempo Air Quality : collecter et visualiser des données environnementales avec Python</h3>
         <p data-i18n="b2d">Comment j'ai construit une plateforme de monitoring de la qualité de l'air — pipeline de données, API Django et visualisations.</p>
-        <a href="https://github.com/nguembu/tempo_air_quality" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
-      </div>
+        <a href="https://github.com/nguembu/tempo_air_quality" target="_blank" rel="noopener noreferrer" class="blog-read" data-i18n="blog_read">Voir le projet →</a>
+      </article>
 
-      <div class="blog-card">
+      <article class="blog-card">
         <span class="btag or">NASA · Hackathon</span>
         <p class="blog-date">2024 · NASA Space Apps</p>
         <h3 data-i18n="b3t">48h au NASA Space Apps Challenge — ce que j'ai appris</h3>
         <p data-i18n="b3d">Récit de mon expérience lors de ce hackathon mondial : la pression du temps, la collaboration en équipe et le développement sous contrainte.</p>
-        <a href="https://github.com/nguembu" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read_gh">Voir mon GitHub →</a>
-      </div>
+        <a href="https://github.com/nguembu" target="_blank" rel="noopener noreferrer" class="blog-read" data-i18n="blog_read_gh">Voir mon GitHub →</a>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
-<section id="contact">
+<section id="contact" aria-labelledby="contact-title">
   <div class="container">
     <p class="sec-label" data-i18n="ct_label">Contact</p>
-    <h2 class="sec-title" data-i18n="ct_title">Travaillons ensemble</h2>
+    <h2 class="sec-title" id="contact-title" data-i18n="ct_title">Travaillons ensemble</h2>
     <div class="ct-grid reveal">
       <div class="ct-info">
         <h3 data-i18n="ct_h3">Un projet ou une collaboration de recherche ?</h3>
@@ -2082,29 +2163,32 @@ footer{
       <div class="ct-form-wrap">
         <form id="cf" action="https://formspree.io/f/xzzgozkb" method="POST" novalidate>
           <div class="form-row">
-            <input type="text"  name="name"    data-ph-fr="Votre nom"   data-ph-en="Your name"  placeholder="Votre nom"  required autocomplete="name">
-            <input type="email" name="email"   data-ph-fr="Votre email" data-ph-en="Your email" placeholder="Votre email" required autocomplete="email">
+            <input type="text"  name="name"    data-ph-fr="Votre nom"   data-ph-en="Your name"  placeholder="Votre nom"  required autocomplete="name" aria-label="Votre nom">
+            <input type="email" name="email"   data-ph-fr="Votre email" data-ph-en="Your email" placeholder="Votre email" required autocomplete="email" aria-label="Votre email">
           </div>
-          <input   type="text" name="subject"  data-ph-fr="Sujet"            data-ph-en="Subject"         placeholder="Sujet"             required>
-          <textarea            name="message"  data-ph-fr="Votre message..." data-ph-en="Your message..." placeholder="Votre message..." required rows="5"></textarea>
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input   type="text" name="subject"  data-ph-fr="Sujet"            data-ph-en="Subject"         placeholder="Sujet"             required aria-label="Sujet">
+          <textarea            name="message"  data-ph-fr="Votre message..." data-ph-en="Your message..." placeholder="Votre message..." required rows="5" aria-label="Votre message"></textarea>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button type="submit" id="submitBtn" data-i18n="ct_send">Envoyer le message</button>
         </form>
-        <div class="form-ok" id="fmsg" role="status"></div>
+        <div class="form-ok" id="fmsg" role="status" aria-live="polite"></div>
       </div>
     </div>
   </div>
 </section>
+
+</main>
+<!-- ═══ END MAIN ═══ -->
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="ft-inner">
     <div class="ft-logo">John<span>.</span>dev <small style="font-weight:400;color:var(--text2);font-size:.68rem;"> — Software Architect</small></div>
     <div class="soc-links">
-      <a href="https://github.com/nguembu" target="_blank" rel="noopener" class="soc-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" rel="noopener" class="soc-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener" class="soc-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/nguembu" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
     </div>
     <p class="ft-copy">© 2025 John NGUEMBU · UY1 — M2 Research</p>
   </div>
@@ -2327,7 +2411,7 @@ function openMobileMenu() {
   mobileMenu.classList.add('active');
   menuOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
-  menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+  menuToggle.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
   menuToggle.setAttribute('aria-expanded', 'true');
   menuToggle.setAttribute('aria-label', 'Fermer le menu');
 }
@@ -2336,7 +2420,7 @@ function closeMobileMenu() {
   mobileMenu.classList.remove('active');
   menuOverlay.classList.remove('active');
   document.body.style.overflow = '';
-  menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
 }
@@ -2382,7 +2466,7 @@ function onScroll() {
 
   var fromTop = scrolled + 120;
   var current = '';
-  document.querySelectorAll('section[id]').forEach(function(sec) {
+  document.querySelectorAll('main section[id]').forEach(function(sec) {
     if (sec.offsetTop <= fromTop) current = sec.getAttribute('id');
   });
   navLinks.forEach(function(a) {
