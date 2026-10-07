@@ -8,14 +8,12 @@
 <meta name="theme-color" content="#0a0e1a">
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="John NGUEMBU — Software Architect & M2 Researcher">
 <meta property="og:description" content="Ingénieur Logiciel Fullstack & chercheur M2 — Analyse prédictive d'impact des changements dans les architectures microservices évolutives.">
 <meta property="og:image" content="me2.jpeg">
 <meta property="og:locale" content="fr_FR">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="John NGUEMBU — Software Architect">
 <meta name="twitter:description" content="Distributed Systems · Predictive Change Impact Analysis · M2 Research">
@@ -103,16 +101,16 @@
   --border:rgba(96,165,250,0.10);
   --border-strong:rgba(96,165,250,0.20);
   --text:#f0f4ff; --text2:#8090b8; --text3:#4d5a80;
-  --accent:#3b82f6; --accent2:#8b5cf6; --accent3:#fbbf24;
-  --accent-soft:rgba(59,130,246,0.14);
-  --glow:rgba(59,130,246,0.35);
+  --accent:#8b5cf6; --accent2:#06b6d4; --accent3:#fbbf24;
+  --accent-soft:rgba(139,92,246,0.14);
+  --glow:rgba(139,92,246,0.35);
   --glow-gold:rgba(251,191,36,0.28);
   --card-shadow:0 6px 40px rgba(0,0,0,0.65);
   --header-bg:rgba(5,7,16,0.85);
   --menu-overlay:rgba(0,0,0,0.82);
-  --selection:rgba(59,130,246,0.35);
-  --aurora-1:rgba(59,130,246,0.24);
-  --aurora-2:rgba(139,92,246,0.20);
+  --selection:rgba(139,92,246,0.35);
+  --aurora-1:rgba(139,92,246,0.24);
+  --aurora-2:rgba(6,182,212,0.20);
   --aurora-3:rgba(251,191,36,0.12);
 }
 :root[data-theme="crimson"]{
@@ -181,7 +179,6 @@ img{ max-width:100%; height:auto; display:block; }
   border-radius:4px;
 }
 
-/* Noise overlay */
 body::before{
   content:''; position:fixed; inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -225,16 +222,10 @@ body::before{
   75%{ transform:translate(30px,30px) scale(1.05); }
 }
 
-/* ══════════════════════════════════════
-   PARTICLES CANVAS
-══════════════════════════════════════ */
 #particles-canvas{
   position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0.55;
 }
 
-/* ══════════════════════════════════════
-   FLOATING SHAPES (formes flottantes)
-══════════════════════════════════════ */
 .float-shape{
   position:fixed; pointer-events:none; z-index:1;
   opacity:0.35;
@@ -256,7 +247,6 @@ body::before{
   75%{ transform:translate(40px,20px) rotate(6deg); opacity:0.45; }
 }
 
-/* ── PRELOADER ── */
 .preloader{
   position:fixed; inset:0; z-index:10001;
   background:var(--bg); display:flex;
@@ -286,7 +276,6 @@ body::before{
   100%{ transform:translateX(350%); }
 }
 
-/* ── SCROLL PROGRESS ── */
 .scroll-progress{
   position:fixed; top:0; left:0; height:3px; width:0%;
   z-index:1001;
@@ -295,7 +284,6 @@ body::before{
   box-shadow:0 0 12px var(--glow);
 }
 
-/* ── CURSOR ── */
 .cursor{
   position:fixed; width:10px; height:10px;
   background:var(--accent); border-radius:50%;
@@ -318,7 +306,6 @@ body::before{
 .cursor.h{ transform:translate(-50%,-50%) scale(2.6); }
 .cursor-ring.h{ width:62px; height:62px; opacity:.22; border-color:var(--accent3); }
 
-/* ── BACK TO TOP ── */
 .back-to-top{
   position:fixed; bottom:28px; right:28px; z-index:900;
   width:46px; height:46px; border-radius:12px;
@@ -339,7 +326,6 @@ body::before{
   box-shadow:0 12px 30px var(--glow);
 }
 
-/* ── HEADER ── */
 header{
   position:fixed; top:0; width:100%; z-index:1000;
   background:var(--header-bg);
@@ -455,7 +441,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 }
 .menu-toggle:hover{ transform:scale(1.08); }
 
-/* ── MOBILE MENU ── */
 .menu-overlay{
   position:fixed; inset:0;
   background:var(--menu-overlay);
@@ -548,7 +533,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
   background:var(--accent); color:#fff; border-color:var(--accent);
 }
 
-/* ── HERO ── */
 .hero{
   min-height:100vh; min-height:100svh;
   padding-top:72px;
@@ -561,6 +545,7 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
   background:
     radial-gradient(ellipse 60% 50% at 72% 45%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 70%),
     radial-gradient(ellipse 45% 45% at 20% 85%, color-mix(in srgb, var(--accent2) 8%, transparent) 0%, transparent 65%);
+  transition:transform .3s ease-out;
 }
 .hero-grid{
   position:absolute; inset:0;
@@ -700,7 +685,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .nasa-badge strong{ color:var(--accent3); display:block; font-size:.88rem; }
 .nasa-badge span{ color:var(--text2); font-size:.78rem; }
 
-/* Terminal */
 .hero-terminal{
   background:var(--surface);
   border:1px solid var(--border-strong);
@@ -746,7 +730,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 }
 @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:0; } }
 
-/* Hero load-in */
 .hero-tag,.hero-name,.hero-role,.hero-desc,.hero-btns,.nasa-badge,.hero-terminal{
   opacity:0; transform:translateY(24px);
   animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards;
@@ -760,7 +743,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .hero-terminal{ animation-delay:.32s; }
 @keyframes heroUp{ to{ opacity:1; transform:translateY(0); } }
 
-/* ── SECTIONS ── */
 section{ padding:104px 0; position:relative; z-index:2; }
 .container{ max-width:1240px; margin:0 auto; padding:0 32px; }
 .sec-label{
@@ -789,153 +771,8 @@ section{ padding:104px 0; position:relative; z-index:2; }
   max-width:560px; margin-bottom:64px; line-height:1.7;
 }
 
-/* ── RESEARCH FOCUS SECTION ── */
-#research{ background:var(--bg2); transition:background .4s; position:relative; overflow:hidden; }
-#research::before{
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 30%,
-    color-mix(in srgb, var(--accent) 8%, transparent) 0%,transparent 70%);
-  pointer-events:none;
-}
-.research-hero{
-  background:var(--surface);
-  border:1px solid var(--border-strong);
-  border-radius:22px; padding:44px;
-  position:relative; overflow:hidden;
-  margin-bottom:32px;
-  transition:transform .5s;
-}
-.research-hero::before{
-  content:''; position:absolute; inset:-2px;
-  border-radius:22px;
-  background:linear-gradient(120deg,var(--accent),var(--accent2),var(--accent3),var(--accent));
-  background-size:300% 300%;
-  z-index:-1; opacity:.35;
-  animation:gradientFlow 10s ease infinite;
-}
-.research-hero-badge{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:6px 14px; border-radius:50px;
-  background:color-mix(in srgb,var(--accent) 12%,transparent);
-  border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
-  font-family:'JetBrains Mono',monospace;
-  font-size:.7rem; color:var(--accent);
-  letter-spacing:1.5px; text-transform:uppercase;
-  margin-bottom:20px;
-}
-.research-hero h3{
-  font-size:clamp(1.2rem,2.4vw,1.6rem);
-  font-weight:700; line-height:1.35;
-  margin-bottom:14px;
-  color:var(--text);
-}
-.research-hero h3 em{
-  font-style:normal;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.research-hero .en-title{
-  color:var(--text2); font-size:.94rem;
-  font-style:italic; margin-bottom:24px;
-  padding-left:16px; border-left:3px solid var(--accent3);
-}
-.research-meta{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px; margin-top:24px;
-  padding-top:24px; border-top:1px dashed var(--border);
-}
-.research-meta-item strong{
-  display:block; font-family:'JetBrains Mono',monospace;
-  font-size:.68rem; color:var(--accent);
-  letter-spacing:1.5px; text-transform:uppercase;
-  margin-bottom:6px;
-}
-.research-meta-item span{ font-size:.88rem; color:var(--text2); }
-
-.research-grid{
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:22px; margin-top:32px;
-}
-.research-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px; padding:28px;
-  position:relative; overflow:hidden;
-  transition:transform .35s, border-color .3s, box-shadow .35s;
-}
-.research-card::before{
-  content:''; position:absolute; top:0; left:0;
-  width:100%; height:3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transform:scaleX(0); transform-origin:left;
-  transition:transform .4s;
-}
-.research-card:hover::before{ transform:scaleX(1); }
-.research-card:hover{
-  border-color:var(--accent);
-  transform:translateY(-4px);
-  box-shadow:0 20px 44px var(--glow);
-}
-.research-card h4{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.78rem; color:var(--accent);
-  letter-spacing:2px; text-transform:uppercase;
-  margin-bottom:16px;
-  display:flex; align-items:center; gap:10px;
-}
-.research-card h4 .num{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:26px; height:26px; border-radius:50%;
-  background:var(--accent-soft);
-  font-size:.7rem; color:var(--accent);
-  border:1px solid var(--accent);
-}
-.research-card p{ color:var(--text2); font-size:.9rem; line-height:1.75; }
-.research-card ul{ display:flex; flex-direction:column; gap:12px; }
-.research-card ul li{
-  color:var(--text2); font-size:.88rem; line-height:1.65;
-  padding-left:24px; position:relative;
-}
-.research-card ul li::before{
-  content:'▸'; position:absolute; left:0; top:0;
-  color:var(--accent3); font-weight:700;
-}
-.research-card ul li strong{ color:var(--text); font-weight:600; }
-
-.research-timeline{
-  margin-top:32px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-  gap:12px;
-}
-.timeline-step{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:11px; padding:14px 12px;
-  text-align:center;
-  transition:all .3s;
-  position:relative;
-}
-.timeline-step:hover{
-  border-color:var(--accent);
-  transform:translateY(-3px);
-  box-shadow:0 12px 24px var(--glow);
-}
-.timeline-step .m{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.7rem; color:var(--accent);
-  letter-spacing:1.5px; margin-bottom:6px;
-  font-weight:700;
-}
-.timeline-step .label{
-  font-size:.76rem; color:var(--text2);
-  line-height:1.4;
-}
-
 /* ── ABOUT ── */
-#about{ background:var(--bg); transition:background .4s; }
+#about{ background:var(--bg2); transition:background .4s; }
 .about-grid{
   display:grid; grid-template-columns:1fr 2fr;
   gap:64px; align-items:start;
@@ -1022,7 +859,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   background:color-mix(in srgb,var(--accent3) 7%,transparent);
 }
 
-/* ── TECH MARQUEE ── */
 .marquee-wrap{
   margin-top:64px; overflow:hidden;
   mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);
@@ -1049,7 +885,7 @@ section{ padding:104px 0; position:relative; z-index:2; }
 }
 
 /* ── NASA ── */
-#nasa{ background:var(--bg2); position:relative; overflow:hidden; transition:background .4s; }
+#nasa{ background:var(--bg); position:relative; overflow:hidden; }
 #nasa::before{
   content:''; position:absolute; inset:0;
   background:radial-gradient(ellipse 60% 60% at 50% 50%,
@@ -1108,7 +944,7 @@ section{ padding:104px 0; position:relative; z-index:2; }
 }
 
 /* ── SERVICES ── */
-#services{ background:var(--bg); transition:background .4s; }
+#services{ background:var(--bg2); transition:background .4s; }
 .srv-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
@@ -1169,7 +1005,7 @@ section{ padding:104px 0; position:relative; z-index:2; }
 }
 
 /* ── PROJECTS ── */
-#projects{ background:var(--bg2); transition:background .4s; }
+#projects{ background:var(--bg); }
 .filter-row{ display:flex; gap:9px; flex-wrap:wrap; margin-bottom:44px; }
 .flt-btn{
   padding:8px 18px; border-radius:8px;
@@ -1318,7 +1154,7 @@ section{ padding:104px 0; position:relative; z-index:2; }
 .proj-link:hover{ gap:9px; }
 
 /* ── BLOG ── */
-#blog{ background:var(--bg); transition:background .4s; }
+#blog{ background:var(--bg2); transition:background .4s; }
 .blog-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -1330,7 +1166,17 @@ section{ padding:104px 0; position:relative; z-index:2; }
   transition:border-color .3s, transform .35s, box-shadow .35s;
   display:flex; flex-direction:column;
   opacity:0; transform:translateY(26px);
+  position:relative;
+  overflow:hidden;
 }
+.blog-card::before{
+  content:''; position:absolute; top:0; left:0;
+  width:100%; height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .4s;
+}
+.blog-card:hover::before{ transform:scaleX(1); }
 .reveal.on .blog-card{ opacity:1; transform:translateY(0); }
 .blog-grid .blog-card:nth-child(1){ transition-delay:.03s; }
 .blog-grid .blog-card:nth-child(2){ transition-delay:.1s; }
@@ -1385,8 +1231,60 @@ section{ padding:104px 0; position:relative; z-index:2; }
   color:var(--accent);
 }
 
+/* Blog card phare (recherche M2) */
+.blog-card.featured-research{
+  grid-column:1 / -1;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--accent) 8%,var(--surface)),
+      color-mix(in srgb,var(--accent3) 5%,var(--surface)));
+  border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));
+  position:relative;
+  overflow:hidden;
+}
+.blog-card.featured-research::after{
+  content:''; position:absolute; inset:-2px;
+  border-radius:16px;
+  background:linear-gradient(120deg,var(--accent),var(--accent2),var(--accent3),var(--accent));
+  background-size:300% 300%;
+  z-index:-1; opacity:.35;
+  animation:gradientFlow 10s ease infinite;
+  filter:blur(14px);
+}
+.blog-card.featured-research .research-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:5px 13px; border-radius:50px;
+  background:color-mix(in srgb,var(--accent) 15%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem; color:var(--accent);
+  letter-spacing:1.6px; text-transform:uppercase;
+  margin-bottom:16px;
+  animation:badgeGlow 3s ease-in-out infinite;
+}
+.blog-card.featured-research h3{
+  font-size:1.15rem;
+  line-height:1.4;
+  margin-bottom:12px;
+  background:linear-gradient(135deg,var(--text),var(--accent));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200% 200%;
+  animation:gradientFlow 8s ease infinite;
+}
+.blog-card.featured-research .en-quote{
+  color:var(--text2);
+  font-size:.9rem;
+  font-style:italic;
+  padding-left:14px;
+  border-left:2px solid var(--accent3);
+  margin-bottom:16px;
+  line-height:1.6;
+}
+
 /* ── CONTACT ── */
-#contact{ background:var(--bg2); transition:background .4s; }
+#contact{ background:var(--bg); }
 .ct-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:64px; }
 .ct-info h3{ font-size:1.45rem; font-weight:700; margin-bottom:16px; }
 .ct-info p{ color:var(--text2); line-height:1.85; margin-bottom:32px; }
@@ -1467,7 +1365,7 @@ section{ padding:104px 0; position:relative; z-index:2; }
 
 /* ── FOOTER ── */
 footer{
-  background:var(--bg);
+  background:var(--bg2);
   border-top:1px solid var(--border);
   padding:44px 0;
   transition:background .4s;
@@ -1504,14 +1402,12 @@ footer{
   font-family:'JetBrains Mono',monospace;
 }
 
-/* ── REVEAL ── */
 .reveal{
   opacity:0; transform:translateY(30px);
   transition:opacity .75s ease, transform .75s cubic-bezier(.22,1,.36,1);
 }
 .reveal.on{ opacity:1; transform:translateY(0); }
 
-/* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{
     animation-duration:.001ms !important;
@@ -1526,9 +1422,6 @@ footer{
   .cursor, .cursor-ring, .preloader, #particles-canvas, .float-shape, .aurora-bg { display:none !important; }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
 @media(max-width:1100px){
   .hdr{ padding:0 24px; }
   .hero-inner{ padding:0 24px; gap:44px; }
@@ -1546,7 +1439,6 @@ footer{
   .nasa-ring{ width:104px; height:104px; font-size:2.8rem; flex-shrink:0; }
   .ct-grid{ grid-template-columns:1fr; gap:44px; }
   .skills-grid{ grid-template-columns:1fr 1fr; }
-  .research-grid{ grid-template-columns:1fr; }
   section{ padding:80px 0; }
 }
 
@@ -1597,17 +1489,12 @@ footer{
 
   .blog-grid{ grid-template-columns:1fr; gap:16px; }
   .blog-card{ padding:22px; }
+  .blog-card.featured-research h3{ font-size:1rem; }
 
   .ct-form-wrap{ padding:26px; border-radius:15px; }
   .form-row{ grid-template-columns:1fr; }
   .ct-form-wrap input,
   .ct-form-wrap textarea{ padding:12px 15px; font-size:.88rem; }
-
-  .research-hero{ padding:26px; }
-  .research-hero h3{ font-size:1.15rem; }
-  .research-meta{ grid-template-columns:1fr 1fr; gap:12px; }
-  .research-card{ padding:22px; }
-  .research-timeline{ grid-template-columns:repeat(2,1fr); }
 
   .ft-inner{
     flex-direction:column; align-items:center;
@@ -1629,8 +1516,6 @@ footer{
   .logo{ font-size:.85rem; }
   .mobile-menu{ width:94%; padding:70px 20px 28px; }
   .cursor, .cursor-ring{ display:none; }
-  .research-timeline{ grid-template-columns:1fr; }
-  .research-meta{ grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -1676,8 +1561,8 @@ footer{
     <nav class="desktop" id="navDesktop" aria-label="Navigation principale">
       <ul>
         <li><a href="#home" data-i18n="nav_home">Accueil</a></li>
-        <li><a href="#research" data-i18n="nav_research">Recherche</a></li>
         <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+        <li><a href="#nasa">NASA 🚀</a></li>
         <li><a href="#services" data-i18n="nav_services">Services</a></li>
         <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
         <li><a href="#blog">Blog</a></li>
@@ -1696,7 +1581,7 @@ footer{
         </button>
         <div class="theme-menu" id="themeMenu" role="menu">
           <button class="theme-opt" data-theme="dark"     role="menuitem"><span class="swatch" style="background:#2563eb"></span>Research Dark</button>
-          <button class="theme-opt" data-theme="slate"    role="menuitem"><span class="swatch" style="background:#3b82f6"></span>Slate</button>
+          <button class="theme-opt" data-theme="slate"    role="menuitem"><span class="swatch" style="background:#3b82f6"></span>Slate Ocean</button>
           <button class="theme-opt" data-theme="midnight" role="menuitem"><span class="swatch" style="background:#8b5cf6"></span>Midnight</button>
           <button class="theme-opt" data-theme="crimson"  role="menuitem"><span class="swatch" style="background:#f43f5e"></span>Crimson</button>
           <button class="theme-opt" data-theme="light"    role="menuitem"><span class="swatch" style="background:#1d4ed8"></span>Light</button>
@@ -1720,8 +1605,8 @@ footer{
   </div>
   <ul>
     <li><a href="#home"><span class="icon">🏠</span><span class="label" data-i18n="nav_home">Accueil</span></a></li>
-    <li><a href="#research"><span class="icon">🔬</span><span class="label" data-i18n="nav_research">Recherche</span></a></li>
     <li><a href="#about"><span class="icon">👤</span><span class="label" data-i18n="nav_about">À propos</span></a></li>
+    <li><a href="#nasa"><span class="icon">🚀</span><span class="label">NASA</span></a></li>
     <li><a href="#services"><span class="icon">⚡</span><span class="label" data-i18n="nav_services">Services</span></a></li>
     <li><a href="#projects"><span class="icon">💼</span><span class="label" data-i18n="nav_projects">Projets</span></a></li>
     <li><a href="#blog"><span class="icon">✍️</span><span class="label">Blog</span></a></li>
@@ -1754,8 +1639,8 @@ footer{
       </p>
       <p class="hero-desc" data-i18n="hero_desc">Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ).</p>
       <div class="hero-btns">
-        <a href="#research" class="btn-primary" data-i18n="hero_btn_research">Voir ma recherche</a>
-        <a href="#projects" class="btn-ghost"   data-i18n="hero_btn1">Projets</a>
+        <a href="#projects" class="btn-primary" data-i18n="hero_btn1">Voir mes projets</a>
+        <a href="#contact"  class="btn-ghost"   data-i18n="hero_btn2">Me contacter</a>
         <div class="cv-dropdown">
           <a href="CV_John_NGUEMBU_FR.pdf" download class="btn-cv">
             <i class="fas fa-download"></i>
@@ -1786,90 +1671,15 @@ footer{
         <div class="to">{</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"name"</span>: <span class="tv">"John NGUEMBU"</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Software Architect"</span>,</div>
-        <div class="to">&nbsp;&nbsp;<span class="tk">"research"</span>: <span class="tv">"M2 - PCIA"</span>,</div>
-        <div class="to">&nbsp;&nbsp;<span class="tk">"focus"</span>: <span class="tv">"Predictive Change Impact"</span>,</div>
+        <div class="to">&nbsp;&nbsp;<span class="tk">"focus"</span>: <span class="tv">"Distributed Systems"</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"backend"</span>: [<span class="tv">"Spring Boot"</span>, <span class="tv">"Django"</span>],</div>
-        <div class="to">&nbsp;&nbsp;<span class="tk">"architecture"</span>: [<span class="tv">"Microservices"</span>, <span class="tv">"DDD"</span>, <span class="tv">"Event-Driven"</span>],</div>
-        <div class="to">&nbsp;&nbsp;<span class="tk">"metrics"</span>: [<span class="tv">"PCIS"</span>, <span class="tv">"F1-Score"</span>, <span class="tv">"Top-k"</span>],</div>
+        <div class="to">&nbsp;&nbsp;<span class="tk">"frontend"</span>: [<span class="tv">"React"</span>, <span class="tv">"Vue.js"</span>],</div>
+        <div class="to">&nbsp;&nbsp;<span class="tk">"architecture"</span>: [<span class="tv">"Microservices"</span>, <span class="tv">"RabbitMQ"</span>, <span class="tv">"DDD"</span>],</div>
+        <div class="to">&nbsp;&nbsp;<span class="tk">"hackathon"</span>: <span class="tv">"NASA Space Apps 🚀"</span>,</div>
         <div class="to">&nbsp;&nbsp;<span class="tk">"location"</span>: <span class="tv">"Yaoundé 🇨🇲"</span></div>
         <div class="to">}</div>
         <div class="tl" style="margin-top:10px;"><span class="tp">$</span><span class="cblink"></span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RESEARCH FOCUS ═══ -->
-<section id="research">
-  <div class="container">
-    <p class="sec-label" data-i18n="rs_label">M2 Research — Software Engineering</p>
-    <h2 class="sec-title" data-i18n="rs_title">Analyse Prédictive d'Impact<br><span class="dim">des Changements</span></h2>
-    <p class="sec-sub" data-i18n="rs_sub">Recherche en Master 2 à l'Université de Yaoundé I — prédire l'impact des changements dans les architectures microservices évolutives.</p>
-
-    <div class="research-hero reveal">
-      <span class="research-hero-badge">🎓 Master 2 Recherche · UY1</span>
-      <h3 data-i18n="rs_thesis_fr">« Conception d'une approche prédictive d'analyse d'impact des changements dans les architectures microservices évolutives »</h3>
-      <p class="en-title" data-i18n="rs_thesis_en">"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures"</p>
-      <div class="research-meta">
-        <div class="research-meta-item">
-          <strong data-i18n="rs_sup">Directeur</strong>
-          <span>Pr OLLÉ OLLÉ Daniel Claude Delort</span>
-        </div>
-        <div class="research-meta-item">
-          <strong data-i18n="rs_inst">Institution</strong>
-          <span>Faculté des Sciences · Département d'Informatique</span>
-        </div>
-        <div class="research-meta-item">
-          <strong data-i18n="rs_year">Année</strong>
-          <span>2026 – 2027</span>
-        </div>
-        <div class="research-meta-item">
-          <strong data-i18n="rs_center">Centre</strong>
-          <span>CRFD-STG · UY1</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="research-grid reveal">
-      <div class="research-card">
-        <h4><span class="num">RQ</span> <span data-i18n="rs_rq">Questions de recherche</span></h4>
-        <ul>
-          <li><strong>RQ1 —</strong> <span data-i18n="rs_rq1">Quels facteurs sont les plus pertinents pour prédire l'impact ?</span></li>
-          <li><strong>RQ2 —</strong> <span data-i18n="rs_rq2">L'historique d'évolution améliore-t-il la précision par rapport aux dépendances statiques seules ?</span></li>
-          <li><strong>RQ3 —</strong> <span data-i18n="rs_rq3">Dans quelles conditions l'approche est-elle la plus efficace ?</span></li>
-        </ul>
-      </div>
-
-      <div class="research-card">
-        <h4><span class="num">H</span> <span data-i18n="rs_hyp">Hypothèses</span></h4>
-        <ul>
-          <li><strong>H1 —</strong> <span data-i18n="rs_h1">Dépendances + historique &gt; dépendances statiques seules.</span></li>
-          <li><strong>H2 —</strong> <span data-i18n="rs_h2">La co-évolution améliore la détection des composants indirectement affectés.</span></li>
-          <li><strong>H3 —</strong> <span data-i18n="rs_h3">Les caractéristiques du changement améliorent la précision de la propagation prédite.</span></li>
-        </ul>
-      </div>
-
-      <div class="research-card">
-        <h4><span class="num">⚙</span> <span data-i18n="rs_method">Méthodologie — PCIA</span></h4>
-        <p data-i18n="rs_method_desc">Le cadre <strong>Predictive Change Impact Analysis (PCIA)</strong> intègre trois sources : le modèle architectural, le graphe de dépendances, et l'historique d'évolution. Il produit le <strong>Predictive Change Impact Score (PCIS)</strong> estimant la probabilité qu'un composant soit affecté et la propagation de l'impact.</p>
-      </div>
-
-      <div class="research-card">
-        <h4><span class="num">📊</span> <span data-i18n="rs_valid">Validation empirique</span></h4>
-        <p data-i18n="rs_valid_desc">Corpus de <strong>8 à 12 dépôts open source</strong> microservices. Validation par <strong>simulation temporelle</strong> (entraînement jusqu'au commit N-1, prédiction au commit N). Comparaison aux méthodes de référence : <strong>Precision, Recall, F1-Score, Top-k accuracy</strong>.</p>
-      </div>
-    </div>
-
-    <div class="research-timeline reveal">
-      <div class="timeline-step"><div class="m">M1-2</div><div class="label" data-i18n="tl1">Revue de littérature</div></div>
-      <div class="timeline-step"><div class="m">M3</div><div class="label" data-i18n="tl2">Sélection dépôts</div></div>
-      <div class="timeline-step"><div class="m">M4</div><div class="label" data-i18n="tl3">Graphes de dépendances</div></div>
-      <div class="timeline-step"><div class="m">M5</div><div class="label" data-i18n="tl4">Jeu de données</div></div>
-      <div class="timeline-step"><div class="m">M6</div><div class="label" data-i18n="tl5">Modèle PCIA/PCIS</div></div>
-      <div class="timeline-step"><div class="m">M7</div><div class="label" data-i18n="tl6">Expérimentations</div></div>
-      <div class="timeline-step"><div class="m">M8</div><div class="label" data-i18n="tl7">Comparaison</div></div>
-      <div class="timeline-step"><div class="m">M9</div><div class="label" data-i18n="tl8">Analyse</div></div>
-      <div class="timeline-step"><div class="m">M10</div><div class="label" data-i18n="tl9">Rédaction</div></div>
     </div>
   </div>
 </section>
@@ -1981,6 +1791,33 @@ footer{
         <span class="marquee-item"><i class="fas fa-robot"></i> Scikit-learn</span>
         <span class="marquee-item"><i class="fas fa-code-branch"></i> Git</span>
         <span class="marquee-item"><i class="fas fa-database"></i> PostgreSQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NASA ═══ -->
+<section id="nasa">
+  <div class="container">
+    <p class="sec-label">Achievement</p>
+    <h2 class="sec-title">NASA Space Apps<br><span class="dim">Challenge</span></h2>
+    <div class="nasa-card reveal">
+      <div class="nasa-emblem">
+        <div class="nasa-ring" aria-hidden="true">🛸</div>
+        <p class="nasa-year">2024 · Global Hackathon</p>
+        <p class="nasa-participant-lbl" data-i18n="nasa_part">Participant officiel</p>
+      </div>
+      <div class="nasa-info">
+        <h3 data-i18n="nasa_h3">Résoudre des défis spatiaux avec le code</h3>
+        <p data-i18n="nasa_desc">J'ai participé au NASA Space Apps Challenge, l'un des plus grands hackathons mondiaux co-organisé par la NASA. En équipe, nous avons développé une solution innovante répondant à un défi spatial réel, en exploitant les données ouvertes de la NASA pour construire une application à fort impact.</p>
+        <div class="nasa-tags">
+          <span class="ntag">Open Data NASA</span>
+          <span class="ntag">Hackathon 48h</span>
+          <span class="ntag">Team Work</span>
+          <span class="ntag">Innovation</span>
+          <span class="ntag">Problem Solving</span>
+          <span class="ntag">Full Stack Dev</span>
+        </div>
       </div>
     </div>
   </div>
@@ -2164,8 +2001,17 @@ footer{
     <p class="sec-sub" data-i18n="blg_sub">Retours d'expérience sur mes projets open-source, mes apprentissages et mes explorations techniques.</p>
     <div class="blog-grid reveal">
 
+      <!-- ══ ARTICLE PHARE : THÈME DE RECHERCHE M2 ══ -->
+      <div class="blog-card featured-research">
+        <span class="research-badge">🎓 <span data-i18n="btag_research_full">Recherche · M2 — Software Engineering</span></span>
+        <h3 data-i18n="b_research_title">« Conception d'une approche prédictive d'analyse d'impact des changements dans les architectures microservices évolutives »</h3>
+        <p class="en-quote" data-i18n="b_research_title_en">"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures"</p>
+        <p data-i18n="b_research_desc">Ce travail de recherche propose un cadre prédictif (PCIA) permettant d'anticiper, avant leur intégration, les effets en cascade d'un changement dans un écosystème de microservices — en combinant analyse statique, observabilité runtime et apprentissage automatique.</p>
+        <a href="https://github.com/nguembu/master-thesis-distributed-systems" target="_blank" rel="noopener" class="blog-read" data-i18n="blog_read_research">Voir le dépôt de recherche →</a>
+      </div>
+
       <div class="blog-card">
-        <span class="btag pu" data-i18n="btag_research">Recherche · M2</span>
+        <span class="btag pu" data-i18n="btag_micro">Recherche · Microservices</span>
         <p class="blog-date">2025 · Systèmes Distribués</p>
         <h3 data-i18n="b4t">Transactions distribuées en microservices : ce que révèle NJILA</h3>
         <p data-i18n="b4d">Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements.</p>
@@ -2332,33 +2178,13 @@ document.addEventListener('click', function() {
 ═══════════════════════════════════════ */
 var T = {
   fr:{
-    nav_home:"Accueil",nav_research:"Recherche",nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
+    nav_home:"Accueil",nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
     hero_avail:"Disponible pour missions & collaborations",
     hero_role_short:"Software Architect",
     hero_role:"Software Architect · M2 Researcher",
     hero_desc:"Je conçois et déploie des applications web modernes et robustes — du frontend React au backend Spring Boot et Django — et j'architecture des systèmes distribués événementiels (RabbitMQ).",
-    hero_btn_research:"Voir ma recherche",hero_btn1:"Voir mes projets",hero_btn2:"Me contacter",
+    hero_btn1:"Voir mes projets",hero_btn2:"Me contacter",
     nasa_badge_sub:"Participant — Hackathon international",
-    rs_label:"M2 Research — Software Engineering",
-    rs_title:"Analyse Prédictive d'Impact des Changements",
-    rs_sub:"Recherche en Master 2 à l'Université de Yaoundé I — prédire l'impact des changements dans les architectures microservices évolutives.",
-    rs_thesis_fr:"« Conception d'une approche prédictive d'analyse d'impact des changements dans les architectures microservices évolutives »",
-    rs_thesis_en:"\"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures\"",
-    rs_sup:"Directeur",rs_inst:"Institution",rs_year:"Année",rs_center:"Centre",
-    rs_rq:"Questions de recherche",
-    rs_rq1:"Quels facteurs sont les plus pertinents pour prédire l'impact ?",
-    rs_rq2:"L'historique d'évolution améliore-t-il la précision par rapport aux dépendances statiques seules ?",
-    rs_rq3:"Dans quelles conditions l'approche est-elle la plus efficace ?",
-    rs_hyp:"Hypothèses",
-    rs_h1:"Dépendances + historique > dépendances statiques seules.",
-    rs_h2:"La co-évolution améliore la détection des composants indirectement affectés.",
-    rs_h3:"Les caractéristiques du changement améliorent la précision de la propagation prédite.",
-    rs_method:"Méthodologie — PCIA",
-    rs_method_desc:"Le cadre <strong>Predictive Change Impact Analysis (PCIA)</strong> intègre trois sources : le modèle architectural, le graphe de dépendances, et l'historique d'évolution. Il produit le <strong>Predictive Change Impact Score (PCIS)</strong> estimant la probabilité qu'un composant soit affecté et la propagation de l'impact.",
-    rs_valid:"Validation empirique",
-    rs_valid_desc:"Corpus de <strong>8 à 12 dépôts open source</strong> microservices. Validation par <strong>simulation temporelle</strong> (entraînement jusqu'au commit N-1, prédiction au commit N). Comparaison aux méthodes de référence : <strong>Precision, Recall, F1-Score, Top-k accuracy</strong>.",
-    tl1:"Revue de littérature",tl2:"Sélection dépôts",tl3:"Graphes de dépendances",tl4:"Jeu de données",
-    tl5:"Modèle PCIA/PCIS",tl6:"Expérimentations",tl7:"Comparaison",tl8:"Analyse",tl9:"Rédaction",
     about_label:"À propos",about_sub:"Chercheur. Pragmatique.",
     about_h3:"Software Architect & M2 Researcher — systèmes distribués",
     about_p1:"Je construis des applications web et mobiles propres, performantes et maintenables. Mon approche de développement est centrée sur la scalabilité, la fiabilité et la clarté du code — autant pour les utilisateurs que pour les équipes.",
@@ -2391,7 +2217,11 @@ var T = {
     p_mc_t:"Mamzy Color Kids",p_mc_d:"Jeu de coloriage interactif pour enfants — site ludique et coloré pour un distributeur de livres et magazines.",
     p_tb_t:"TERRABIA",p_tb_d:"Plateforme web complète connectant agriculteurs et acheteurs — vente directe de produits agricoles avec service de livraison intégré.",
     blg_label:"Partage de connaissances",blg_title:"Articles & Réflexions",blg_sub:"Retours d'expérience sur mes projets open-source, mes apprentissages et mes explorations techniques.",
-    btag_research:"Recherche · M2",
+    btag_research_full:"Recherche · M2 — Software Engineering",
+    btag_micro:"Recherche · Microservices",
+    b_research_title:"« Conception d'une approche prédictive d'analyse d'impact des changements dans les architectures microservices évolutives »",
+    b_research_title_en:"\"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures\"",
+    b_research_desc:"Ce travail de recherche propose un cadre prédictif (PCIA) permettant d'anticiper, avant leur intégration, les effets en cascade d'un changement dans un écosystème de microservices — en combinant analyse statique, observabilité runtime et apprentissage automatique.",
     b4t:"Transactions distribuées en microservices : ce que révèle NJILA",b4d:"Notes de recherche sur la cohérence à terme, le pattern Saga et l'observabilité dans les architectures orientées événements.",
     b1t:"Construire BloodLink : une app mobile de don de sang en React Native + Expo",b1d:"Retour sur la conception de BloodLink — géolocalisation, matching en temps réel, notifications push et architecture frontend TypeScript.",
     b2t:"Tempo Air Quality : collecter et visualiser des données environnementales avec Python",b2d:"Comment j'ai construit une plateforme de monitoring de la qualité de l'air — pipeline de données, API Django et visualisations.",
@@ -2402,33 +2232,13 @@ var T = {
     ct_send:"Envoyer le message",ct_ok:"✅ Message envoyé avec succès !",ct_err:"❌ Une erreur est survenue. Réessayez.",ct_sending:"Envoi en cours…"
   },
   en:{
-    nav_home:"Home",nav_research:"Research",nav_about:"About",nav_services:"Services",nav_projects:"Projects",
+    nav_home:"Home",nav_about:"About",nav_services:"Services",nav_projects:"Projects",
     hero_avail:"Available for work & collaborations",
     hero_role_short:"Software Architect",
     hero_role:"Software Architect · M2 Researcher",
     hero_desc:"I design and build modern, robust web applications — from React frontends to Spring Boot and Django backends — and architect event-driven distributed systems (RabbitMQ).",
-    hero_btn_research:"View my research",hero_btn1:"View my work",hero_btn2:"Contact me",
+    hero_btn1:"View my work",hero_btn2:"Contact me",
     nasa_badge_sub:"Participant — International Hackathon",
-    rs_label:"M2 Research — Software Engineering",
-    rs_title:"Predictive Change Impact Analysis",
-    rs_sub:"Master 2 research at the University of Yaoundé I — predicting the impact of changes in evolving microservice architectures.",
-    rs_thesis_fr:"« Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures »",
-    rs_thesis_en:"\"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures\"",
-    rs_sup:"Supervisor",rs_inst:"Institution",rs_year:"Year",rs_center:"Center",
-    rs_rq:"Research Questions",
-    rs_rq1:"Which factors are most relevant for impact prediction?",
-    rs_rq2:"Does evolution history improve accuracy over static dependencies alone?",
-    rs_rq3:"Under which conditions is the approach most effective?",
-    rs_hyp:"Hypotheses",
-    rs_h1:"Dependencies + history > static dependencies alone.",
-    rs_h2:"Co-evolution improves detection of indirectly affected components.",
-    rs_h3:"Change characteristics improve the accuracy of predicted propagation.",
-    rs_method:"Methodology — PCIA",
-    rs_method_desc:"The <strong>Predictive Change Impact Analysis (PCIA)</strong> framework integrates three sources: architectural model, dependency graph, and evolution history. It produces a <strong>Predictive Change Impact Score (PCIS)</strong> estimating the probability that a component is affected and the propagation of impact.",
-    rs_valid:"Empirical Validation",
-    rs_valid_desc:"Corpus of <strong>8 to 12 open-source</strong> microservice repositories. Validation via <strong>temporal simulation</strong> (training up to commit N-1, prediction at commit N). Comparison to baselines: <strong>Precision, Recall, F1-Score, Top-k accuracy</strong>.",
-    tl1:"Literature review",tl2:"Repository selection",tl3:"Dependency graphs",tl4:"Dataset",
-    tl5:"PCIA/PCIS model",tl6:"Experiments",tl7:"Comparison",tl8:"Analysis",tl9:"Writing",
     about_label:"About",about_sub:"Researcher. Pragmatic.",
     about_h3:"Software Architect & M2 Researcher — distributed systems",
     about_p1:"I build clean, performant and maintainable web and mobile applications. My development philosophy centers on scalability, reliability and code clarity — for both users and teams.",
@@ -2461,7 +2271,11 @@ var T = {
     p_mc_t:"Mamzy Color Kids",p_mc_d:"Interactive coloring game for children — colorful and playful website for a books and magazines distributor.",
     p_tb_t:"TERRABIA",p_tb_d:"Full-stack web platform connecting farmers and buyers — direct agricultural product sales with integrated delivery service.",
     blg_label:"Knowledge Sharing",blg_title:"Articles & Thoughts",blg_sub:"Experience reports from my open-source projects, learnings and technical explorations.",
-    btag_research:"Research · M2",
+    btag_research_full:"Research · M2 — Software Engineering",
+    btag_micro:"Research · Microservices",
+    b_research_title:"« Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures »",
+    b_research_title_en:"\"Design of a Predictive Change Impact Analysis Approach for Evolving Microservice Architectures\"",
+    b_research_desc:"This research work proposes a predictive framework (PCIA) to anticipate, before integration, the ripple effects of a change in a microservice ecosystem — combining static analysis, runtime observability and machine learning.",
     b4t:"Distributed transactions in microservices: what NJILA reveals",b4d:"Research notes on eventual consistency, the Saga pattern and observability in event-driven architectures.",
     b1t:"Building BloodLink: a blood donation mobile app with React Native + Expo",b1d:"A deep dive into BloodLink — geolocation, real-time matching, push notifications and TypeScript frontend architecture.",
     b2t:"Tempo Air Quality: collecting and visualizing environmental data with Python",b2d:"How I built an air quality monitoring platform — data pipeline, Django API and visualizations.",
@@ -2600,7 +2414,7 @@ if (hasFinePointer) {
       ring.style.top  = e.clientY + 'px';
     }, 80);
   });
-  document.querySelectorAll('a,button,.proj-card,.srv-card,.blog-card,.research-card,.timeline-step').forEach(function(el) {
+  document.querySelectorAll('a,button,.proj-card,.srv-card,.blog-card').forEach(function(el) {
     el.addEventListener('mouseenter', function() { cur.classList.add('h'); ring.classList.add('h'); });
     el.addEventListener('mouseleave', function() { cur.classList.remove('h'); ring.classList.remove('h'); });
   });
@@ -2754,16 +2568,14 @@ if (contactForm) {
 })();
 
 /* ═══════════════════════════════════════
-   13. TILT 3D + SPOTLIGHT sur PROJ-CARDS
+   13. SPOTLIGHT sur les cartes
 ═══════════════════════════════════════ */
 if (hasFinePointer){
-  document.querySelectorAll('.proj-card').forEach(function(card){
+  document.querySelectorAll('.proj-card, .blog-card.featured-research').forEach(function(card){
     card.addEventListener('mousemove', function(e){
       var r = card.getBoundingClientRect();
-      var x = e.clientX - r.left;
-      var y = e.clientY - r.top;
-      card.style.setProperty('--mx', x + 'px');
-      card.style.setProperty('--my', y + 'px');
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
     });
   });
 }
@@ -2777,7 +2589,7 @@ if (hasFinePointer){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var ctx = canvas.getContext('2d');
   var w, h, particles = [];
-  var PARTICLE_COUNT = Math.min(60, Math.floor(window.innerWidth / 30));
+  var PARTICLE_COUNT = Math.min(70, Math.floor(window.innerWidth / 26));
   var mouse = { x: -9999, y: -9999 };
 
   function resize(){
@@ -2791,9 +2603,9 @@ if (hasFinePointer){
     particles.push({
       x: Math.random() * w,
       y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      r: Math.random() * 1.6 + 0.6
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.7 + 0.6
     });
   }
 
@@ -2814,11 +2626,10 @@ if (hasFinePointer){
       var near = dM < 140;
 
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * (near ? 1.6 : 1), 0, Math.PI * 2);
-      ctx.fillStyle = near ? 'rgba(245,158,11,0.65)' : 'rgba(37,99,235,0.45)';
+      ctx.arc(p.x, p.y, p.r * (near ? 1.7 : 1), 0, Math.PI * 2);
+      ctx.fillStyle = near ? 'rgba(245,158,11,0.72)' : 'rgba(37,99,235,0.45)';
       ctx.fill();
     }
-    // liens
     for (var i = 0; i < particles.length; i++){
       for (var j = i + 1; j < particles.length; j++){
         var a = particles[i], b = particles[j];
