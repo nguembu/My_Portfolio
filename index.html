@@ -11,22 +11,10 @@
 <meta name="robots" content="index, follow">
 <meta name="format-detection" content="telephone=no">
 
-<!-- ═══ SECURITY ═══ -->
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://formspree.io;
-  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
-  font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:;
-  img-src 'self' data: https:;
-  connect-src 'self' https://formspree.io https://fonts.googleapis.com https://fonts.gstatic.com;
-  frame-ancestors 'none';
-  base-uri 'self';
-  form-action 'self' https://formspree.io;
-  upgrade-insecure-requests;
-">
+<!-- ═══ SECURITY — Meta fallback (headers réels dans netlify.toml) ═══ -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+<meta http-equiv="X-Frame-Options" content="DENY">
 
 <!-- ═══ Open Graph ═══ -->
 <meta property="og:type" content="website">
@@ -50,18 +38,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://formspree.io">
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-<!-- ═══ PERFORMANCE — Fonts optimisées ═══ -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
-
-<!-- ═══ PERFORMANCE — Font Awesome différé (non bloquant) ═══ -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+<!-- ═══ Font Awesome avec SRI (intégrité) ═══ -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
       media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
 </noscript>
+
+<!-- ═══ Google Fonts (recommandé : auto-héberger pour SRI) ═══ -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
 
 <title>John NGUEMBU — Software Architect & M2 Researcher</title>
 
@@ -246,14 +240,12 @@ body::before{
   pointer-events:none; z-index:9998; opacity:0.30; transition:opacity .4s;
 }
 
-/* ═══ MAIN — Landmark sémantique ═══ */
 main{
   display:block;
   position:relative;
   z-index:2;
 }
 
-/* AURORA BACKGROUND */
 .aurora-bg{
   position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
 }
@@ -263,24 +255,9 @@ main{
   animation:auroraMove 24s ease-in-out infinite;
   will-change:transform;
 }
-.aurora-blob.b1{
-  width:520px; height:520px;
-  background:var(--aurora-1);
-  top:-10%; left:-5%;
-  animation-delay:0s;
-}
-.aurora-blob.b2{
-  width:600px; height:600px;
-  background:var(--aurora-2);
-  top:40%; right:-10%;
-  animation-delay:-8s;
-}
-.aurora-blob.b3{
-  width:480px; height:480px;
-  background:var(--aurora-3);
-  bottom:-10%; left:30%;
-  animation-delay:-16s;
-}
+.aurora-blob.b1{ width:520px; height:520px; background:var(--aurora-1); top:-10%; left:-5%; animation-delay:0s; }
+.aurora-blob.b2{ width:600px; height:600px; background:var(--aurora-2); top:40%; right:-10%; animation-delay:-8s; }
+.aurora-blob.b3{ width:480px; height:480px; background:var(--aurora-3); bottom:-10%; left:30%; animation-delay:-16s; }
 @keyframes auroraMove{
   0%,100%{ transform:translate(0,0) scale(1); }
   25%{ transform:translate(60px,-40px) scale(1.1); }
@@ -809,7 +786,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .hero-terminal{ animation-delay:.32s; }
 @keyframes heroUp{ to{ opacity:1; transform:translateY(0); } }
 
-/* ═══ PERFORMANCE — content-visibility pour sections lourdes ═══ */
 section:not(.hero){
   content-visibility:auto;
   contain-intrinsic-size:auto 800px;
@@ -843,7 +819,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   max-width:560px; margin-bottom:64px; line-height:1.7;
 }
 
-/* ── ABOUT ── */
 #about{ background:var(--bg2); transition:background .4s; }
 .about-grid{
   display:grid; grid-template-columns:1fr 2fr;
@@ -956,7 +931,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   100%{ transform:translateX(-50%); }
 }
 
-/* ── NASA ── */
 #nasa{ background:var(--bg); position:relative; overflow:hidden; }
 #nasa::before{
   content:''; position:absolute; inset:0;
@@ -1015,7 +989,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   font-family:'JetBrains Mono',monospace;
 }
 
-/* ── SERVICES ── */
 #services{ background:var(--bg2); transition:background .4s; }
 .srv-grid{
   display:grid;
@@ -1076,7 +1049,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   border-top:1px dashed var(--border);
 }
 
-/* ── PROJECTS ── */
 #projects{ background:var(--bg); }
 .filter-row{ display:flex; gap:9px; flex-wrap:wrap; margin-bottom:44px; }
 .flt-btn{
@@ -1225,7 +1197,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
 }
 .proj-link:hover{ gap:9px; }
 
-/* ── BLOG ── */
 #blog{ background:var(--bg2); transition:background .4s; }
 .blog-grid{
   display:grid;
@@ -1303,7 +1274,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   color:var(--accent);
 }
 
-/* Blog card phare (recherche M2) */
 .blog-card.featured-research{
   grid-column:1 / -1;
   background:
@@ -1355,7 +1325,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   line-height:1.6;
 }
 
-/* ── CONTACT ── */
 #contact{ background:var(--bg); }
 .ct-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:64px; }
 .ct-info h3{ font-size:1.45rem; font-weight:700; margin-bottom:16px; }
@@ -1435,7 +1404,6 @@ section{ padding:104px 0; position:relative; z-index:2; }
   color:#ff6666;
 }
 
-/* ── FOOTER ── */
 footer{
   background:var(--bg2);
   border-top:1px solid var(--border);
@@ -1649,11 +1617,11 @@ footer{
 
     <div class="controls">
       <div class="lang-toggle" role="group" aria-label="Langue">
-        <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')" aria-label="Français">FR</button>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')" aria-label="English">EN</button>
+        <button class="lang-btn active" data-lang="fr" aria-label="Français">FR</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
       </div>
       <div class="theme-switcher" id="themeSwitcher">
-        <button class="theme-btn" id="themeBtn" onclick="toggleSwitcher(event)" aria-label="Changer le thème" aria-haspopup="true" aria-expanded="false">
+        <button class="theme-btn" id="themeBtn" aria-label="Changer le thème" aria-haspopup="true" aria-expanded="false">
           <span id="themeIcon">🌌</span>
         </button>
         <div class="theme-menu" id="themeMenu" role="menu">
@@ -1697,15 +1665,13 @@ footer{
       <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
     </div>
     <div class="lang-row">
-      <button class="lang-btn-mobile active" data-lang="fr" onclick="setLangMobile('fr')">FR</button>
-      <button class="lang-btn-mobile" data-lang="en" onclick="setLangMobile('en')">EN</button>
+      <button class="lang-btn-mobile active" data-lang="fr">FR</button>
+      <button class="lang-btn-mobile" data-lang="en">EN</button>
     </div>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     MAIN — Landmark sémantique (correction accessibilité)
-═══════════════════════════════════════════════════════════════ -->
+<!-- ═══ MAIN ═══ -->
 <main id="main-content" role="main">
 
 <!-- ═══ HERO ═══ -->
@@ -1774,8 +1740,7 @@ footer{
     <div class="about-grid reveal">
       <div>
         <div class="photo-wrap">
-          <img src="me2.jpeg" alt="Portrait de John NGUEMBU" loading="lazy" width="400" height="400"
-               onerror="this.style.display='none'; this.parentElement.innerHTML='&lt;div class=\'photo-placeholder\'&gt;&lt;i class=\'fas fa-user-circle\'&gt;&lt;/i&gt;&lt;span&gt;John NGUEMBU&lt;/span&gt;&lt;/div&gt;';">
+          <img src="me2.jpeg" id="profilePhoto" alt="Portrait de John NGUEMBU" loading="lazy" width="400" height="400">
         </div>
         <div class="stat-row">
           <div class="stat-box"><strong data-count="4" data-suffix="+">0</strong><span data-i18n="stat_yr">ans exp.</span></div>
@@ -1850,7 +1815,6 @@ footer{
       </div>
     </div>
 
-    <!-- MARQUEE -->
     <div class="marquee-wrap reveal">
       <div class="marquee-track">
         <span class="marquee-item"><i class="fab fa-java" aria-hidden="true"></i> Java</span>
@@ -2178,7 +2142,6 @@ footer{
 </section>
 
 </main>
-<!-- ═══ END MAIN ═══ -->
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -2195,6 +2158,50 @@ footer{
 </footer>
 
 <script>
+/* ═══════════════════════════════════════
+   0. EVENT DELEGATION — Remplace les onclick inline
+═══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* Lang switcher (desktop + mobile) */
+  document.querySelectorAll('[data-lang]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var l = btn.getAttribute('data-lang');
+      if (btn.classList.contains('lang-btn-mobile')) {
+        setLangMobile(l);
+      } else {
+        setLang(l);
+      }
+    });
+  });
+
+  /* Theme options */
+  document.querySelectorAll('.theme-opt').forEach(function(b) {
+    b.addEventListener('click', function(e) {
+      e.stopPropagation();
+      applyTheme(b.getAttribute('data-theme'));
+    });
+  });
+
+  /* Theme toggle button */
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) themeBtn.addEventListener('click', toggleSwitcher);
+
+  /* Photo fallback (remplace onerror inline) */
+  var photo = document.getElementById('profilePhoto');
+  if (photo) {
+    photo.addEventListener('error', function() {
+      this.style.display = 'none';
+      var parent = this.parentElement;
+      if (parent) {
+        parent.innerHTML = '<div class="photo-placeholder">' +
+          '<i class="fas fa-user-circle" aria-hidden="true"></i>' +
+          '<span>John NGUEMBU</span></div>';
+      }
+    });
+  }
+});
+
 /* ═══════════════════════════════════════
    1. PRELOADER
 ═══════════════════════════════════════ */
@@ -2231,13 +2238,6 @@ function toggleSwitcher(e) {
   var open = menu.classList.toggle('open');
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
-
-document.querySelectorAll('.theme-opt').forEach(function(b) {
-  b.addEventListener('click', function(e) {
-    e.stopPropagation();
-    applyTheme(b.getAttribute('data-theme'));
-  });
-});
 
 document.addEventListener('click', function() {
   var m = document.getElementById('themeMenu');
