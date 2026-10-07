@@ -2,13 +2,14 @@
 <html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- ═══ SEO ═══ -->
 <meta name="description" content="Politique de confidentialité — John NGUEMBU, Software Architect & M2 Researcher. Informations sur la collecte et le traitement des données personnelles.">
 <meta name="author" content="John NGUEMBU">
 <meta name="theme-color" content="#0a0e1a">
 <meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
 
 <!-- ═══ SECURITY — Meta (X-Frame-Options est HTTP-only, dans netlify.toml) ═══ -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -90,7 +91,7 @@
   --glow:rgba(37,99,235,0.28);
   --glow-gold:rgba(245,158,11,0.28);
   --card-shadow:0 6px 40px rgba(0,0,0,0.5);
-  --header-bg:rgba(10,14,26,0.78);
+  --header-bg:rgba(10,14,26,0.92);
   --menu-overlay:rgba(0,0,0,0.72);
   --selection:rgba(37,99,235,0.35);
 }
@@ -105,7 +106,7 @@
   --glow:rgba(59,130,246,0.25);
   --glow-gold:rgba(245,158,11,0.25);
   --card-shadow:0 6px 40px rgba(0,0,0,0.5);
-  --header-bg:rgba(12,19,32,0.85);
+  --header-bg:rgba(12,19,32,0.92);
   --menu-overlay:rgba(0,0,0,0.75);
   --selection:rgba(59,130,246,0.35);
 }
@@ -120,7 +121,7 @@
   --glow:rgba(139,92,246,0.35);
   --glow-gold:rgba(251,191,36,0.28);
   --card-shadow:0 6px 40px rgba(0,0,0,0.65);
-  --header-bg:rgba(5,7,16,0.85);
+  --header-bg:rgba(5,7,16,0.92);
   --menu-overlay:rgba(0,0,0,0.82);
   --selection:rgba(139,92,246,0.35);
 }
@@ -135,7 +136,7 @@
   --glow:rgba(244,63,94,0.28);
   --glow-gold:rgba(251,191,36,0.24);
   --card-shadow:0 6px 40px rgba(0,0,0,0.55);
-  --header-bg:rgba(10,5,7,0.90);
+  --header-bg:rgba(10,5,7,0.92);
   --menu-overlay:rgba(0,0,0,0.80);
   --selection:rgba(244,63,94,0.35);
 }
@@ -150,7 +151,7 @@
   --glow:rgba(29,78,216,0.20);
   --glow-gold:rgba(217,119,6,0.18);
   --card-shadow:0 6px 30px rgba(20,30,60,0.08);
-  --header-bg:rgba(245,247,252,0.85);
+  --header-bg:rgba(245,247,252,0.95);
   --menu-overlay:rgba(0,0,0,0.35);
   --selection:rgba(29,78,216,0.22);
 }
@@ -181,8 +182,18 @@ img{ max-width:100%; height:auto; display:block; }
   border-radius:4px;
 }
 
+code{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85em;
+  padding:2px 6px;
+  background:var(--surface2);
+  border-radius:5px;
+  color:var(--accent3);
+  word-break:break-word;
+}
+
 /* ══════════════════════════════════════
-   HEADER — Même style que l'index
+   HEADER — Compact et responsive
 ══════════════════════════════════════ */
 header{
   position:fixed; top:0; width:100%; z-index:1000;
@@ -191,6 +202,7 @@ header{
   -webkit-backdrop-filter:blur(20px) saturate(180%);
   border-bottom:1px solid var(--border);
   transition:background .4s, border-color .4s;
+  padding-top:env(safe-area-inset-top, 0);
 }
 .hdr{
   max-width:1240px; margin:0 auto;
@@ -203,6 +215,8 @@ header{
   font-size:1.08rem; font-weight:700;
   display:flex; flex-direction:column; line-height:1.15;
   flex-shrink:0;
+  min-height:44px;
+  justify-content:center;
 }
 .logo span{ color:var(--accent); }
 .logo small{
@@ -213,13 +227,15 @@ header{
 
 .back-btn{
   display:inline-flex; align-items:center; gap:9px;
-  padding:9px 18px;
+  padding:10px 18px;
+  min-height:44px;
   background:var(--surface); border:1px solid var(--border-strong);
   border-radius:9px;
   color:var(--text2);
   font-family:'JetBrains Mono',monospace;
   font-size:.8rem; font-weight:600;
   transition:all .25s;
+  flex-shrink:0;
 }
 .back-btn:hover{
   border-color:var(--accent); color:var(--accent);
@@ -267,13 +283,15 @@ main{
   font-family:'JetBrains Mono',monospace;
   color:var(--accent);
   margin-bottom:22px;
+  line-height:1.4;
 }
-.privacy-badge i{ font-size:1rem; }
+.privacy-badge i{ font-size:1rem; flex-shrink:0; }
 .privacy-hero h1{
-  font-size:clamp(2.2rem,4.5vw,3.2rem);
+  font-size:clamp(2rem,5vw,3.2rem);
   font-weight:800; line-height:1.1;
   letter-spacing:-1.8px;
   margin-bottom:18px;
+  word-break:break-word;
 }
 .privacy-hero h1 .accent{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
@@ -297,8 +315,9 @@ main{
   font-family:'JetBrains Mono',monospace;
   font-size:.76rem;
   color:var(--text2);
+  line-height:1.4;
 }
-.privacy-hero .last-update i{ color:var(--accent); }
+.privacy-hero .last-update i{ color:var(--accent); flex-shrink:0; }
 
 /* ══════════════════════════════════════
    CONTENU
@@ -320,6 +339,7 @@ main{
   font-size:1.35rem; font-weight:700;
   margin-bottom:18px;
   letter-spacing:-.5px;
+  line-height:1.3;
 }
 .privacy-section h2 .num{
   display:inline-flex; align-items:center; justify-content:center;
@@ -336,12 +356,14 @@ main{
   font-size:1.05rem; font-weight:700;
   margin:22px 0 12px;
   color:var(--text);
+  line-height:1.4;
 }
 
 .privacy-section p{
   color:var(--text2);
   line-height:1.85;
   margin-bottom:14px;
+  word-wrap:break-word;
 }
 
 .privacy-section ul{
@@ -354,6 +376,7 @@ main{
   line-height:1.75;
   padding-left:26px;
   position:relative;
+  word-wrap:break-word;
 }
 .privacy-section ul li::before{
   content:'▸';
@@ -388,28 +411,45 @@ main{
   color:var(--accent);
   letter-spacing:1.5px; text-transform:uppercase;
   margin-bottom:12px;
+  flex-wrap:wrap;
+  line-height:1.4;
 }
-.privacy-card .card-title i{ font-size:1rem; }
+.privacy-card .card-title i{ font-size:1rem; flex-shrink:0; }
 .privacy-card p{ margin-bottom:0; }
 .privacy-card a{
   color:var(--accent);
   text-decoration:underline;
   text-underline-offset:3px;
   transition:opacity .2s;
+  word-break:break-word;
 }
 .privacy-card a:hover{ opacity:.75; }
 
-/* Table */
+/* ══════════════════════════════════════
+   TABLEAUX RESPONSIVES
+══════════════════════════════════════ */
 .privacy-table-wrap{
   overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
   margin:18px 0;
   border:1px solid var(--border);
   border-radius:12px;
+  position:relative;
+  /* Indicateur visuel de scroll */
+  background:
+    linear-gradient(90deg, var(--surface) 30%, transparent),
+    linear-gradient(90deg, transparent, var(--surface) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0,0,0,0.15), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,0.15), transparent) 100% 0;
+  background-repeat:no-repeat;
+  background-size:40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-attachment:local, local, scroll, scroll;
 }
 .privacy-table{
   width:100%;
   border-collapse:collapse;
   font-size:.88rem;
+  min-width:500px;
 }
 .privacy-table thead{
   background:var(--surface2);
@@ -423,6 +463,7 @@ main{
   letter-spacing:1.5px;
   text-transform:uppercase;
   border-bottom:1px solid var(--border);
+  white-space:nowrap;
 }
 .privacy-table td{
   padding:14px 16px;
@@ -430,12 +471,15 @@ main{
   border-bottom:1px solid var(--border);
   line-height:1.6;
   vertical-align:top;
+  word-wrap:break-word;
 }
 .privacy-table tr:last-child td{ border-bottom:none; }
 .privacy-table tr:hover td{ background:var(--surface); }
 .privacy-table td strong{ color:var(--text); font-weight:600; }
 
-/* Table of contents */
+/* ══════════════════════════════════════
+   TABLE OF CONTENTS — Sticky sur desktop
+══════════════════════════════════════ */
 .toc{
   background:var(--surface);
   border:1px solid var(--border);
@@ -465,10 +509,12 @@ main{
   color:var(--text2);
   font-size:.9rem;
   display:flex; align-items:center; gap:10px;
-  padding:6px 0;
+  padding:8px 0;
   transition:color .2s, transform .2s;
+  min-height:36px;
 }
-.toc ul li a:hover{
+.toc ul li a:hover,
+.toc ul li a:focus-visible{
   color:var(--accent);
   transform:translateX(4px);
 }
@@ -477,9 +523,12 @@ main{
   font-size:.75rem;
   color:var(--accent3);
   width:22px;
+  flex-shrink:0;
 }
 
-/* CTA final */
+/* ══════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════ */
 .privacy-cta{
   margin-top:40px;
   padding:32px;
@@ -502,8 +551,9 @@ main{
   font-size:.95rem;
 }
 .privacy-cta a{
-  display:inline-flex; align-items:center; gap:9px;
-  padding:12px 26px;
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:14px 28px;
+  min-height:48px;
   background:var(--accent); color:#fff;
   border-radius:9px;
   font-weight:700; font-size:.88rem;
@@ -524,6 +574,7 @@ footer{
   transition:background .4s;
   position:relative;
   z-index:2;
+  padding-bottom:calc(44px + env(safe-area-inset-bottom, 0));
 }
 .ft-inner{
   max-width:1240px; margin:0 auto;
@@ -539,7 +590,7 @@ footer{
 .ft-logo span{ color:var(--accent); }
 .soc-links{ display:flex; gap:12px; flex-wrap:wrap; }
 .soc-link{
-  width:40px; height:40px; border-radius:10px;
+  width:44px; height:44px; border-radius:10px;
   border:1px solid var(--border);
   background:var(--surface);
   display:flex; align-items:center; justify-content:center;
@@ -555,39 +606,259 @@ footer{
 .ft-copy{
   font-size:.76rem; color:var(--text2);
   font-family:'JetBrains Mono',monospace;
+  text-align:center;
 }
 
 /* ══════════════════════════════════════
-   RESPONSIVE
+   BOUTON RETOUR EN HAUT (mobile friendly)
 ══════════════════════════════════════ */
-@media(max-width:768px){
-  .hdr{ padding:0 18px; height:64px; }
-  .logo{ font-size:.95rem; }
-  .logo small{ font-size:.5rem; letter-spacing:2px; }
-  main{ padding-top:64px; }
-  .privacy-hero{ padding:60px 0 40px; }
-  .privacy-hero-inner{ padding:0 18px; }
-  .privacy-hero h1{ letter-spacing:-1.2px; }
-  .privacy-hero p{ font-size:.95rem; }
-  .privacy-content{ padding:44px 18px 80px; }
-  .privacy-section h2{ font-size:1.15rem; }
-  .privacy-section h2 .num{ width:30px; height:30px; font-size:.78rem; }
-  .back-btn{ padding:8px 14px; font-size:.75rem; }
-  .back-btn span{ display:none; }
-  .privacy-card{ padding:18px 20px; }
-  .privacy-table th,
-  .privacy-table td{ padding:10px 12px; font-size:.82rem; }
-  .toc{ padding:20px 22px; }
-  .toc ul{ grid-template-columns:1fr; }
-  .ft-inner{
-    flex-direction:column; align-items:center;
-    text-align:center; gap:18px;
-  }
+.back-to-top{
+  position:fixed;
+  bottom:calc(20px + env(safe-area-inset-bottom, 0));
+  right:20px;
+  z-index:900;
+  width:48px; height:48px;
+  border-radius:12px;
+  background:var(--surface);
+  border:1px solid var(--border-strong);
+  color:var(--accent);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+  box-shadow:0 8px 30px rgba(0,0,0,0.3);
+  opacity:0; visibility:hidden;
+  transform:translateY(20px);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  backdrop-filter:blur(12px);
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.back-to-top:hover{
+  border-color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px var(--glow);
 }
 
+/* ══════════════════════════════════════
+   RESPONSIVE — TABLETTE
+══════════════════════════════════════ */
+@media(max-width:900px){
+  .privacy-hero{ padding:64px 0 48px; }
+  .privacy-hero-inner,
+  .privacy-content{ padding-left:28px; padding-right:28px; }
+  .privacy-table{ min-width:480px; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE
+══════════════════════════════════════ */
+@media(max-width:768px){
+  /* Header compact */
+  .hdr{
+    padding:0 16px;
+    height:64px;
+    gap:12px;
+  }
+  .logo{ font-size:.92rem; }
+  .logo small{ font-size:.5rem; letter-spacing:1.8px; }
+  .back-btn{
+    padding:10px 14px;
+    font-size:.75rem;
+    gap:7px;
+  }
+  .back-btn span{ display:none; }
+  .back-btn i{ font-size:.9rem; }
+
+  main{ padding-top:64px; }
+
+  /* Hero */
+  .privacy-hero{
+    padding:48px 0 36px;
+  }
+  .privacy-hero-inner{
+    padding:0 16px;
+  }
+  .privacy-badge{
+    font-size:.7rem;
+    padding:6px 12px;
+    margin-bottom:18px;
+  }
+  .privacy-hero h1{
+    font-size:clamp(1.75rem,7vw,2.2rem);
+    letter-spacing:-1.2px;
+    margin-bottom:14px;
+    line-height:1.15;
+  }
+  .privacy-hero p{
+    font-size:.92rem;
+    line-height:1.7;
+  }
+  .privacy-hero .last-update{
+    font-size:.7rem;
+    padding:7px 12px;
+    margin-top:18px;
+  }
+
+  /* Contenu */
+  .privacy-content{
+    padding:40px 16px 80px;
+  }
+  .privacy-section{
+    padding:26px 0;
+    scroll-margin-top:80px;
+  }
+  .privacy-section h2{
+    font-size:1.1rem;
+    gap:11px;
+    margin-bottom:14px;
+    letter-spacing:-.3px;
+  }
+  .privacy-section h2 .num{
+    width:30px; height:30px;
+    font-size:.75rem;
+  }
+  .privacy-section h3{
+    font-size:.98rem;
+    margin:18px 0 10px;
+  }
+  .privacy-section p{
+    font-size:.9rem;
+    line-height:1.75;
+    margin-bottom:12px;
+  }
+  .privacy-section ul{ gap:9px; margin:12px 0 16px; }
+  .privacy-section ul li{
+    font-size:.9rem;
+    line-height:1.7;
+    padding-left:22px;
+  }
+
+  /* Cards */
+  .privacy-card{
+    padding:18px 18px;
+    border-radius:12px;
+    margin:14px 0;
+  }
+  .privacy-card .card-title{
+    font-size:.72rem;
+    letter-spacing:1.2px;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .privacy-card p{ font-size:.88rem; line-height:1.75; }
+
+  /* TOC */
+  .toc{
+    padding:20px 18px;
+    margin-bottom:24px;
+    border-radius:12px;
+  }
+  .toc h2{
+    font-size:.78rem;
+    letter-spacing:1.5px;
+    margin-bottom:12px;
+  }
+  .toc ul{
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+  .toc ul li a{
+    font-size:.86rem;
+    padding:10px 0;
+    min-height:44px;
+    border-bottom:1px solid var(--border);
+  }
+  .toc ul li:last-child a{ border-bottom:none; }
+  .toc ul li a .num{ width:20px; font-size:.72rem; }
+
+  /* Tableaux — version mobile améliorée */
+  .privacy-table-wrap{
+    margin:14px -16px;
+    border-radius:0;
+    border-left:none;
+    border-right:none;
+  }
+  .privacy-table{
+    font-size:.82rem;
+    min-width:420px;
+  }
+  .privacy-table th{
+    padding:10px 12px;
+    font-size:.65rem;
+    letter-spacing:1.2px;
+  }
+  .privacy-table td{
+    padding:12px 12px;
+    font-size:.82rem;
+    line-height:1.55;
+  }
+
+  /* CTA */
+  .privacy-cta{
+    padding:24px 18px;
+    border-radius:14px;
+    margin-top:30px;
+  }
+  .privacy-cta h3{ font-size:1.05rem; }
+  .privacy-cta p{ font-size:.88rem; }
+  .privacy-cta a{
+    width:100%;
+    padding:14px 20px;
+    font-size:.86rem;
+  }
+
+  /* Footer */
+  .ft-inner{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:18px;
+    padding:0 16px;
+  }
+  .ft-logo{ font-size:.9rem; }
+  .soc-links{ justify-content:center; }
+  .ft-copy{ font-size:.72rem; }
+
+  /* Back to top */
+  .back-to-top{
+    width:44px; height:44px;
+    bottom:calc(16px + env(safe-area-inset-bottom, 0));
+    right:16px;
+    font-size:.9rem;
+  }
+
+  code{ font-size:.78em; padding:2px 5px; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — PETIT MOBILE
+══════════════════════════════════════ */
 @media(max-width:420px){
-  .privacy-hero h1{ font-size:1.8rem; }
-  .privacy-cta{ padding:24px 20px; }
+  .privacy-hero h1{ font-size:1.65rem; }
+  .privacy-hero p{ font-size:.88rem; }
+  .privacy-hero-inner{ padding:0 14px; }
+  .privacy-content{ padding:32px 14px 70px; }
+  .privacy-section h2{ font-size:1.02rem; }
+  .privacy-section h2 .num{ width:28px; height:28px; font-size:.7rem; }
+  .privacy-section h3{ font-size:.92rem; }
+  .privacy-section p,
+  .privacy-section ul li{ font-size:.86rem; }
+  .privacy-card{ padding:16px 14px; }
+  .privacy-table-wrap{ margin:12px -14px; }
+  .privacy-table{ min-width:380px; font-size:.78rem; }
+  .privacy-table th{ padding:9px 10px; font-size:.62rem; }
+  .privacy-table td{ padding:10px 10px; font-size:.78rem; }
+  .privacy-cta{ padding:22px 16px; }
+  .toc{ padding:18px 16px; }
+  .toc ul li a{ font-size:.82rem; }
+}
+
+/* ══════════════════════════════════════
+   MODE PAYSAGE MOBILE — pour éviter le chevauchement
+══════════════════════════════════════ */
+@media(max-width:900px) and (orientation:landscape){
+  .privacy-hero{ padding:32px 0 24px; }
+  .hdr{ height:56px; }
+  main{ padding-top:56px; }
 }
 </style>
 </head>
@@ -724,4 +995,287 @@ footer{
           </tbody>
         </table>
       </div>
-      <p>Aucune de ces données n'est utilisée pour du profilage, de la publicité ou de la re
+      <p>Aucune de ces données n'est utilisée pour du profilage, de la publicité ou de la revente à des tiers.</p>
+    </section>
+
+    <!-- 4. BASE LÉGALE -->
+    <section class="privacy-section" id="s4" aria-labelledby="h-s4">
+      <h2 id="h-s4"><span class="num">04</span> Base légale</h2>
+      <p>Conformément à l'article 6 du RGPD, le traitement de vos données repose sur :</p>
+      <ul>
+        <li><strong>Votre consentement explicite</strong> — lorsque vous soumettez le formulaire de contact, vous acceptez le traitement de vos données pour recevoir une réponse.</li>
+        <li><strong>L'intérêt légitime</strong> — pour la sécurité du site et la prévention des abus.</li>
+        <li><strong>L'exécution d'un contrat</strong> — si vous engagez une collaboration professionnelle.</li>
+      </ul>
+    </section>
+
+    <!-- 5. DURÉE DE CONSERVATION -->
+    <section class="privacy-section" id="s5" aria-labelledby="h-s5">
+      <h2 id="h-s5"><span class="num">05</span> Durée de conservation</h2>
+      <p>Vos données sont conservées pour des durées limitées et proportionnées :</p>
+      <ul>
+        <li><strong>Messages de contact</strong> : 3 ans à compter du dernier échange, puis suppression automatique.</li>
+        <li><strong>Données techniques (logs Netlify)</strong> : 30 jours maximum (politique Netlify).</li>
+        <li><strong>Préférences locales</strong> : jusqu'à suppression manuelle de votre côté ou 12 mois d'inactivité.</li>
+      </ul>
+      <div class="privacy-card highlight">
+        <div class="card-title">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          Droit à l'effacement
+        </div>
+        <p>Vous pouvez demander la suppression anticipée de vos données à tout moment en écrivant à <a href="mailto:contact@johnnguembu.dev">contact@johnnguembu.dev</a>. La suppression sera effectuée sous 30 jours.</p>
+      </div>
+    </section>
+
+    <!-- 6. PARTAGE -->
+    <section class="privacy-section" id="s6" aria-labelledby="h-s6">
+      <h2 id="h-s6"><span class="num">06</span> Partage des données</h2>
+      <p><strong>Vos données ne sont jamais vendues ni louées à des tiers.</strong> Elles peuvent uniquement être transmises aux prestataires techniques suivants, dans le strict cadre de leur mission :</p>
+
+      <div class="privacy-card">
+        <div class="card-title">
+          <i class="fas fa-server" aria-hidden="true"></i>
+          Netlify (hébergeur)
+        </div>
+        <p>Le site est hébergé sur <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify</a>, qui traite les données techniques (IP, logs) pour assurer la disponibilité et la sécurité. Netlify est conforme au RGPD via des clauses contractuelles types.</p>
+      </div>
+
+      <div class="privacy-card">
+        <div class="card-title">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Formspree (formulaire de contact)
+        </div>
+        <p>Le formulaire de contact utilise <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree</a> pour transmettre les messages. Formspree traite les données du formulaire de manière sécurisée et ne les utilise pas à d'autres fins.</p>
+      </div>
+
+      <div class="privacy-card">
+        <div class="card-title">
+          <i class="fas fa-font" aria-hidden="true"></i>
+          Google Fonts & Font Awesome
+        </div>
+        <p>Les polices d'écriture sont chargées via les CDN de Google et Font Awesome. Ces services peuvent enregistrer votre adresse IP lors du chargement, conformément à leurs propres politiques de confidentialité.</p>
+      </div>
+
+      <p>Aucun transfert de données n'a lieu vers des pays tiers en dehors de ce cadre, et tous nos prestataires appliquent des niveaux de protection conformes au RGPD.</p>
+    </section>
+
+    <!-- 7. VOS DROITS -->
+    <section class="privacy-section" id="s7" aria-labelledby="h-s7">
+      <h2 id="h-s7"><span class="num">07</span> Vos droits</h2>
+      <p>Conformément au RGPD (articles 15 à 22) et au CCPA/CPRA, vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> — obtenir une copie des données que je détiens sur vous.</li>
+        <li><strong>Droit de rectification</strong> — corriger les données inexactes ou incomplètes.</li>
+        <li><strong>Droit à l'effacement</strong> (« droit à l'oubli ») — demander la suppression de vos données.</li>
+        <li><strong>Droit à la limitation</strong> — restreindre le traitement dans certains cas.</li>
+        <li><strong>Droit d'opposition</strong> — vous opposer au traitement à tout moment.</li>
+        <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format structuré.</li>
+        <li><strong>Droit de retirer votre consentement</strong> — à tout moment, sans justification.</li>
+        <li><strong>Droit de ne pas faire l'objet de décisions automatisées</strong> — aucun profilage automatisé n'est effectué.</li>
+      </ul>
+      <div class="privacy-card highlight">
+        <div class="card-title">
+          <i class="fas fa-gavel" aria-hidden="true"></i>
+          Comment exercer vos droits
+        </div>
+        <p>Pour exercer l'un de ces droits, envoyez un email à <a href="mailto:contact@johnnguembu.dev">contact@johnnguembu.dev</a> avec pour objet <em>« Demande RGPD »</em>. Je m'engage à répondre sous <strong>30 jours maximum</strong>. Vous pouvez également introduire une réclamation auprès de votre autorité de protection des données (en France : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>).</p>
+      </div>
+    </section>
+
+    <!-- 8. COOKIES -->
+    <section class="privacy-section" id="s8" aria-labelledby="h-s8">
+      <h2 id="h-s8"><span class="num">08</span> Cookies & Technologies similaires</h2>
+      <p><strong>Ce site n'utilise aucun cookie de tracking, publicitaire ou analytique.</strong> Aucun consentement cookie n'est requis car aucun cookie tiers n'est déposé pour du profilage.</p>
+      <p>Seul le <code>localStorage</code> du navigateur est utilisé (sans être un cookie) pour mémoriser :</p>
+      <ul>
+        <li>Le thème visuel choisi</li>
+        <li>La langue préférée</li>
+      </ul>
+      <p>Vous pouvez effacer ces données à tout moment via les paramètres de votre navigateur (Paramètres → Confidentialité → Effacer les données de navigation).</p>
+    </section>
+
+    <!-- 9. SÉCURITÉ -->
+    <section class="privacy-section" id="s9" aria-labelledby="h-s9">
+      <h2 id="h-s9"><span class="num">09</span> Sécurité des données</h2>
+      <p>Je mets en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, altération, divulgation ou destruction :</p>
+      <ul>
+        <li><strong>HTTPS obligatoire</strong> — toutes les communications sont chiffrées (TLS 1.3).</li>
+        <li><strong>Content Security Policy (CSP)</strong> — protection contre les injections de code.</li>
+        <li><strong>Strict-Transport-Security (HSTS)</strong> — empêche les connexions non sécurisées.</li>
+        <li><strong>Headers de sécurité</strong> — X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.</li>
+        <li><strong>Pas de collecte superflue</strong> — seules les données strictement nécessaires sont traitées.</li>
+      </ul>
+      <p>En cas de violation de données susceptible d'affecter vos droits, je m'engage à vous informer dans les 72 heures et à notifier l'autorité compétente.</p>
+    </section>
+
+    <!-- 10. CONTACT -->
+    <section class="privacy-section" id="s10" aria-labelledby="h-s10">
+      <h2 id="h-s10"><span class="num">10</span> Contact</h2>
+      <p>Pour toute question relative à cette politique ou au traitement de vos données :</p>
+
+      <div class="privacy-table-wrap">
+        <table class="privacy-table">
+          <tbody>
+            <tr>
+              <td><strong>Responsable du traitement</strong></td>
+              <td>John NGUEMBU</td>
+            </tr>
+            <tr>
+              <td><strong>Email</strong></td>
+              <td><a href="mailto:contact@johnnguembu.dev" style="color:var(--accent); text-decoration:underline; word-break:break-all;">contact@johnnguembu.dev</a></td>
+            </tr>
+            <tr>
+              <td><strong>Site web</strong></td>
+              <td><a href="index.html" style="color:var(--accent); text-decoration:underline;">john-nguembu.netlify.app</a></td>
+            </tr>
+            <tr>
+              <td><strong>Localisation</strong></td>
+              <td>Yaoundé, Cameroun 🇨🇲</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="privacy-cta">
+        <h3>Une question sur vos données ?</h3>
+        <p>Je réponds personnellement à chaque demande dans un délai maximum de 30 jours.</p>
+        <a href="index.html#contact">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Me contacter
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER NOTE -->
+    <div class="privacy-section" style="border-bottom:none; padding-top:24px;">
+      <p style="text-align:center; font-size:.85rem; color:var(--text3); font-family:'JetBrains Mono',monospace;">
+        Cette politique de confidentialité est susceptible d'être mise à jour. La date de dernière modification est indiquée en haut de cette page.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- ═══ BOUTON RETOUR EN HAUT ═══ -->
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-logo">John<span>.</span>dev <small style="font-weight:400;color:var(--text2);font-size:.68rem;"> — Software Architect</small></div>
+    <div class="soc-links">
+      <a href="https://github.com/nguembu" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/jaures-nguembu-040658335/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+    </div>
+    <p class="ft-copy">© 2025 John NGUEMBU · UY1 — M2 Research</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════
+   FONT AWESOME ASYNC LOADING
+═══════════════════════════════════════ */
+(function loadFontAwesome(){
+  var link = document.getElementById('faStylesheet');
+  if (!link) return;
+  function activate(){
+    link.media = 'all';
+  }
+  if (link.sheet) {
+    activate();
+  } else {
+    link.addEventListener('load', activate);
+  }
+})();
+
+/* ═══════════════════════════════════════
+   THEME INITIALIZATION
+═══════════════════════════════════════ */
+(function initTheme(){
+  var saved = 'dark';
+  try { saved = localStorage.getItem('theme') || 'dark'; } catch(e){}
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+
+/* ═══════════════════════════════════════
+   SMOOTH SCROLL pour les liens du sommaire
+═══════════════════════════════════════ */
+document.querySelectorAll('a[href^="#s"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var id = a.getAttribute('href');
+    var t = document.querySelector(id);
+    if (t) {
+      e.preventDefault();
+      var top = t.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+
+      /* Mise à jour de l'URL sans rechargement */
+      try {
+        history.replaceState(null, '', id);
+      } catch(err){}
+
+      /* Focus sur la section pour l'accessibilité */
+      t.setAttribute('tabindex', '-1');
+      t.focus({ preventScroll: true });
+    }
+  });
+});
+
+/* ═══════════════════════════════════════
+   BACK TO TOP BUTTON
+═══════════════════════════════════════ */
+(function backToTop(){
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  function toggleVisibility(){
+    if (window.scrollY > 400) btn.classList.add('show');
+    else btn.classList.remove('show');
+  }
+
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility();
+})();
+
+/* ═══════════════════════════════════════
+   HIGHLIGHT ACTIVE SECTION dans le sommaire
+═══════════════════════════════════════ */
+(function highlightActive(){
+  var sections = document.querySelectorAll('.privacy-section[id]');
+  var tocLinks = document.querySelectorAll('.toc ul li a');
+  if (!sections.length || !tocLinks.length) return;
+
+  function update(){
+    var scrollPos = window.scrollY + 150;
+    var current = '';
+
+    sections.forEach(function(sec){
+      if (sec.offsetTop <= scrollPos) current = sec.getAttribute('id');
+    });
+
+    tocLinks.forEach(function(link){
+      var href = link.getAttribute('href').substring(1);
+      if (href === current) {
+        link.style.color = 'var(--accent)';
+        link.style.fontWeight = '600';
+      } else {
+        link.style.color = '';
+        link.style.fontWeight = '';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+</body>
+</html>
