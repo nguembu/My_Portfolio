@@ -146,14 +146,12 @@ button{ font-family:inherit; }
 img{ max-width:100%; height:auto; display:block; }
 ::selection{ background:var(--selection); color:var(--text); }
 
-/* Focus visible accessible */
 :focus-visible{
   outline:2px solid var(--accent);
   outline-offset:3px;
   border-radius:4px;
 }
 
-/* Noise overlay */
 body::before{
   content:''; position:fixed; inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -259,7 +257,6 @@ header.scrolled{ box-shadow:0 4px 30px rgba(0,0,0,0.15); }
   margin-top:2px; font-weight:400;
 }
 
-/* Navigation desktop */
 nav.desktop{ display:flex; align-items:center; }
 nav.desktop ul{ display:flex; gap:2px; align-items:center; }
 nav.desktop ul li a{
@@ -286,7 +283,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 
 .controls{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
 
-/* Language */
 .lang-toggle{
   display:flex; background:var(--surface2);
   border-radius:8px; overflow:hidden;
@@ -301,7 +297,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .lang-btn.active{ background:var(--accent); color:#000; }
 .lang-btn:hover:not(.active){ color:var(--text); }
 
-/* Theme */
 .theme-switcher{ position:relative; }
 .theme-btn{
   width:38px; height:38px; border-radius:10px;
@@ -580,7 +575,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 .nasa-badge strong{ color:var(--accent2); display:block; font-size:.88rem; }
 .nasa-badge span{ color:var(--text2); font-size:.78rem; }
 
-/* Terminal */
 .hero-terminal{
   background:var(--surface);
   border:1px solid var(--border-strong);
@@ -616,7 +610,6 @@ nav.desktop ul li a.active::after{ transform:scaleX(1); }
 }
 @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:0; } }
 
-/* Hero load-in */
 .hero-tag,.hero-name,.hero-role,.hero-desc,.hero-btns,.nasa-badge,.hero-terminal{
   opacity:0; transform:translateY(24px);
   animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards;
@@ -888,6 +881,8 @@ section{ padding:104px 0; }
 .proj-grid .proj-card:nth-child(6){ transition-delay:.27s; }
 .proj-grid .proj-card:nth-child(7){ transition-delay:.32s; }
 .proj-grid .proj-card:nth-child(8){ transition-delay:.37s; }
+.proj-grid .proj-card:nth-child(9){ transition-delay:.42s; }
+.proj-grid .proj-card:nth-child(10){ transition-delay:.47s; }
 .proj-card:hover{
   border-color:var(--accent);
   transform:translateY(-6px);
@@ -906,6 +901,11 @@ section{ padding:104px 0; }
   font-size:.62rem; color:var(--accent);
   letter-spacing:1px; text-transform:uppercase;
   backdrop-filter:blur(8px);
+}
+.feat-badge.prod{
+  background:color-mix(in srgb,var(--accent2) 18%,var(--surface));
+  border-color:color-mix(in srgb,var(--accent2) 45%,transparent);
+  color:var(--accent2);
 }
 .proj-emoji{
   width:100%; height:160px;
@@ -945,6 +945,12 @@ section{ padding:104px 0; }
 .ph-terra{ background:linear-gradient(135deg,#0a1a08,#112810); }
 .ph-terra::before{ background:radial-gradient(circle at 35% 55%,#44cc22,transparent); }
 
+/* NOUVEAUX : TMS SARL + BIBLIOTHÈQUE UY1 */
+.ph-tms{ background:linear-gradient(135deg,#0a1220,#0f1e35); }
+.ph-tms::before{ background:radial-gradient(circle at 55% 45%,#3b82f6,transparent); }
+.ph-uy1{ background:linear-gradient(135deg,#14091e,#1e0d2d); }
+.ph-uy1::before{ background:radial-gradient(circle at 40% 55%,#a855f7,transparent); }
+
 [data-theme="violet"] .ph-njila{ background:linear-gradient(135deg,#0a1c22,#0d2a30); }
 [data-theme="violet"] .ph-njila::before{ background:radial-gradient(circle at 35% 45%,#22d3ee,transparent); }
 [data-theme="violet"] .ph-blood{ background:linear-gradient(135deg,#160820,#220f35); }
@@ -961,6 +967,10 @@ section{ padding:104px 0; }
 [data-theme="violet"] .ph-mamzy::before{ background:radial-gradient(circle at 50% 50%,#f0abfc,transparent); }
 [data-theme="violet"] .ph-terra{ background:linear-gradient(135deg,#0a1508,#101e0c); }
 [data-theme="violet"] .ph-terra::before{ background:radial-gradient(circle at 35% 55%,#fbbf24,transparent); }
+[data-theme="violet"] .ph-tms{ background:linear-gradient(135deg,#0a1a30,#0d2545); }
+[data-theme="violet"] .ph-tms::before{ background:radial-gradient(circle at 55% 45%,#22d3ee,transparent); }
+[data-theme="violet"] .ph-uy1{ background:linear-gradient(135deg,#1a0828,#280f3d); }
+[data-theme="violet"] .ph-uy1::before{ background:radial-gradient(circle at 40% 55%,#a855f7,transparent); }
 
 [data-theme="crimson"] .ph-njila{ background:linear-gradient(135deg,#170f05,#241606); }
 [data-theme="crimson"] .ph-njila::before{ background:radial-gradient(circle at 35% 45%,#a3e635,transparent); }
@@ -978,6 +988,10 @@ section{ padding:104px 0; }
 [data-theme="crimson"] .ph-mamzy::before{ background:radial-gradient(circle at 50% 50%,#f43f5e,transparent); }
 [data-theme="crimson"] .ph-terra{ background:linear-gradient(135deg,#0c1508,#111e0c); }
 [data-theme="crimson"] .ph-terra::before{ background:radial-gradient(circle at 35% 55%,#a3e635,transparent); }
+[data-theme="crimson"] .ph-tms{ background:linear-gradient(135deg,#1a0a08,#280d0a); }
+[data-theme="crimson"] .ph-tms::before{ background:radial-gradient(circle at 55% 45%,#fb923c,transparent); }
+[data-theme="crimson"] .ph-uy1{ background:linear-gradient(135deg,#180510,#250a1c); }
+[data-theme="crimson"] .ph-uy1::before{ background:radial-gradient(circle at 40% 55%,#f43f5e,transparent); }
 
 [data-theme="light"] .proj-placeholder::before{ opacity:.16; }
 [data-theme="light"] .ph-njila{ background:linear-gradient(135deg,#eafaf3,#dcf3e8); }
@@ -996,6 +1010,10 @@ section{ padding:104px 0; }
 [data-theme="light"] .ph-mamzy::before{ background:radial-gradient(circle at 50% 50%,#a8125f,transparent); }
 [data-theme="light"] .ph-terra{ background:linear-gradient(135deg,#eafaea,#dbf2db); }
 [data-theme="light"] .ph-terra::before{ background:radial-gradient(circle at 35% 55%,#1c8a2e,transparent); }
+[data-theme="light"] .ph-tms{ background:linear-gradient(135deg,#eaf1fd,#dbe8fb); }
+[data-theme="light"] .ph-tms::before{ background:radial-gradient(circle at 55% 45%,#1d5fd6,transparent); }
+[data-theme="light"] .ph-uy1{ background:linear-gradient(135deg,#f2eafd,#e6daf9); }
+[data-theme="light"] .ph-uy1::before{ background:radial-gradient(circle at 40% 55%,#7c3aed,transparent); }
 
 .proj-body{ padding:22px; }
 .proj-cat{
@@ -1215,14 +1233,12 @@ footer{
   font-family:'JetBrains Mono',monospace;
 }
 
-/* ── REVEAL ── */
 .reveal{
   opacity:0; transform:translateY(30px);
   transition:opacity .75s ease, transform .75s cubic-bezier(.22,1,.36,1);
 }
 .reveal.on{ opacity:1; transform:translateY(0); }
 
-/* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{
     animation-duration:.001ms !important;
@@ -1237,9 +1253,6 @@ footer{
   .cursor, .cursor-ring, .preloader { display:none !important; }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
 @media(max-width:1100px){
   .hdr{ padding:0 24px; }
   .hero-inner{ padding:0 24px; gap:44px; }
@@ -1346,7 +1359,6 @@ footer{
 <div class="cursor" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 
-<!-- BACK TO TOP -->
 <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
   <i class="fas fa-arrow-up"></i>
 </button>
@@ -1495,7 +1507,7 @@ footer{
         </div>
         <div class="stat-row">
           <div class="stat-box"><strong>4+</strong><span data-i18n="stat_yr">ans exp.</span></div>
-          <div class="stat-box"><strong>9+</strong><span data-i18n="stat_pr">projets</span></div>
+          <div class="stat-box"><strong>11+</strong><span data-i18n="stat_pr">projets</span></div>
           <div class="stat-box"><strong>M2</strong><span data-i18n="stat_rs">Recherche</span></div>
         </div>
       </div>
@@ -1514,6 +1526,7 @@ footer{
               <span class="chip">REST API</span>
               <span class="chip">Java</span>
               <span class="chip">Python</span>
+              <span class="chip">PHP</span>
             </div>
           </div>
           <div class="skill-group">
@@ -1556,6 +1569,7 @@ footer{
               <span class="chip">Redis</span>
               <span class="chip">Git</span>
               <span class="chip">React Native</span>
+              <span class="chip">PMB</span>
               <span class="chip">LaTeX</span>
             </div>
           </div>
@@ -1621,6 +1635,8 @@ footer{
       <button class="flt-btn" data-f="backend">Backend</button>
       <button class="flt-btn" data-f="mobile">Mobile</button>
       <button class="flt-btn" data-f="ecommerce">E-commerce</button>
+      <button class="flt-btn" data-f="corporate" data-i18n="f_corp">Corporate</button>
+      <button class="flt-btn" data-f="library" data-i18n="f_lib">Bibliothèque</button>
     </div>
     <div class="proj-grid reveal">
 
@@ -1634,6 +1650,35 @@ footer{
           <div class="proj-footer">
             <div class="stacks"><span class="stk">Spring Boot</span><span class="stk">Django</span><span class="stk">RabbitMQ</span><span class="stk">Docker</span></div>
             <a href="https://github.com/nguembu/njila" target="_blank" rel="noopener" class="proj-link" data-i18n="link_profile">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ NOUVEAU : Bibliothèque Centrale UY1 ══ -->
+      <div class="proj-card featured" data-f="library">
+        <span class="feat-badge prod" data-i18n="feat_prod">★ Système en production</span>
+        <div class="proj-placeholder ph-uy1"><span class="ph-icon">📚</span><span class="ph-label">UY1 · Bibliothèque</span></div>
+        <div class="proj-body">
+          <p class="proj-cat">Backend · Bibliothèque · PMB</p>
+          <h3 data-i18n="p_uy_t">Bibliothèque Centrale — Université de Yaoundé I</h3>
+          <p data-i18n="p_uy_d">Site web dynamique complet développé pour la Bibliothèque Centrale de l'Université de Yaoundé I — intégration native avec le système PMB (logiciel de gestion bibliothécaire) : catalogue en ligne, recherche avancée, consultation des ouvrages et services aux usagers.</p>
+          <div class="proj-footer">
+            <div class="stacks"><span class="stk">PHP</span><span class="stk">PMB</span><span class="stk">MySQL</span><span class="stk">JavaScript</span></div>
+            <span class="proj-link" data-i18n="link_internal">Système interne →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ NOUVEAU : TMS SARL ══ -->
+      <div class="proj-card" data-f="corporate">
+        <div class="proj-placeholder ph-tms"><span class="ph-icon">🏢</span><span class="ph-label">TMS SARL</span></div>
+        <div class="proj-body">
+          <p class="proj-cat">Web · Corporate</p>
+          <h3 data-i18n="p_tms_t">TMS SARL</h3>
+          <p data-i18n="p_tms_d">Site web corporate professionnel pour TMS SARL — présentation des services, mise en avant de l'expertise métier et génération de leads via un design moderne et responsive.</p>
+          <div class="proj-footer">
+            <div class="stacks"><span class="stk">HTML</span><span class="stk">CSS</span><span class="stk">JavaScript</span></div>
+            <a href="https://tmsarl.netlify.app/" target="_blank" rel="noopener" class="proj-link">Live →</a>
           </div>
         </div>
       </div>
@@ -1933,10 +1978,12 @@ var T = {
     s4t:"Tests & Qualité",s4d:"Mise en place de stratégies de test automatisé (Vitest, Pytest, JUnit, Postman) et de pipelines CI/CD pour garantir la fiabilité du code.",
     s6t:"Conteneurisation & DevOps",s6d:"Conteneurisation avec Docker, orchestration Kubernetes, audit et optimisation des performances de vos applications existantes.",
     prj_label:"Portfolio",prj_title:"Mes projets",
-    f_all:"Tous",f_micro:"Microservices",
-    feat_badge:"★ Projet phare",
-    link_profile:"GitHub →",
+    f_all:"Tous",f_micro:"Microservices",f_corp:"Corporate",f_lib:"Bibliothèque",
+    feat_badge:"★ Projet phare",feat_prod:"★ Système en production",
+    link_profile:"GitHub →",link_internal:"Système interne →",
     p_nj_t:"NJILA",p_nj_d:"Plateforme distribuée de réservation et de gestion de flotte pour le transport interurbain — 10 microservices communiquant via RabbitMQ, base de données par service et persistance polyglotte (SQL + NoSQL).",
+    p_uy_t:"Bibliothèque Centrale — Université de Yaoundé I",p_uy_d:"Site web dynamique complet développé pour la Bibliothèque Centrale de l'Université de Yaoundé I — intégration native avec le système PMB (logiciel de gestion bibliothécaire) : catalogue en ligne, recherche avancée, consultation des ouvrages et services aux usagers.",
+    p_tms_t:"TMS SARL",p_tms_d:"Site web corporate professionnel pour TMS SARL — présentation des services, mise en avant de l'expertise métier et génération de leads via un design moderne et responsive.",
     p_bl_t:"BloodLink",p_bl_d:"Application mobile React Native connectant donneurs de sang et receveurs en temps réel — géolocalisation, matching intelligent et notifications d'urgence.",
     p_tf_t:"TradeFlow",p_tf_d:"Plateforme e-commerce complète avec paiement sécurisé, gestion des stocks et tableau de bord vendeur — backend Django, frontend React.",
     p_tq_t:"Tempo Air Quality",p_tq_d:"Plateforme de données sur la qualité de l'air — collecte, traitement et visualisation de données environnementales en Python.",
@@ -1980,10 +2027,12 @@ var T = {
     s4t:"Testing & Quality",s4d:"Automated test strategies (Vitest, Pytest, JUnit, Postman) and CI/CD pipelines to ensure code reliability.",
     s6t:"Containerization & DevOps",s6d:"Containerization with Docker, Kubernetes orchestration, audit and performance improvements for your existing applications.",
     prj_label:"Portfolio",prj_title:"My Projects",
-    f_all:"All",f_micro:"Microservices",
-    feat_badge:"★ Flagship project",
-    link_profile:"GitHub →",
+    f_all:"All",f_micro:"Microservices",f_corp:"Corporate",f_lib:"Library",
+    feat_badge:"★ Flagship project",feat_prod:"★ Production system",
+    link_profile:"GitHub →",link_internal:"Internal system →",
     p_nj_t:"NJILA",p_nj_d:"Distributed booking and fleet management platform for intercity transport — 10 microservices communicating via RabbitMQ, database-per-service and polyglot persistence (SQL + NoSQL).",
+    p_uy_t:"Central Library — University of Yaoundé I",p_uy_d:"Complete dynamic web platform developed for the Central Library of the University of Yaoundé I — native integration with PMB (library management system): online catalog, advanced search, book consultation and patron services.",
+    p_tms_t:"TMS SARL",p_tms_d:"Professional corporate website for TMS SARL — service showcase, expertise highlight and lead generation through a modern, responsive design.",
     p_bl_t:"BloodLink",p_bl_d:"React Native mobile app connecting blood donors with recipients in real-time — geolocation, smart matching and emergency push notifications.",
     p_tf_t:"TradeFlow",p_tf_d:"Complete e-commerce platform with secure payment, inventory management and seller dashboard — Django backend, React frontend.",
     p_tq_t:"Tempo Air Quality",p_tq_d:"Air quality data platform — collection, processing and visualization of environmental data in Python.",
@@ -2097,7 +2146,6 @@ function onScroll() {
   if (scrolled > 600) backToTop.classList.add('show');
   else backToTop.classList.remove('show');
 
-  // scroll spy
   var fromTop = scrolled + 120;
   var current = '';
   document.querySelectorAll('section[id]').forEach(function(sec) {
@@ -2191,7 +2239,6 @@ if (contactForm) {
     var m    = document.getElementById('fmsg');
     var t    = T[lang];
 
-    // validation simple
     var name    = form.querySelector('[name="name"]').value.trim();
     var email   = form.querySelector('[name="email"]').value.trim();
     var subject = form.querySelector('[name="subject"]').value.trim();
