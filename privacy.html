@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO ═══ -->
+<meta name="description" content="Politique de confidentialité — John NGUEMBU, Software Architect & M2 Researcher. Informations sur la collecte et le traitement des données personnelles.">
+<meta name="author" content="John NGUEMBU">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="robots" content="index, follow">
+
+<!-- ═══ SECURITY — Meta (X-Frame-Options est HTTP-only, dans netlify.toml) ═══ -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+<!-- ═══ Open Graph ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Politique de Confidentialité — John NGUEMBU">
+<meta property="og:description" content="Comment vos données sont collectées et traitées sur john-nguembu.netlify.app">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://john-nguembu.netlify.app/privacy.html">
+
+<!-- ═══ Favicon ═══ -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e1a'/%3E%3Ctext x='50' y='68' font-size='52' font-family='monospace' font-weight='bold' fill='%232563eb' text-anchor='middle'%3EJJ%3C/text%3E%3C/svg%3E">
+
+<!-- ═══ PERFORMANCE ═══ -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- ═══ Font Awesome ═══ -->
+<link rel="stylesheet"
+      id="faStylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print">
+<noscript>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+</noscript>
+
+<!-- ═══ Google Fonts ═══ -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
+
+<title>Politique de Confidentialité — John NGUEMBU</title>
+
+<style>
+/* ══════════════════════════════════════
+   ACCESSIBILITÉ — Skip Link
+══════════════════════════════════════ */
+.skip-link{
+  position:fixed;
+  top:-100px;
+  left:16px;
+  z-index:10002;
+  padding:12px 22px;
+  background:var(--accent, #2563eb);
+  color:#fff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;
+  font-weight:700;
+  border-radius:0 0 10px 10px;
+  text-decoration:none;
+  transition:top .25s ease;
+  box-shadow:0 8px 24px rgba(37,99,235,0.35);
+}
+.skip-link:focus{
+  top:0;
+  outline:3px solid #f59e0b;
+  outline-offset:2px;
+}
+
+/* ══════════════════════════════════════
+   THEMES
+══════════════════════════════════════ */
+:root[data-theme="dark"]{
+  --bg:#0a0e1a; --bg2:#0f1424; --bg3:#161d33;
+  --surface:#111827; --surface2:#1a2238;
+  --border:rgba(148,163,220,0.10);
+  --border-strong:rgba(148,163,220,0.20);
+  --text:#e8ecf7; --text2:#9ca6c4; --text3:#7a84a6;
+  --accent:#2563eb; --accent2:#06b6d4; --accent3:#f59e0b;
+  --accent-soft:rgba(37,99,235,0.14);
+  --glow:rgba(37,99,235,0.28);
+  --glow-gold:rgba(245,158,11,0.28);
+  --card-shadow:0 6px 40px rgba(0,0,0,0.5);
+  --header-bg:rgba(10,14,26,0.78);
+  --menu-overlay:rgba(0,0,0,0.72);
+  --selection:rgba(37,99,235,0.35);
+}
+:root[data-theme="slate"]{
+  --bg:#0c1320; --bg2:#101828; --bg3:#1a2438;
+  --surface:#151e30; --surface2:#1e2a44;
+  --border:rgba(100,140,220,0.12);
+  --border-strong:rgba(100,140,220,0.24);
+  --text:#d0dcf5; --text2:#8ea2c8; --text3:#6d8099;
+  --accent:#3b82f6; --accent2:#14b8a6; --accent3:#f59e0b;
+  --accent-soft:rgba(59,130,246,0.15);
+  --glow:rgba(59,130,246,0.25);
+  --glow-gold:rgba(245,158,11,0.25);
+  --card-shadow:0 6px 40px rgba(0,0,0,0.5);
+  --header-bg:rgba(12,19,32,0.85);
+  --menu-overlay:rgba(0,0,0,0.75);
+  --selection:rgba(59,130,246,0.35);
+}
+:root[data-theme="midnight"]{
+  --bg:#050710; --bg2:#0a0d1a; --bg3:#101626;
+  --surface:#0c1222; --surface2:#141c30;
+  --border:rgba(96,165,250,0.10);
+  --border-strong:rgba(96,165,250,0.20);
+  --text:#f0f4ff; --text2:#94a2c9; --text3:#6f7a9c;
+  --accent:#8b5cf6; --accent2:#06b6d4; --accent3:#fbbf24;
+  --accent-soft:rgba(139,92,246,0.14);
+  --glow:rgba(139,92,246,0.35);
+  --glow-gold:rgba(251,191,36,0.28);
+  --card-shadow:0 6px 40px rgba(0,0,0,0.65);
+  --header-bg:rgba(5,7,16,0.85);
+  --menu-overlay:rgba(0,0,0,0.82);
+  --selection:rgba(139,92,246,0.35);
+}
+:root[data-theme="crimson"]{
+  --bg:#0a0507; --bg2:#120a0e; --bg3:#1c1018;
+  --surface:#160a0e; --surface2:#200f16;
+  --border:rgba(244,63,94,0.14);
+  --border-strong:rgba(244,63,94,0.26);
+  --text:#fff1f2; --text2:#bf8593; --text3:#9a6a75;
+  --accent:#f43f5e; --accent2:#fb923c; --accent3:#a3e635;
+  --accent-soft:rgba(244,63,94,0.14);
+  --glow:rgba(244,63,94,0.28);
+  --glow-gold:rgba(251,191,36,0.24);
+  --card-shadow:0 6px 40px rgba(0,0,0,0.55);
+  --header-bg:rgba(10,5,7,0.90);
+  --menu-overlay:rgba(0,0,0,0.80);
+  --selection:rgba(244,63,94,0.35);
+}
+:root[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#eaeef7; --bg3:#dde3f0;
+  --surface:#ffffff; --surface2:#eef2fa;
+  --border:rgba(20,30,60,0.09);
+  --border-strong:rgba(20,30,60,0.18);
+  --text:#0a0e1f; --text2:#3d4a68; --text3:#5d6880;
+  --accent:#1d4ed8; --accent2:#0891b2; --accent3:#d97706;
+  --accent-soft:rgba(29,78,216,0.08);
+  --glow:rgba(29,78,216,0.20);
+  --glow-gold:rgba(217,119,6,0.18);
+  --card-shadow:0 6px 30px rgba(20,30,60,0.08);
+  --header-bg:rgba(245,247,252,0.85);
+  --menu-overlay:rgba(0,0,0,0.35);
+  --selection:rgba(29,78,216,0.22);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Syne',system-ui,sans-serif;
+  line-height:1.6;
+  transition:background .4s ease, color .4s ease;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+button{ font-family:inherit; }
+img{ max-width:100%; height:auto; display:block; }
+::selection{ background:var(--selection); color:var(--text); }
+
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ══════════════════════════════════════
+   HEADER — Même style que l'index
+══════════════════════════════════════ */
+header{
+  position:fixed; top:0; width:100%; z-index:1000;
+  background:var(--header-bg);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  transition:background .4s, border-color .4s;
+}
+.hdr{
+  max-width:1240px; margin:0 auto;
+  padding:0 32px; height:72px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px;
+}
+.logo{
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.08rem; font-weight:700;
+  display:flex; flex-direction:column; line-height:1.15;
+  flex-shrink:0;
+}
+.logo span{ color:var(--accent); }
+.logo small{
+  font-size:.56rem; color:var(--text2);
+  letter-spacing:2.4px; text-transform:uppercase;
+  margin-top:2px; font-weight:400;
+}
+
+.back-btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:9px 18px;
+  background:var(--surface); border:1px solid var(--border-strong);
+  border-radius:9px;
+  color:var(--text2);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8rem; font-weight:600;
+  transition:all .25s;
+}
+.back-btn:hover{
+  border-color:var(--accent); color:var(--accent);
+  transform:translateX(-3px);
+}
+.back-btn i{ transition:transform .25s; }
+.back-btn:hover i{ transform:translateX(-3px); }
+
+/* ══════════════════════════════════════
+   MAIN
+══════════════════════════════════════ */
+main{
+  display:block;
+  position:relative;
+  z-index:2;
+  flex:1;
+  padding-top:72px;
+}
+
+.privacy-hero{
+  position:relative;
+  padding:80px 0 60px;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.privacy-hero::before{
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 30% 50%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 50%, color-mix(in srgb, var(--accent3) 6%, transparent) 0%, transparent 65%);
+  pointer-events:none;
+}
+.privacy-hero-inner{
+  max-width:900px; margin:0 auto;
+  padding:0 32px;
+  position:relative; z-index:1;
+}
+.privacy-badge{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:7px 15px;
+  background:var(--surface);
+  border:1px solid var(--border-strong);
+  border-radius:50px;
+  font-size:.76rem;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--accent);
+  margin-bottom:22px;
+}
+.privacy-badge i{ font-size:1rem; }
+.privacy-hero h1{
+  font-size:clamp(2.2rem,4.5vw,3.2rem);
+  font-weight:800; line-height:1.1;
+  letter-spacing:-1.8px;
+  margin-bottom:18px;
+}
+.privacy-hero h1 .accent{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.privacy-hero p{
+  color:var(--text2);
+  font-size:1.05rem;
+  max-width:640px;
+  line-height:1.75;
+}
+.privacy-hero .last-update{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:22px;
+  padding:8px 14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.76rem;
+  color:var(--text2);
+}
+.privacy-hero .last-update i{ color:var(--accent); }
+
+/* ══════════════════════════════════════
+   CONTENU
+══════════════════════════════════════ */
+.privacy-content{
+  max-width:900px; margin:0 auto;
+  padding:60px 32px 100px;
+}
+
+.privacy-section{
+  padding:32px 0;
+  border-bottom:1px solid var(--border);
+  scroll-margin-top:90px;
+}
+.privacy-section:last-child{ border-bottom:none; }
+
+.privacy-section h2{
+  display:flex; align-items:center; gap:14px;
+  font-size:1.35rem; font-weight:700;
+  margin-bottom:18px;
+  letter-spacing:-.5px;
+}
+.privacy-section h2 .num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:50%;
+  background:var(--accent-soft);
+  border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  color:var(--accent);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem; font-weight:700;
+  flex-shrink:0;
+}
+
+.privacy-section h3{
+  font-size:1.05rem; font-weight:700;
+  margin:22px 0 12px;
+  color:var(--text);
+}
+
+.privacy-section p{
+  color:var(--text2);
+  line-height:1.85;
+  margin-bottom:14px;
+}
+
+.privacy-section ul{
+  display:flex; flex-direction:column; gap:10px;
+  margin:14px 0 18px;
+  padding-left:0;
+}
+.privacy-section ul li{
+  color:var(--text2);
+  line-height:1.75;
+  padding-left:26px;
+  position:relative;
+}
+.privacy-section ul li::before{
+  content:'▸';
+  position:absolute; left:0; top:0;
+  color:var(--accent3);
+  font-weight:700;
+}
+.privacy-section ul li strong{ color:var(--text); font-weight:600; }
+
+.privacy-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px 26px;
+  margin:18px 0;
+  transition:border-color .25s, transform .25s;
+}
+.privacy-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+.privacy-card.highlight{
+  background:linear-gradient(135deg,
+    color-mix(in srgb, var(--accent) 8%, var(--surface)),
+    color-mix(in srgb, var(--accent3) 5%, var(--surface)));
+  border-color:color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+.privacy-card .card-title{
+  display:flex; align-items:center; gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8rem; font-weight:700;
+  color:var(--accent);
+  letter-spacing:1.5px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.privacy-card .card-title i{ font-size:1rem; }
+.privacy-card p{ margin-bottom:0; }
+.privacy-card a{
+  color:var(--accent);
+  text-decoration:underline;
+  text-underline-offset:3px;
+  transition:opacity .2s;
+}
+.privacy-card a:hover{ opacity:.75; }
+
+/* Table */
+.privacy-table-wrap{
+  overflow-x:auto;
+  margin:18px 0;
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+.privacy-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.88rem;
+}
+.privacy-table thead{
+  background:var(--surface2);
+}
+.privacy-table th{
+  padding:12px 16px;
+  text-align:left;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem; font-weight:700;
+  color:var(--accent);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+.privacy-table td{
+  padding:14px 16px;
+  color:var(--text2);
+  border-bottom:1px solid var(--border);
+  line-height:1.6;
+  vertical-align:top;
+}
+.privacy-table tr:last-child td{ border-bottom:none; }
+.privacy-table tr:hover td{ background:var(--surface); }
+.privacy-table td strong{ color:var(--text); font-weight:600; }
+
+/* Table of contents */
+.toc{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px 28px;
+  margin-bottom:32px;
+}
+.toc h2{
+  font-size:.85rem;
+  font-family:'JetBrains Mono',monospace;
+  color:var(--accent);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  font-weight:700;
+}
+.toc ul{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:10px 24px;
+}
+.toc ul li{
+  padding:0;
+}
+.toc ul li::before{ display:none; }
+.toc ul li a{
+  color:var(--text2);
+  font-size:.9rem;
+  display:flex; align-items:center; gap:10px;
+  padding:6px 0;
+  transition:color .2s, transform .2s;
+}
+.toc ul li a:hover{
+  color:var(--accent);
+  transform:translateX(4px);
+}
+.toc ul li a .num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;
+  color:var(--accent3);
+  width:22px;
+}
+
+/* CTA final */
+.privacy-cta{
+  margin-top:40px;
+  padding:32px;
+  background:linear-gradient(135deg,
+    color-mix(in srgb, var(--accent) 10%, var(--surface)),
+    color-mix(in srgb, var(--accent2) 5%, var(--surface)));
+  border:1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius:16px;
+  text-align:center;
+}
+.privacy-cta h3{
+  font-size:1.2rem;
+  font-weight:700;
+  margin-bottom:10px;
+  color:var(--text);
+}
+.privacy-cta p{
+  color:var(--text2);
+  margin-bottom:20px;
+  font-size:.95rem;
+}
+.privacy-cta a{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:12px 26px;
+  background:var(--accent); color:#fff;
+  border-radius:9px;
+  font-weight:700; font-size:.88rem;
+  transition:transform .25s, box-shadow .25s;
+}
+.privacy-cta a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px var(--glow);
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:44px 0;
+  transition:background .4s;
+  position:relative;
+  z-index:2;
+}
+.ft-inner{
+  max-width:1240px; margin:0 auto;
+  padding:0 32px;
+  display:flex; align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap; gap:22px;
+}
+.ft-logo{
+  font-family:'JetBrains Mono',monospace;
+  font-weight:700;
+}
+.ft-logo span{ color:var(--accent); }
+.soc-links{ display:flex; gap:12px; flex-wrap:wrap; }
+.soc-link{
+  width:40px; height:40px; border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--text2);
+  transition:all .25s;
+  font-size:.95rem;
+}
+.soc-link:hover{
+  border-color:var(--accent); color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px var(--glow);
+}
+.ft-copy{
+  font-size:.76rem; color:var(--text2);
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:768px){
+  .hdr{ padding:0 18px; height:64px; }
+  .logo{ font-size:.95rem; }
+  .logo small{ font-size:.5rem; letter-spacing:2px; }
+  main{ padding-top:64px; }
+  .privacy-hero{ padding:60px 0 40px; }
+  .privacy-hero-inner{ padding:0 18px; }
+  .privacy-hero h1{ letter-spacing:-1.2px; }
+  .privacy-hero p{ font-size:.95rem; }
+  .privacy-content{ padding:44px 18px 80px; }
+  .privacy-section h2{ font-size:1.15rem; }
+  .privacy-section h2 .num{ width:30px; height:30px; font-size:.78rem; }
+  .back-btn{ padding:8px 14px; font-size:.75rem; }
+  .back-btn span{ display:none; }
+  .privacy-card{ padding:18px 20px; }
+  .privacy-table th,
+  .privacy-table td{ padding:10px 12px; font-size:.82rem; }
+  .toc{ padding:20px 22px; }
+  .toc ul{ grid-template-columns:1fr; }
+  .ft-inner{
+    flex-direction:column; align-items:center;
+    text-align:center; gap:18px;
+  }
+}
+
+@media(max-width:420px){
+  .privacy-hero h1{ font-size:1.8rem; }
+  .privacy-cta{ padding:24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ SKIP LINK ═══ -->
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo" aria-label="Retour à l'accueil">
+      John<span>.</span>dev<small>Privacy Policy</small>
+    </a>
+    <a href="index.html" class="back-btn" aria-label="Retour au portfolio">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span>Retour</span>
+    </a>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main id="main-content" role="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="privacy-hero">
+    <div class="privacy-hero-inner">
+      <div class="privacy-badge">
+        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+        Confidentialité & Protection des données
+      </div>
+      <h1>Politique de <span class="accent">Confidentialité</span></h1>
+      <p>Cette page décrit comment <strong>John NGUEMBU</strong> collecte, utilise et protège les données personnelles lorsque vous visitez ce portfolio et utilisez le formulaire de contact.</p>
+      <div class="last-update">
+        <i class="fas fa-calendar-check" aria-hidden="true"></i>
+        Dernière mise à jour : 7 octobre 2026
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTENU ═══ -->
+  <div class="privacy-content">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc" aria-label="Sommaire">
+      <h2>Sommaire</h2>
+      <ul>
+        <li><a href="#s1"><span class="num">01.</span> Introduction</a></li>
+        <li><a href="#s2"><span class="num">02.</span> Données collectées</a></li>
+        <li><a href="#s3"><span class="num">03.</span> Finalités du traitement</a></li>
+        <li><a href="#s4"><span class="num">04.</span> Base légale</a></li>
+        <li><a href="#s5"><span class="num">05.</span> Durée de conservation</a></li>
+        <li><a href="#s6"><span class="num">06.</span> Partage des données</a></li>
+        <li><a href="#s7"><span class="num">07.</span> Vos droits</a></li>
+        <li><a href="#s8"><span class="num">08.</span> Cookies</a></li>
+        <li><a href="#s9"><span class="num">09.</span> Sécurité</a></li>
+        <li><a href="#s10"><span class="num">10.</span> Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- 1. INTRODUCTION -->
+    <section class="privacy-section" id="s1" aria-labelledby="h-s1">
+      <h2 id="h-s1"><span class="num">01</span> Introduction</h2>
+      <p>Je suis <strong>John NGUEMBU</strong>, Software Architect & M2 Researcher, responsable du site <strong>john-nguembu.netlify.app</strong>. Je m'engage à protéger la vie privée des visiteurs et à traiter leurs données personnelles de manière transparente, conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> et au <strong>California Consumer Privacy Act (CCPA/CPRA)</strong>.</p>
+      <p>Cette politique explique quelles données sont collectées, pourquoi elles le sont, comment elles sont utilisées, et quels sont vos droits concernant ces informations.</p>
+    </section>
+
+    <!-- 2. DONNÉES COLLECTÉES -->
+    <section class="privacy-section" id="s2" aria-labelledby="h-s2">
+      <h2 id="h-s2"><span class="num">02</span> Données collectées</h2>
+      <p>Ce site collecte uniquement les données strictement nécessaires à son fonctionnement et à la réponse à vos demandes. Voici les catégories de données concernées :</p>
+
+      <h3>📧 Données du formulaire de contact</h3>
+      <p>Lorsque vous utilisez le formulaire de contact, les informations suivantes sont collectées :</p>
+      <ul>
+        <li><strong>Nom complet</strong> — pour vous identifier</li>
+        <li><strong>Adresse email</strong> — pour vous répondre</li>
+        <li><strong>Sujet</strong> — pour catégoriser votre demande</li>
+        <li><strong>Message</strong> — contenu de votre demande</li>
+      </ul>
+
+      <h3>🔧 Données techniques (automatiques)</h3>
+      <p>Pour assurer la sécurité et le bon fonctionnement du site, certaines données techniques peuvent être automatiquement traitées par l'hébergeur Netlify :</p>
+      <ul>
+        <li>Adresse IP (anonymisée côté serveur Netlify)</li>
+        <li>Type de navigateur et système d'exploitation</li>
+        <li>Pages visitées et durée de visite</li>
+        <li>Date et heure d'accès</li>
+      </ul>
+
+      <h3>💾 Données stockées localement (navigateur)</h3>
+      <p>Deux préférences sont enregistrées localement dans votre navigateur (<code>localStorage</code>), sans transmission à un serveur :</p>
+      <ul>
+        <li><strong>Thème visuel choisi</strong> (dark, slate, midnight, crimson, light)</li>
+        <li><strong>Langue préférée</strong> (FR ou EN)</li>
+      </ul>
+      <p>Ces données ne quittent jamais votre appareil et peuvent être supprimées à tout moment en vidant le cache de votre navigateur.</p>
+    </section>
+
+    <!-- 3. FINALITÉS -->
+    <section class="privacy-section" id="s3" aria-labelledby="h-s3">
+      <h2 id="h-s3"><span class="num">03</span> Finalités du traitement</h2>
+      <p>Vos données sont utilisées pour les finalités suivantes :</p>
+      <div class="privacy-table-wrap">
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th>Donnée</th>
+              <th>Finalité</th>
+              <th>Nécessité</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nom, Email</strong></td>
+              <td>Répondre à votre demande de contact</td>
+              <td>Essentielle</td>
+            </tr>
+            <tr>
+              <td><strong>Sujet, Message</strong></td>
+              <td>Comprendre votre projet et y répondre</td>
+              <td>Essentielle</td>
+            </tr>
+            <tr>
+              <td><strong>Données techniques</strong></td>
+              <td>Sécurité, prévention de la fraude, statistiques anonymes</td>
+              <td>Légitime</td>
+            </tr>
+            <tr>
+              <td><strong>Préférences UI</strong></td>
+              <td>Mémoriser votre thème et langue pour un meilleur confort</td>
+              <td>Confort</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Aucune de ces données n'est utilisée pour du profilage, de la publicité ou de la re

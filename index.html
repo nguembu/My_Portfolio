@@ -11,10 +11,9 @@
 <meta name="robots" content="index, follow">
 <meta name="format-detection" content="telephone=no">
 
-<!-- ═══ SECURITY — Meta fallback (headers réels dans netlify.toml) ═══ -->
+<!-- ═══ SECURITY — Meta (X-Frame-Options est HTTP-only, dans netlify.toml) ═══ -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="X-Frame-Options" content="DENY">
 
 <!-- ═══ Open Graph ═══ -->
 <meta property="og:type" content="website">
@@ -39,13 +38,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://formspree.io">
 
-<!-- ═══ Font Awesome avec SRI (intégrité) ═══ -->
+<!-- ═══ Font Awesome — SANS onload inline (correction ligne 51) ═══ -->
 <link rel="stylesheet"
+      id="faStylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      media="print" onload="this.media='all'">
+      media="print">
 <noscript>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -54,7 +54,7 @@
         referrerpolicy="no-referrer">
 </noscript>
 
-<!-- ═══ Google Fonts (recommandé : auto-héberger pour SRI) ═══ -->
+<!-- ═══ Google Fonts ═══ -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
 
 <title>John NGUEMBU — Software Architect & M2 Researcher</title>
@@ -1443,6 +1443,8 @@ footer{
   font-size:.76rem; color:var(--text2);
   font-family:'JetBrains Mono',monospace;
 }
+.ft-copy a{ color:var(--accent); transition:opacity .2s; }
+.ft-copy a:hover{ opacity:.7; }
 
 .reveal{
   opacity:0; transform:translateY(30px);
@@ -2153,13 +2155,29 @@ footer{
       <a href="https://x.com/_Johnny_watson" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="X / Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
       <a href="https://www.instagram.com/i_am_johnny_watson/" target="_blank" rel="noopener noreferrer" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
     </div>
-    <p class="ft-copy">© 2025 John NGUEMBU · UY1 — M2 Research</p>
+    <p class="ft-copy">© 2025 John NGUEMBU · UY1 — M2 Research · <a href="privacy.html">Confidentialité</a></p>
   </div>
 </footer>
 
 <script>
 /* ═══════════════════════════════════════
-   0. EVENT DELEGATION — Remplace les onclick inline
+   0. FONT AWESOME ASYNC LOADING (remplace onload inline)
+═══════════════════════════════════════ */
+(function loadFontAwesome(){
+  var link = document.getElementById('faStylesheet');
+  if (!link) return;
+  function activate(){
+    link.media = 'all';
+  }
+  if (link.sheet) {
+    activate();
+  } else {
+    link.addEventListener('load', activate);
+  }
+})();
+
+/* ═══════════════════════════════════════
+   1. EVENT DELEGATION — Remplace les onclick inline
 ═══════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -2203,7 +2221,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* ═══════════════════════════════════════
-   1. PRELOADER
+   2. PRELOADER
 ═══════════════════════════════════════ */
 window.addEventListener('load', function() {
   setTimeout(function() {
@@ -2213,7 +2231,7 @@ window.addEventListener('load', function() {
 });
 
 /* ═══════════════════════════════════════
-   2. THEME SWITCHER
+   3. THEME SWITCHER
 ═══════════════════════════════════════ */
 var THEME_ICONS = { dark:'🌌', slate:'🔵', midnight:'🌙', crimson:'🔴', light:'☀️' };
 
@@ -2258,7 +2276,7 @@ document.addEventListener('click', function() {
 })();
 
 /* ═══════════════════════════════════════
-   3. I18N
+   4. I18N
 ═══════════════════════════════════════ */
 var T = {
   fr:{
@@ -2400,7 +2418,7 @@ function setLangMobile(l) {
 }
 
 /* ═══════════════════════════════════════
-   4. MOBILE MENU
+   5. MOBILE MENU
 ═══════════════════════════════════════ */
 var menuToggle  = document.getElementById('menuToggle');
 var menuClose   = document.getElementById('menuClose');
@@ -2444,7 +2462,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ═══════════════════════════════════════
-   5. SCROLL PROGRESS + HEADER + BACK TO TOP + SCROLL SPY
+   6. SCROLL PROGRESS + HEADER + BACK TO TOP + SCROLL SPY
 ═══════════════════════════════════════ */
 var progressBar = document.getElementById('scrollProgress');
 var siteHeader  = document.getElementById('siteHeader');
@@ -2483,7 +2501,7 @@ if (backToTop) {
 }
 
 /* ═══════════════════════════════════════
-   6. CURSOR CUSTOM
+   7. CURSOR CUSTOM
 ═══════════════════════════════════════ */
 var cur  = document.querySelector('.cursor');
 var ring = document.querySelector('.cursor-ring');
@@ -2508,7 +2526,7 @@ if (hasFinePointer) {
 }
 
 /* ═══════════════════════════════════════
-   7. PROJECT FILTER
+   8. PROJECT FILTER
 ═══════════════════════════════════════ */
 document.querySelectorAll('.flt-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -2522,7 +2540,7 @@ document.querySelectorAll('.flt-btn').forEach(function(btn) {
 });
 
 /* ═══════════════════════════════════════
-   8. REVEAL ON SCROLL
+   9. REVEAL ON SCROLL
 ═══════════════════════════════════════ */
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
@@ -2530,7 +2548,7 @@ var obs = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 
 /* ═══════════════════════════════════════
-   9. SMOOTH SCROLL
+   10. SMOOTH SCROLL
 ═══════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
@@ -2546,7 +2564,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 });
 
 /* ═══════════════════════════════════════
-   10. CONTACT FORM
+   11. CONTACT FORM
 ═══════════════════════════════════════ */
 var contactForm = document.getElementById('cf');
 if (contactForm) {
@@ -2599,7 +2617,7 @@ if (contactForm) {
 }
 
 /* ═══════════════════════════════════════
-   11. TYPEWRITER EFFECT
+   12. TYPEWRITER EFFECT
 ═══════════════════════════════════════ */
 (function typewriter(){
   var el = document.getElementById('typedText');
@@ -2625,7 +2643,7 @@ if (contactForm) {
 })();
 
 /* ═══════════════════════════════════════
-   12. COUNT-UP STATS
+   13. COUNT-UP STATS
 ═══════════════════════════════════════ */
 (function countUp(){
   var els = document.querySelectorAll('[data-count]');
@@ -2652,7 +2670,7 @@ if (contactForm) {
 })();
 
 /* ═══════════════════════════════════════
-   13. SPOTLIGHT sur les cartes
+   14. SPOTLIGHT sur les cartes
 ═══════════════════════════════════════ */
 if (hasFinePointer){
   document.querySelectorAll('.proj-card, .blog-card.featured-research').forEach(function(card){
@@ -2665,7 +2683,7 @@ if (hasFinePointer){
 }
 
 /* ═══════════════════════════════════════
-   14. PARTICLES CANVAS
+   15. PARTICLES CANVAS
 ═══════════════════════════════════════ */
 (function particles(){
   var canvas = document.getElementById('particles-canvas');
@@ -2735,7 +2753,7 @@ if (hasFinePointer){
 })();
 
 /* ═══════════════════════════════════════
-   15. PARALLAX HERO
+   16. PARALLAX HERO
 ═══════════════════════════════════════ */
 (function parallax(){
   var bg = document.querySelector('.hero-bg');
@@ -2749,12 +2767,12 @@ if (hasFinePointer){
 })();
 
 /* ═══════════════════════════════════════
-   16. INIT LANG
+   17. INIT LANG
 ═══════════════════════════════════════ */
 setLang(lang);
 
 /* ═══════════════════════════════════════
-   17. ESC
+   18. ESC
 ═══════════════════════════════════════ */
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
